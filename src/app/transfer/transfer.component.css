@@ -1,0 +1,328 @@
+
+/* Nav End */
+.banner_overlay{
+    background: rgba(0, 0, 0, 0.37);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    padding: 30px 15px;
+    color: #fff;
+    height: 100%;
+}
+.banner_overlay h4 {
+	font-size:24px;
+}
+.banner{
+    height: 600px;
+    text-align: center;
+    color: #fff;
+    background-position: center;
+    background-size: cover;
+}
+.content_bann {
+    padding-top: 300px;
+}
+.content_bann h2{
+    font-weight: 600;
+}
+.content_bann a{
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Body  */
+.about_mission h2{
+    text-align: center;
+    margin: 0px auto;
+    width: 70%;
+    margin-bottom: 20px;
+}
+.about_mission {
+    padding: 50px 0px;
+}
+.our_story img {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+}
+.our_story h4 {
+    font-size: 24px;
+}
+
+.testimonial_main.slick-next.slick-arrow {
+    display: none;
+}
+.about_slide {
+    margin-bottom: 50px;
+}
+.location_section{
+    padding: 50px 0px;
+}
+.location_section .col-md-3{
+    border: solid 1px gray;
+    border-left: none;
+}
+.location_section .col-md-3:nth-child(1){
+    border-left: solid 1px gray;
+}
+.location_section .col-md-3>div{
+    padding:10px 0px;
+}
+.select_location{
+    font-weight: 800;
+    margin: 0px;
+    font-size: 18px;
+}
+.sub_locaiton{
+    color: gray;
+    margin: 0px;
+}
+.select_date, .select_time, .departure_time{
+    margin: 0px;
+    font-weight: 600;
+}
+.form_to{
+    color: gray;
+    margin: 0px;;
+}
+.root_icon {
+    position: absolute;
+    right: -15px;
+    bottom: 27px;
+    background-color: #fff;
+    box-shadow: 0px 0px 2px 2px #dedede;
+    border-radius: 50%;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    color: #045091;
+    text-align: center;
+}
+.vehical_btn  button {
+    background-image: linear-gradient(to right, #16b2fe, #0043db);
+    border: none;
+    color: #fff;
+    padding: 6px 50px;
+    font-size: 15px;
+    outline: none;
+    border-radius: 14px;
+    margin-top: 20px;
+}
+.underline {
+    width: 20%;
+    margin: 0px auto;
+    height: 2px;
+    background: #045091;
+    margin-bottom: 30px;
+}
+  
+/* Counter */
+section#counter-stats {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 240px;
+}
+
+.stats {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  height: 150px
+}
+.counting {
+    margin-bottom: -10px;
+}
+.overlay_counter h5 {
+    font-size: 14px;
+    color: #000
+}
+.overlay_counter{
+    background: rgba(12, 59, 99, 0.68);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    padding: 50px 0px;
+    color: #000;
+    height: 100%;
+    padding-top: 55px;
+}
+.traveller {
+    color: #fff;
+}
+.traveller h4 {
+    margin-bottom: 0px;
+    line-height: 23px;
+    margin-top: 0px;
+}
+.Air_port {
+    text-align: center;
+    padding-bottom: 50px;
+}
+.overlay_counter h2{
+    margin-top: 0px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+
+}
+.transfer ul {
+    padding: 0px;
+    display:flex;
+    justify-content: center;
+}
+.transfer li {
+    list-style: none;
+    float: left;
+    
+}
+.transfer img{
+    width: 170px;
+    border-radius: 10px;
+    margin: 10px;
+}
+.transfer {
+    text-align: center;
+}
+.start_trip {
+    text-align: center;
+    padding: 50px 0px;
+}
+.start_trip h2 {
+    margin-top: 0px;
+}
+.start_trip img {
+    width: 100%;
+}
+.whyItem {
+    color: #333;
+    background: #fff;
+    padding: 20px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+}
+.whyItem i {
+    font-size: 42px;
+    color: #AF284F;
+    font-weight: 800;
+}
+
+/* search box */
+.border_mid {
+    border-right: 2px solid #055091;
+}
+.search_tab_input input{
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background: #fff;
+}
+.search_filed {
+    margin: 20px 0px;
+}
+.search_btn {
+    padding: 0px;
+}
+.btn_search {
+    width: 100%;
+    background: #af284f;
+    padding: 43px 12px;
+    color: #fff;
+    font-weight: 600;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+}
+.search_tab  li{
+    float: left;
+    list-style: none ;
+}
+.search_tab  li i{
+    margin-top: 4px;
+    color: #777777;
+    font-size: 20px;
+}
+.search_box_section {
+    padding: 30px 0;
+    background: #fff;
+}
+.searchbox{
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    background: #e5e5e5;
+}
+.searchbox i {
+    display: inline-flex;
+    font-size: 28px;
+}
+.search_filed input {
+    padding: 5px;
+}
+.custome_control{
+    margin-left: 10px;
+}
+select.custom-select {
+    padding: 6px;
+    width: 120px;
+}
+/* Footer */
+
+@media only screen and (max-width: 991px) { 
+    h2 {
+        font-size: 22px;
+        margin-top: 0px;
+    }
+    .location_section .col-md-3 {
+        border: solid 1px gray;
+        border-left: solid 1px gray;
+    }
+    .transfer img {
+        width: 120px;
+        margin: 5px;
+    }
+
+
+}
+@media only screen and (max-width: 767px) { 
+    h2 {
+        font-size: 22px;
+        margin-top: 0px;
+    }
+    .location_section .col-md-3 {
+        border: solid 1px gray;
+        border-left: solid 1px gray;
+    }
+    .transfer img {
+        width: 58px;
+        margin: 2px;
+    }   
+    .location_section {
+        padding: 30px 0px;
+    }
+    .Air_port {
+        padding-bottom: 30px;
+    }
+    .start_trip  {
+        padding: 30px 0px;
+    }
+    .start_trip .underline {
+        margin-bottom: 0px;
+    }
+    .start_trip img {
+        width: auto;
+    }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+body{
+	font-family: 'Poppins', sans-serif!important;
+}
+.slider .fa-chevron-left{
+    position: absolute;
+    top: 155px;
+    left: -30px;
+    font-size: 35px;
+    color: #045091;
+}
+.slider .fa-chevron-right{
+    position: absolute;
+    top: 155px;
+    right: -30px;
+    font-size: 35px;
+    color: #045091;
+}
+button {
+    outline: none !important;
+}
+.about_slide_overlay .slider .fa-chevron-right{
+    color: #fff;
+}
+.about_slide_overlay .slider .fa-chevron-left{
+    color: #fff;
+}
+@media only screen and (max-width: 991px) { 
+    .slider .fa-chevron-left {
+        left: -20px;
+    }
+    .slider .fa-chevron-right {
+        right: -20px;
+    }
+    
+}  
+@media only screen and (max-width: 767px) { 
+    .banner  {
+        height: 285px !important;
+    }
+}

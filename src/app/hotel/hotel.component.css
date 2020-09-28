@@ -1,0 +1,412 @@
+.banner_overlay{
+    background: rgba(0, 0, 0, 0.37);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    padding: 30px 15px;
+    color: #fff;
+    height: 100%;
+}
+h2 {
+    margin-top: 0px;
+}
+.banner_overlay h4 {
+	font-size:24px;
+}
+.banner{
+    height: 600px;
+    text-align: center;
+    color: #fff;
+    background-position: center;
+    background-size: cover;
+    background-image:url('/../../../assets/hotel/hero.jpg');
+}
+.underline{
+    width: 20%;
+    margin: 0px auto;
+    height: 2px;
+    background: #045091;
+    margin-bottom: 30px;
+}
+/* search box */
+.border_mid {
+    border-right: 2px solid #055091;
+}
+.search_tab_input input{
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background: #fff;
+}
+.search_filed {
+    margin: 20px 0px;
+}
+.search_btn {
+    padding: 0px;
+}
+.btn_search {
+    width: 100%;
+    background: #af284f;
+    padding: 50px 12px;
+    color: #fff;
+    font-weight: 600;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+}
+.search_tab  li{
+    float: left;
+    list-style: none ;
+}
+.search_tab  li i{
+    margin-top: 4px;
+    color: #777777;
+    font-size: 20px;
+}
+.search_box_section {
+    padding: 30px 0;
+    background: #fff;
+}
+.cust_field {
+    width: 100%;
+}
+.cust_field mat-label{
+    color: #333;
+    font-weight: 500;
+}
+.searchbox{
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    background: #fff;
+}
+span.material-icons.location_icon {
+    font-size: 24px;
+    position: absolute;
+    top: 18px;
+    left: -10px;
+}
+.search_box-cust{
+    display: inline-flex;
+}
+.cust_input_control{
+    width: 100%;
+    font-weight: 500;
+}
+select.custom-select {
+    padding: 6px;
+    width: 120px;
+}
+/* hotel */
+.trending {
+    padding: 50px 0px;
+}
+.trending {
+    text-align: center;
+}
+.trending_tab {
+    justify-content: center;
+    display: flex;
+    align-items: center; 
+    margin-bottom: 30px;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #fff;
+    background-color: #045091;
+    border-radius: 30px;
+    font-size: 17px;
+}
+.trending_tab>li>a:focus, .trending_tab>li>a:hover {
+    text-decoration: none;
+    background-color: #045091;
+    color: #ffff;
+    border-radius: 30px;
+    font-size: 17px;
+}
+.trending_tab>li>a {
+    border-radius: 4px;
+    font-size: 17px;
+    padding: 10px 40px;
+}
+.trending img{
+    border-radius: 10px 10px 0px 0px;
+    height: 200px;
+}
+.trending figure{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+.fig_content {
+    padding: 10px;
+    padding-bottom: 20px;
+}
+.fig_content h3{
+    text-align: left;
+    color: #313131;
+    font-size: 20px;
+}
+.fig_content h3 i{   
+    color: #aba9a9;
+}
+.fig_content {
+    text-align: left;
+}
+.fig_content h4{
+    color: #616060;
+}
+.fig_content img{
+    width: 20px;
+    margin-right: 5px;
+    margin-bottom: 12px;
+    height: 20px;
+}
+.trending-label {
+    /* width: 95px; */
+    height: 25px;
+    opacity: 10;
+    background: #045091c2;
+    z-index: 4;
+    border: none;
+    border-radius: 0px 0px 0px 0px;
+    position: relative;
+    float: right;
+    left: 16px;
+    top: 25px;
+    position: absolute;
+    color: #fff;
+    padding: 2px 25px;
+}
+
+/* popular room*/
+.slider_card{
+    background: #fff;
+    border-radius: 10px;
+
+}
+.slider_card_img{
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+    background-image: url(/../../assets/rewards/ibis_hotel.jpg);
+    border-radius: 10px;
+}
+.slider .fa-chevron-left{
+    top: 80px !important;
+    font-size: 25px;
+}
+.slick-arrow{
+    font-size: 25px!important;
+}
+.slider_card-body{
+    padding: 10px 20px;
+}
+.revive_star .checked {
+    color: orange;
+  }
+  .revive_star .review{
+      margin-left: 10px;
+      color: #333333!important;
+      font-weight: 500;
+  }
+  .slider_card-body h4{
+    font-weight: 600;
+  }
+  .slider_card-body h5{
+      color: #333;
+      font-weight: 500;
+  }
+  .cust_color{
+      font-weight: 600;
+      color: #045091;
+      font-size: 23px;
+  }
+
+.about_slide_overlay h2{
+    color: #fff;
+}
+.about_slide_overlay{
+    background-color: #00000096;
+    height: 100%;
+    padding: 50px 0px;
+}
+.about_slide_overlay .underline{
+    background: #fff !important;
+}
+
+.car_feature_iocn ul{
+    padding-left: 0px;
+    display: flex;
+  }
+.car_feature_iocn ul li{
+    list-style-type: none;
+    float: left;
+    padding-right: 20px;
+    text-align: center;
+    color: #ccc;
+}
+.car_feature_iocn ul li .fa{
+    font-size: 18px;
+}
+.about_slide{
+    height: 525px;
+    color: #045091;
+    background-position: center;
+    background-size: cover;
+    background-image:url('../../assets/about_iran/guide.png');
+}
+/* luxury we provide */
+.luxury_we_provide{
+    padding: 50px 0;
+}
+.luxury_we_provide img{
+    border-radius: 10px;
+}
+.pool{
+    height:300px;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    border-radius: 10px;
+    
+}
+.pool_img .pool:hover {
+    background-color: rgba(0,0,0,0.5);
+}
+.bottom-left {
+    position: absolute;
+    bottom: 25px;
+    left: 50px;
+    color: #fff;
+    background: rgb(0 0 0 / 0.1);
+    padding: 10px 15px;
+  }
+  .sea_view{
+      height: 600px;
+      background-position: center;
+    background-size: cover;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .spa{
+    height: 280px;
+    background-position: center;
+  background-size: cover;
+  width: 100%;
+  border-radius: 10px;
+  }
+  .restaurant{
+    height: 290px;
+    background-position: center;
+  background-size: cover;
+  width: 100%;
+  border-radius: 10px;
+  }
+  .sea_view_img, .spa_img, .restaurant_img{
+      padding-top: 30px;
+  }
+  .top-slider-text{
+      position: absolute;
+      top: 10px;
+      left: 14px;
+      background: rgba(5,80,145,0.6);
+      color: #fff;
+      width: 25%;
+      border-radius: 0 50px 50px 0;
+  }
+  .top-slider-text h4{
+    font-size: 22px;
+    font-weight: 700;
+    padding: 5px;
+
+}
+.discount{
+    font-size: 18px!important;
+}
+/* testimonial */
+.th-margin-remove {
+	margin: 0!important
+}
+figure.testimonial {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	margin: 10px 1%;
+	padding: 0 20px;
+	text-align: left;
+	box-shadow: none !important;
+}
+figure.testimonial * {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+	transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+figure.testimonial img {
+	max-width: 100%;
+	vertical-align: middle;
+	height: 90px;
+	width: 90px;
+	border-radius: 50%;
+	margin: 40px 0 0 10px;
+}
+figure.testimonial blockquote {
+	background-color: #fff;
+	display: block;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5em;
+	margin: 0;
+	padding: 25px 50px 30px;
+    position: relative;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    border-left: none!important;
+    border-radius: 10px;
+    
+}
+figure.testimonial blockquote:before, figure.testimonial blockquote:after {
+	content: "\201C";
+	position: absolute;
+	color: #2b00f7;
+	font-size: 50px;
+	font-style: normal;
+}
+figure.testimonial blockquote:before {
+	top: 25px;
+	left: 20px;
+}
+figure.testimonial blockquote:after {
+	content: "\201D";
+	right: 20px;
+	bottom: 0;
+}
+figure.testimonial .arrow {
+	top: 100%;
+	width: 0;
+	height: 0;
+	border-left: 0 solid transparent;
+	border-right: 25px solid transparent;
+	border-top: 25px solid #fff;
+	margin: 0;
+    position: absolute;
+
+}
+figure.testimonial .author {
+	position: absolute;
+	bottom: 45px;
+	padding: 0 10px 0 120px;
+	margin: 0;
+	color: #000;
+	-webkit-transform: translateY(50%);
+	transform: translateY(50%);
+}
+figure.testimonial .author h5 {
+	opacity: 0.9;
+	margin: 0;
+}
+figure.testimonial .author h5 span {
+	font-weight: 400;
+	text-transform: none;
+	padding-left: 5px;
+}
+.testimonial_main{
+    padding: 50px 0;
+}

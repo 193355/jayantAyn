@@ -1,0 +1,357 @@
+.banner_overlay{
+    background: rgba(0, 0, 0, 0.37);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    padding: 30px 15px;
+    color: #fff;
+    height: 100%;
+}
+h2 {
+    margin-top: 0px;
+}
+.banner_overlay h4 {
+	font-size:24px;
+}
+
+.banner{
+    height: 600px;
+    text-align: center;
+    color: #fff;
+    background-position: center;
+    background-size: cover;
+    background-image:url('../../assets/about_iran/flight_banner.jpg'); 
+}
+
+.location_section{
+    padding-top: 50px;
+}
+.location_section .col-md-2{
+    border: solid 1px gray;
+    border-left: none;
+}
+.location_section .col-md-2:nth-child(1){
+    border-left: solid 1px gray;
+}
+.location_section .col-md-2>div{
+    padding:10px;
+}
+
+
+.select_location{
+    font-weight: 800;
+    margin: 0px;
+    font-size: 18px;
+}
+.sub_locaiton{
+    color: gray;
+    margin: 0px;
+}
+
+.vehical_btn button{
+    background-image: linear-gradient(to right, #16b2fe, #0043db);
+    border:none;
+    color:#fff;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 14px;
+ }
+ .select_date, .select_time, .departure_time{
+    margin: 0px;
+    font-weight: 600;
+}
+.form_to{
+    color: gray;
+    margin: 0px;
+    font-size: 12px;
+}
+.root_icon{
+    position: absolute;
+    right: -18px;
+    bottom: 27px;
+    background-color: #fff;
+    box-shadow: 0px 0px 2px 2px #DEDEDE;
+    border-radius: 50%;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    color: #055091;
+}
+nav{
+    text-align: center;
+    margin-top: 20PX;
+}
+nav a{
+    padding: 5px 10px;
+    margin: 0px 2px;
+    color: #333;
+}
+nav a:nth-child(2), a:nth-child(3), a:nth-child(4), a:nth-child(5){
+        background-color: #ccc;
+        border-radius: 15px;;
+}
+nav a:hover{
+        background-color:#055091;
+        list-style-type: none;
+        color: #fff;
+        text-decoration: none;
+}
+.trending_search_section{
+    margin-bottom: 20px;
+}
+.trending_search{
+    margin: 0 auto;
+    max-width: 70%;
+}
+.trending_search li{
+    list-style-type: none;
+    float: left;
+    padding: 2px 20px 2px 20px;
+    margin: 0px 5px 0px 5px;
+}
+.trending_search>li:nth-child(2){
+    background-color: lightgray;
+    border-radius: 16px;
+}
+.trending_search>li:nth-child(3){
+    background-color: lightgray;
+    border-radius: 16px;
+}
+.trending_search>li:nth-child(4){
+    background-color: lightgray;
+    border-radius: 16px;
+}
+.trending_search li i{
+    color: #055091;
+}
+
+/*  */
+.instant_easy i{
+    font-size: 42px;
+    font-weight: 800;
+    color: #AF284F;
+}
+.instant_easy{
+    padding:10px 0px; 
+    text-align: center;
+}
+
+.bus_ul{
+    max-width: 10%;
+    border-top: 1.7px solid #045091;
+}
+/*  */
+.domastic_flight_deal_title{
+    background-color: #ccc;
+    padding: 5px 15px;
+    text-align: center;
+    margin: 0px;
+    font-size: 30px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+.iron_flight img{
+    border-radius: 14px;
+}
+.iron_flight{
+    box-shadow: 0px 0px 2px 3px lightgray;
+    border-radius: 14px;
+}
+.flight_deal{
+    position: relative;
+    padding: 15px;
+    overflow-y: scroll;
+    height: 260px;
+}
+.flight_deal p{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+.flight_deal p span{
+    color: #5cb85c;
+    font-weight: 700;
+}
+.flight_deal p span span{
+    color: gray !important;
+    font-weight: 700;
+}
+.side_d{
+    background: #ffa500;
+    height: 186px;
+    width: 4px;
+    position: absolute;
+    left: 15px;
+    border-radius: 5px;
+}
+.side_bottom{
+    background: lightgray;
+    height: 80px;
+    width: 4px;
+    position: absolute;
+    left: 15px;
+    bottom: 30px;
+    border-radius: 5px;
+}
+.faq_question{
+	border: solid 1px #ddd;
+	padding: 7px;
+	border-radius: 5px;
+	background-color: #f5f5f5;
+}
+/* .booking_flight_iron{
+    background-image:url('../../../assets/about_iran/background_img.jpg'); 
+    background-repeat: no-repeat; 
+    background-size: cover;
+} */
+.complete_guide_div{
+    background-color: #0000006b; 
+    color: #fff; 
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+.faq_section{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.domastic_flight_section{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.domastic_flight_deal_title{
+    margin-bottom: 30px;
+}
+.ticket_with_presiabooking, .iron_bus_tickets{
+    padding-top: 50PX;
+    padding-bottom: 50PX;
+}
+.iron_flight {
+    margin-bottom: 20px;
+}
+.flight_deal::-webkit-scrollbar {
+    display: none;
+}
+.flight_deal {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+} 
+.flight_head {
+    padding: 5px 10px;
+    background: rgb(0 0 0 / 0.5);
+    color: #fff;
+    width: 53%;
+} 
+.flight_head h5{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+.deals_details {
+    padding: 30px 30px;
+}
+/* search box */
+.border_mid {
+    border-right: 2px solid #055091;
+}
+.search_tab_input input{
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background: #fff;
+}
+.search_filed {
+    margin: 20px 0px;
+}
+.search_btn {
+    padding: 0px;
+}
+.btn_search {
+    width: 100%;
+    background: #af284f;
+    padding: 43px 12px;
+    color: #fff;
+    font-weight: 600;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+}
+.search_tab  li{
+    float: left;
+    list-style: none ;
+}
+.search_tab  li i{
+    margin-top: 4px;
+    color: #777777;
+    font-size: 20px;
+}
+.search_box_section {
+    padding: 30px 0;
+    background: #fff;
+}
+.searchbox{
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    background: #e5e5e5;
+}
+.searchbox i {
+    display: inline-flex;
+    font-size: 28px;
+}
+.search_filed input {
+    padding: 5px;
+}
+.custome_control{
+    margin-left: 10px;
+}
+select.custom-select {
+    padding: 6px;
+    width: 120px;
+}
+@media only screen and (max-width: 991px) {
+    .location_section .col-md-2:nth-child(3){
+        border-left: solid 1px gray;
+    }
+    .location_section .col-md-2:nth-child(5){
+        border-left: solid 1px gray;
+    }   
+}
+@media only screen and (max-width: 600px) {
+    
+    nav a{
+        display: block;
+        margin-bottom: 10px !important;
+    }
+}
+@media only screen and (max-width: 767px) {
+   
+    .bus_page_title, .bus_page_title>h2, .domastic_flight_deal_title{
+        font-size: 22px;
+    }
+    .trending_search{
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .iron_bus_tickets, .ticket_with_presiabooking, .domastic_flight_section, .faq_section{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .icon_div{
+        margin: 1% 5% 0% 0%;
+    }
+    .trending_search li{
+        padding: 2px 27px;
+        margin-bottom: 10px;
+    }
+    h2 {
+        font-size: 22px;
+        margin-top: 0px;
+    }
+    .complete_guide_div  {
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+    .faq_question {
+        font-size: 15px;
+    }
+}
+

@@ -1,0 +1,533 @@
+
+#qu_banner{
+    padding-top: 95px;
+}
+h2 {
+    margin-top: 0px;
+}
+.banner_overlay{
+    background: rgba(0, 0, 0, 0.37);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    padding: 30px 15px;
+    color: #fff;
+    height: 100%;
+}
+.banner_overlay h4 {
+	font-size:24px;
+}
+.banner{
+    height: 600px;
+    text-align: center;
+    color: #fff;
+    background-position: center;
+    background-size: cover;
+    background-image:url('/../../assets/about_iran/car_banner.jpg');
+}
+.hero-overlay{
+    background: rgba(0, 0, 0, 0.37);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    padding: 30px 15px;
+    color: #fff;
+    height: 100%;
+}
+.hero{
+    height: 650px;
+    text-align: center;
+    color: #fff;
+    background-position: center;
+    background-size: cover;
+}
+.hero-content h2 {
+    font-size:24px;
+    font-weight: 600;
+}
+.hero-content p a{
+    font-size: 18px;
+    color: #fff;
+    font-weight: 400;
+}
+/* #navbar2 select{
+    margin-top: 10px;
+    border: none;
+    background: #fff;
+    outline: none;
+    color: #070606;
+} */
+.underline{
+    width: 20%;
+    margin: 0px auto;
+    height: 2px;
+    background: #045091;
+    margin-bottom: 30px;
+}
+
+
+
+.panel-heading {
+    background: #fff;
+    border: none;
+    padding: 0px;
+}
+/* nav section ends here */
+.footer_sec ul{
+    padding: 0px;
+}
+footer {
+    padding: 50px 0px;
+    background: #05233f;
+}
+.footer_sec li{
+    list-style: none;
+}
+.footer_sec li a{
+    line-height: 25px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: 1px;
+    line-height: 30px;
+}
+.footer_sec h5{
+    font-size: 23px;
+    color: #fff;
+}
+.Follow_us h3{
+    color: #fff;
+}
+.Follow_us ul{
+    padding: 0px;
+}
+.Follow_us li{
+    list-style: none;
+    float: left;
+}
+.Follow_us img {
+    width: 30px;
+}
+.accept_pay img {
+    width: 75px;
+    margin-right: 15px;
+}
+.bootom_footer {
+    text-align: center;
+    padding-top: 10px;
+    background: #00162b;
+    color: #fff;
+}
+.accept_pay {
+    text-align: center;
+    margin: 0px auto;
+    width: 31%;
+}
+.footer_sec ul li a {
+    font-size: 14px!important;
+}
+
+
+
+
+/*car page css*/
+
+.location_section{
+    padding-top: 50px;
+    padding-bottom: 50PX;
+}
+.location_section .col-md-2{
+    border: solid 1px gray;
+    border-left: none;
+}
+.location_section .col-md-2:nth-child(1){
+    border-left: solid 1px gray;
+}
+.location_section .col-md-2>div{
+    padding:10px;
+}
+.advance_para{
+    padding-bottom: 10px;
+    text-align: center;
+}
+.select_location{
+    font-weight: 800;
+    margin: 0px;
+    font-size: 18px;
+}
+.sub_locaiton{
+    color: gray;
+    margin: 0px;
+}
+.select_date, .select_time, .departure_time{
+    margin: 0px;
+    font-weight: 600;
+}
+.form_to{
+    color: gray;
+    margin: 0px;
+    text-align: center;
+    
+}
+.form_to .fa{
+    color: #055091;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+/*car top three section*/
+.car_top_three_section{
+    font-size: 40px; 
+    max-width: 20%; 
+    float:left; 
+    margin-top: 5%;
+}
+.car_top_three_section i{
+    color: #d81e47;
+}
+.icon_div{
+    float: left; 
+    max-width: 20%;
+    font-size: 40px;
+    margin: 6% 5% 0% 0%;
+    color: #d81e47;
+}
+.icon_info{
+    float: left; max-width: 80%;
+}
+.parsiaa_services{
+    color: #055091;
+}
+.categories_browse{
+    padding-top: 50PX;
+    padding-bottom: 50PX;
+}
+.categories_browse .row .col-md-3  div{
+    text-align: center;
+}
+/* .car_categories{
+    padding-bottom: 50px;
+} */
+.get_update{
+    background-position:center;
+    background-size:cover;
+}
+/*top destination*/
+.top_destination h2{
+    text-align: center;
+    margin-top: 0px;
+}
+.underline {
+    width: 20%;
+    margin: 0px auto;
+    height: 2px;
+    background: #045091;
+    margin-bottom: 30px;
+}
+.top_destination {
+    padding: 50px 0px;
+}
+.top_destination_content {
+    height: 400px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.overlay_top_destination {
+    background: #293d4e66;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    padding: 30px 15px;
+    color: #fff;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.45);
+    transition: .3s;
+}
+.top_destination_content h3{
+    font-size: 25px;
+    line-height: 50px;
+    position: absolute;
+    bottom: 19px;
+}
+
+
+.how_it_work_section{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+/*treding car css*/
+.item .row{
+    max-width: 70%;
+    margin: 0 auto;
+}
+.carousel-control.left, .carousel-control.right{
+    background: none !important;
+}
+/**/
+.car_detail_icon li {
+    float: left;
+    list-style-type: none;
+    
+}
+.car_function .col-md-3{
+    padding-left: 0px;
+    color: gray;
+}
+.car_lable{
+    margin: 0px;
+    color: gray;
+}
+.car_name{
+    font-size: 16px;
+    color: #055091;
+    font-weight: 600;
+}
+.car_kilometer_rate{
+    font-weight: 600;
+    color: #055091;
+}
+.trending_car_title{
+    text-align: center;
+    color: #fff;
+}
+.car_transperant_tending{
+    background: #0000006b;  
+    height: 450px; 
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+
+/* search box */
+.border_mid {
+    border-right: 2px solid #055091;
+}
+.search_tab_input input{
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background: #fff;
+}
+.search_filed {
+    margin: 20px 0px;
+}
+.search_btn {
+    padding: 0px;
+}
+.btn_search {
+    width: 100%;
+    background: #af284f;
+    padding: 43px 12px;
+    color: #fff;
+    font-weight: 600;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+}
+.search_tab  li{
+    float: left;
+    list-style: none ;
+}
+.search_tab  li i{
+    margin-top: 4px;
+    color: #777777;
+    font-size: 20px;
+}
+.search_box_section {
+    padding: 30px 0;
+    background: #fff;
+}
+.searchbox{
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    background: #e5e5e5;
+}
+.searchbox i {
+    display: inline-flex;
+    font-size: 28px;
+}
+.search_filed input {
+    padding: 5px;
+}
+.custome_control{
+    margin-left: 10px;
+}
+select.custom-select {
+    padding: 6px;
+    width: 120px;
+}
+
+.trending_activity {
+    height: 205px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+}
+.trending {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.45);
+    transition: .3s;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+.trending_activity_content p{
+    color: #777;
+}
+.trending_activity_content p i {
+    font-size: 20px;
+    margin-right: 3px;
+    color: #ffc013;
+}
+.about_slide_overlay h2{
+    color: #fff;
+}
+.about_slide_overlay{
+    background-color: #00000096;
+    height: 100%;
+    padding: 50px 0px;
+}
+.about_slide_overlay .underline{
+    background: #fff !important;
+}
+.trending_activity_content .kilometer{
+    color: #055091;
+}
+.trending_activity_content {
+    padding: 15px;
+}
+.car_feature_iocn ul{
+    padding-left: 0px;
+    display: flex;
+  }
+.car_feature_iocn ul li{
+    list-style-type: none;
+    float: left;
+    padding-right: 20px;
+    text-align: center;
+    color: #ccc;
+}
+.car_feature_iocn ul li .fa{
+    font-size: 18px;
+}
+.how_does_num{
+    border: solid 2px #055091;
+    padding: 20px;
+    border-radius: 50%;
+}
+.how_does_step{
+    position: relative;
+    text-align: center;
+    bottom: 50px;
+    color: #dc103d;
+}
+
+.top_three_section{
+    padding-top: 50px; 
+    padding-bottom: 50px;
+    border-bottom: 1px solid #ccc;
+}
+
+.root_icon{
+    position: absolute;
+    right: -18px;
+    bottom: 27px;
+    background-color: #fff;
+    box-shadow: 0px 0px 2px 2px #DEDEDE;
+    border-radius: 50%;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    color: #055091;
+}
+
+.slider .fa-chevron-left{
+    top: 80px !important;
+}
+
+
+.about_slide{
+    height: 560px;
+    color: #045091;
+    background-position: center;
+    background-size: cover;
+    background-image:url('/../../assets/about_iran/guide.png');
+}
+@media only screen and (max-width: 991px) {
+    .location_section .col-md-2:nth-child(3){
+        border-left: solid 1px gray;
+    }
+    .location_section .col-md-2:nth-child(5){
+        border-left: solid 1px gray;
+    }   
+    .icon_info{
+        float: left;
+        max-width: 75%;
+    }
+    
+}
+
+@media only screen and (max-width: 767px) {
+    
+    .location_section, .categories_browse, .car_transperant_tending, .how_it_work_section, .top_three_section{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .location_section .col-md-2:nth-child(3){
+        border-left: solid 1px gray;
+    }
+    .location_section .col-md-2:nth-child(5){
+        border-left: solid 1px gray;
+    }
+    .icon_div{
+        margin: 1% 5% 0% 0%;
+    }
+    .location_section .col-md-2:nth-child(4){
+        border-left: solid 1px gray;
+    }
+    .top_destination_content {
+        height: 215px;
+    }
+    h2 {
+        margin-top: 0px;
+        font-size:22px;
+    }
+    .car_categories {
+        padding-bottom: 0px;
+    }
+    .about_slide_overlay {
+        padding: 30px 0px;
+    }
+    .trending {
+        margin-bottom: 0px;
+    }
+    .top_destination {
+        padding: 30px 0px;
+    }
+    .about_slide{
+        height: 510px;
+    }
+    .how_does_step {
+        bottom: 45px;
+    }
+    .top_destination_content h3 {
+        width: 85%;
+        margin: 0px auto;
+        padding-top: 55px;
+        font-size: 28px;
+        line-height: 28px;
+        text-align: center;
+    }
+}
+

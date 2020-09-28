@@ -1,0 +1,369 @@
+/* nav section start here */
+.top_right ul li img {
+    margin-bottom: 3px;
+}
+li.nav-item.dropdown.show span:after {
+    content: '';
+    margin-right: 6px;
+}
+a.dropdown-item {
+    display: block;
+}
+.dropdown-menu-right{
+    min-width: 70px;
+    padding: 4px 0; 
+    border-radius: 4px;
+}
+.caret_cust i {
+    margin-left: 5px;
+}
+.caret_cust_anckor a {
+    color: #000 !important;
+}
+a.dropdown-item {
+    float: right;
+    padding: 8px;
+}
+.navfixed {
+    
+    margin-bottom: 0px;
+    position: fixed;
+    z-index: 99999;
+    margin: 0px auto;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+}
+.navbar-default {
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px #04509182;
+    height: 87px;
+    border-radius: 0px;
+}
+#qu_banner{
+    padding-top: 95px;
+}
+ .qu_brand_logo img{
+    width: 200px;
+    position: absolute;
+    margin-top:5px;
+    border-radius: 6px;
+    z-index: 99;
+}
+.navbar li a{
+	padding: 0px 20px;
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+}
+.navbar-right{
+    float: right!important;
+    margin-right: 60px;
+}
+.nav {
+	margin-top: 30px;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #ff4a33;
+}
+.navbar li a:hover{
+	color:#000 ;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #070606;
+}
+.navbar-toggle {
+    margin-top: 35px;
+}
+.navbar-right{
+    margin-right: 15px;
+}
+.hero-overlay{
+    background: rgba(0, 0, 0, 0.37);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    padding: 30px 15px;
+    color: #fff;
+    height: 100%;
+}
+.hero{
+    height: 650px;
+    text-align: center;
+    color: #fff;
+    background-position: center;
+    background-size: cover;
+}
+.hero-content h2 {
+    font-size:24px;
+    font-weight: 600;
+}
+.hero-content p a{
+    font-size: 18px;
+    color: #fff;
+    font-weight: 400;
+}
+#navbar2 select{
+    margin-top: 10px;
+    border: none;
+    background: #fff;
+    outline: none;
+    color: #070606;
+}
+.underline{
+    width: 20%;
+    margin: 0px auto;
+    height: 2px;
+    background: #045091;
+    margin-bottom: 30px;
+}
+
+.top_left li{
+    float: left;
+    list-style: none;
+    margin-right: 25px;
+}
+.top_left ul {
+    padding:0px;
+}
+.top_nav {
+    height: 40px;
+    background: #055091;
+    color: #fff;
+}
+.top_left a{
+    color: #fff;
+    text-decoration: none;
+}
+.top_right li{
+    float: left;
+    list-style: none;
+    margin-left: 25px;
+}
+.top_right ul {
+    padding: 0px;
+    float: right;
+    margin-top: 9px;
+}
+.top_right a{
+    color: #fff;
+    text-decoration: none;
+}
+.top_right select{
+    background: #045091;
+    border: none;
+    outline: none;
+}
+
+.panel-heading {
+    background: #fff;
+    border: none;
+    padding: 0px;
+}
+.nav-tabs {
+    border-bottom: none;
+}
+/* nav section ends here */
+
+
+/* modal Popup */
+.modal-content {
+    color: #333;
+}
+.modal-header{
+    border-bottom: none;
+}
+.modal-footer{
+    border-top: none;
+}
+.modal-header h4 {
+    text-align: center;
+    margin-top: 20px;
+}
+.vertical_btn{
+    background-image: linear-gradient(to right, #16b2fe, #0043db);
+    border: none;
+    color: #fff;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 14px;
+}
+.google_btn {
+    background: #fff;
+    border: 1px solid #333;
+    color: #333;
+    font-size: 13px;
+    width: 175px;
+}
+.fb_btn {
+    background: #055091;
+    color: #fff!important;
+    font-size: 13px;
+    width: 175px;
+}
+.wechat_btn {
+    background: #333;
+    color: #fff!important;
+    font-size: 13px;
+    width: 175px;
+}
+.insta_btn{
+    background: #fff;
+    border: 1px solid #333;
+    color: #333;
+    font-size: 13px;
+    width: 175px;
+}
+.otp_btn{
+    background: #fff;
+    border: 1px solid #333;
+    color: #333;
+    font-size: 13px;
+    width: 175px;
+}
+.social_btn{
+    margin-top: 10px;
+}
+.horizhonalline p span{
+    background: #fff;
+    padding: 0 10px;
+}
+.horizhonalline p{
+    width: 100%;
+    border-bottom: 1px solid #055091;
+    line-height: .1em;
+    margin: 20px 0 20px;
+    text-align: center;
+}
+.forget{
+    margin: 20px 0;
+}
+.modal-header p{
+    text-align: center;
+}
+.login_btn{
+    background: #fff;
+    color: #333;
+    border: 1px solid #333;
+    width: 120px;
+}
+.send_link_btn{
+    background-image: linear-gradient(to right, #16b2fe, #0043db);
+    border: none;
+    color: #fff;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    float: right;
+}
+
+/* modal responsive */
+
+@media screen and (max-width: 767px) {
+    .google_btn, .otp_btn, .social_btn, .insta_btn, .wechat_btn, .fb_btn{
+        width: 100%;
+        margin: 0 0 20px;
+    }
+    .social_btn{
+        margin-top: 0px;
+    }
+    .wechat_btn{
+        margin-bottom: 0px;
+    }
+}
+@media screen and (max-width: 480px) {
+.wechat_btn{
+    margin-bottom: 0px;
+}
+}
+
+
+
+@media only screen and (max-width: 991px) { 
+    .navbar-right {
+        margin-right: 0px;
+    }
+    .navbar  li  a  {
+        padding: 0px 10px;
+        text-align: center;
+        color: #333;
+        font-size: 14px;
+    }
+    .top_left  li  {
+        margin-right: 5px;
+    }
+    .top_right  li {
+        margin-left: 10px;
+    }
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+        padding: 0px;
+    }
+}
+
+
+
+@media only screen and (max-width: 767px) { 
+    .mbl_hidden {
+        display: none;
+    }
+    .top_right a {
+        font-size: 13px; 
+    }
+    .mbl_pad{
+        padding: 0px 15px;
+    }
+    .top_right  li {
+        margin-left: 5px;
+    }
+    .top_right  ul  li  img {
+        margin-bottom: 3px;
+        width: 13px;
+    }
+    .navbar-toggle {
+        margin-top: 13px;
+    }
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+        background: #045091;
+    }
+    .navbar-right {
+        float: none !important;
+        width: 100%;
+        margin: 10px 0px;
+    }
+    .qu_brand_logo  img  {
+        width: 135px;
+        margin-left: 15px;
+    }
+    .navbar-default  {
+        height: 60px;
+    }
+    .navbar-default .navbar-nav>li>a {
+        color: #ffffff;
+        text-align: left;
+        padding: 10px 15px;
+    }
+    .signup-form{
+        width: 100%;
+    }
+    .signup-form form {
+        color: #000;
+        border-radius: 3px;
+        margin-bottom: 15px;
+        background: #fff;
+        box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+        padding: 10px 30px;
+        margin-top: 50px;
+        margin: 20px;
+    }
+    
+}
+@media only screen and (max-width: 320px){
+    .top_right  li {
+        margin-left: 2px;
+    }
+    .top_right a {
+        font-size: 11px;
+    }
+}
