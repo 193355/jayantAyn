@@ -10,6 +10,8 @@
       </div>
     </div>
   </section>
+
+
   <!-- <div class="container location_section">
     <div class="">
       <div class="">
@@ -90,15 +92,25 @@
   <div class="container">
     <div class="searchbox row">
       <div class="col-md-7 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
+
         <div class="col-md-6 col-sm-12 col-xs-12">
           <label for="username">Origin:</label><br>
-            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your origin" name="username"></i>  
+            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your origin" name="username" (keydown.enter)="$event.preventDefault()" #search></i>  
         </div>
+
+        <!-- <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" style="height: 100px;">
+          <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+            (dragEnd)="markerDragEnd($event)">
+          </agm-marker>
+        </agm-map> -->
+
         <div class="col-md-6 col-sm-12 col-xs-12">
           <label for="username">Destination:</label><br>
-            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your destination" name="username"></i>
+          <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your origin" name="username" (keydown.enter)="$event.preventDefault()"></i>  
         </div>
+
       </div>
+
       <div class="col-md-4 col-sm-6 col-xs-6 search_filed mbl_pad">
         <div class="col-md-12 col-sm-12 col-xs-12 mb-20">
           <label for="username">Depart</label><br>
@@ -106,6 +118,7 @@
         </div>
         
       </div>
+
     <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
       <button type="submit" class="btn btn_search">Search</button>
   </div>

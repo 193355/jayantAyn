@@ -47,8 +47,8 @@ h2 {
 }
 .btn_search {
     width: 100%;
-    background: #af284f;
-    padding: 50px 12px;
+    background: #AF284F;
+    padding: 43px 12px;
     color: #fff;
     font-weight: 600;
     outline: none;
@@ -68,29 +68,19 @@ h2 {
     padding: 30px 0;
     background: #fff;
 }
-.cust_field {
-    width: 100%;
-}
-.cust_field mat-label{
-    color: #333;
-    font-weight: 500;
-}
 .searchbox{
     box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
-    background: #fff;
+    background: #E5E5E5;
 }
-span.material-icons.location_icon {
-    font-size: 24px;
-    position: absolute;
-    top: 18px;
-    left: -10px;
-}
-.search_box-cust{
+.searchbox i {
     display: inline-flex;
+    font-size: 28px;
 }
-.cust_input_control{
-    width: 100%;
-    font-weight: 500;
+.search_filed input {
+    padding: 5px;
+}
+.custome_control{
+    margin-left: 10px;
 }
 select.custom-select {
     padding: 6px;

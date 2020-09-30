@@ -8,6 +8,9 @@
     color: #fff;
     height: 100%;
 }
+.agm-map {
+    height: 300px;
+}
 h2 {
     margin-top: 0px;
 }
@@ -353,5 +356,7 @@ select.custom-select {
     .faq_question {
         font-size: 15px;
     }
+    
 }
+
 

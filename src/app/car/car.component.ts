@@ -67,9 +67,11 @@ export class CarComponent implements OnInit {
             slidesToScroll: 1,
             infinite: false,
           } 
-        }]
-        
+        }]      
       });
+
+     
+
     });
   }
 

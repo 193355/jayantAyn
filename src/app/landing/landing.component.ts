@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 declare var $: any;
 
 @Component({
@@ -7,12 +9,16 @@ declare var $: any;
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-  constructor() { }
+  constructor(private spinner: NgxSpinnerService) { }
 
-  ngOnInit(): void {
+  ngOnInit() { 
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 4000);
 
     $(document).ready(function () {
-      
       $('.slideset').slick({
         slidesToShow: 2,
         autoplay: true,
@@ -36,5 +42,7 @@ export class LandingComponent implements OnInit {
       });
     });
   }
+
   
+
 }
