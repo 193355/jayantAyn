@@ -6,6 +6,8 @@ import { Component, OnInit, ElementRef, NgZone, ViewChild } from '@angular/core'
   templateUrl: './flight.component.html',
   styleUrls: ['./flight.component.css']
 })
+
+
 export class FlightComponent implements OnInit {
   latitude: number;
   longitude: number;
@@ -14,9 +16,9 @@ export class FlightComponent implements OnInit {
   private geoCoder;
 
   @ViewChild('search',{static: true})
-
+  
   public searchElementRef: ElementRef;
-
+  public searchElementRef1: ElementRef;
   constructor(private mapsAPILoader: MapsAPILoader,private ngZone: NgZone) {
     window.scroll(0,0);
    }
@@ -27,6 +29,7 @@ export class FlightComponent implements OnInit {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
+
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
           //get the place result
@@ -41,8 +44,12 @@ export class FlightComponent implements OnInit {
           this.zoom = 12;
         });
       });
+
     });
+
+    
   }
+
 
    // Get Current Location Coordinates
    private setCurrentLocation() {
@@ -61,6 +68,7 @@ export class FlightComponent implements OnInit {
   //   this.longitude = $event.coords.lng;
   //   this.getAddress(this.latitude, this.longitude);
   // }
+
   getAddress(latitude, longitude) {
     this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
       console.log(results);

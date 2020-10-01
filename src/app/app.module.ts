@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
-import { FormsModule,FormGroup } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -15,6 +15,8 @@ import { TransferComponent } from './transfer/transfer.component';
 import { BusComponent } from './bus/bus.component';
 import { AgmCoreModule } from '@agm/core';
 import { NgxSpinnerModule, NgxSpinnerService} from "ngx-spinner";
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 @NgModule({
   declarations: [
@@ -35,10 +37,13 @@ import { NgxSpinnerModule, NgxSpinnerService} from "ngx-spinner";
     HttpClientModule,
     FormsModule,
     NgxSpinnerModule,
+    NgxPaginationModule,
+    NgxStarRatingModule,
+    ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBxPqdmg2ouIJZs4SKNHC3N2Qbi7mdboFY',
       libraries: ['places']
-    })
+    }),
   ],
   providers: [NgxSpinnerService],
   bootstrap: [AppComponent]

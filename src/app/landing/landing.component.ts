@@ -14,7 +14,6 @@ export class LandingComponent implements OnInit {
   ngOnInit() { 
     this.spinner.show();
     setTimeout(() => {
-      /** spinner ends after 5 seconds */
       this.spinner.hide();
     }, 4000);
 
@@ -34,6 +33,7 @@ export class LandingComponent implements OnInit {
         }]
         
       });
+
       $(document).ready(function(){
         $("#forgetpassbtn").click(function(){
           $("#loginmodale").hide();

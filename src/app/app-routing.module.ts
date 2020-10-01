@@ -19,7 +19,6 @@ const routes: Routes = [
     {path: 'bus' ,component: BusComponent},
 ];
 
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

@@ -16,7 +16,7 @@
         <div class="col-md-3 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <label for="username">Destination:</label><br>
-              <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your origin" name="username"></i>  
+            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your origin" name="username" (keydown.enter)="$event.preventDefault()" #search></i>  
           </div>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-6 search_filed mbl_pad">
@@ -24,13 +24,15 @@
             <label for="username">Check out</label><br>
               <input type="date" class="date_birth datepicker" id="birthday" name="birthday">
           </div>
+
           <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
             <label for="username">Check out</label><br>
               <input type="date" class="date_birth datepicker" id="birthday" name="birthday">
           </div>
+          
         </div>
         <div class="col-md-2 col-sm-12 col-xs-12 search_filed ">
-          <label for="username">Guest</label><br>
+    <label for="username">Guest</label><br>
     <select class="browser-default custom-select">
       <option selected>1</option>
       <option value="1">2</option>
@@ -50,7 +52,7 @@
         <h2>Accommodations Iran Hotel</h2>
         <div class="underline"></div>
         <div id="exTab1" class="container">	
-          <ul  class="nav nav-pills trending_tab">
+             <ul class="nav nav-pills trending_tab">
                 <li class="active">
                   <a  href="#1a" data-toggle="tab">Hotel Appartment</a>
                 </li>
@@ -61,23 +63,25 @@
               </ul>
                 <div class="row">
                 <div class="tab-content clearfix">
-                  <div class="tab-pane active" id="1a">
-                    <div class="col-md-3 col-sm-4">
+                  <div class="tab-pane active" id="1a" *ngFor="let hotel of hotels | paginate:{itemsPerPage: 4, currentPage:p}">
+                    <div class="col-md-3 col-sm-3" >
                       <figure>
-                        <img src="../../../assets/home/home4.jpg" alt="Trulli" style="width:100%">
+                        <img [src]="hotel.images" alt="Trulli" style="width:100%">
                         <span class="trending-label">Featured</span>
                         <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
+                          <h4><i class="fa fa-map-marker" aria-hidden="true"></i> {{hotel.name}}</h4>
                           <img src="../../../assets/icon/star.png">
                           <img src="../../../assets/icon/star.png">
                           <img src="../../../assets/icon/star.png">
                           <img src="../../../assets/icon/star.png">
                           <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+
                         </div>
                       </figure>
                     </div>
-                    <div class="col-md-3 col-sm-4">
+
+
+                    <!-- <div class="col-md-3 col-sm-4">
                       <figure>
                         <img src="../../../assets/home/home5.jpg" alt="Trulli" style="width:100%">
                         <span class="trending-label">Featured</span>
@@ -92,6 +96,7 @@
                         </div>
                       </figure>
                     </div>
+
                     <div class="col-md-3 col-sm-4">
                       <figure>
                         <img src="../../../assets/home/home6.jpg" alt="Trulli" style="width:100%">
@@ -107,6 +112,7 @@
                         </div>
                       </figure>
                     </div>
+
                     <div class="col-md-3 col-sm-4">
                       <figure class="nth">
                         <img src="../../../assets/home/home7.jpg" alt="Trulli" style="width:100%">
@@ -121,7 +127,8 @@
                           <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
                         </div>
                       </figure>
-                    </div>
+                    </div> -->
+
                   </div>
                   <div class="tab-pane" id="2a">
                     <div class="col-md-3 col-sm-4">
@@ -250,6 +257,9 @@
                     
                 </div>
             </div>
+            <br>
+            <br>
+            <pagination-controls (pageChange)="p=$event"></pagination-controls>
           </div>
       </div>
     </div>
