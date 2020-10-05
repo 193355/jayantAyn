@@ -1,23 +1,21 @@
-
 <div class="navfixed">
-    <div class="top_nav">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-sm-5 mbl_hidden">
-            <div class="row">
-              <div class="top_left">
-                <ul>
-                  <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +98 930-939-9796</a></li>
-                  <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> info@persiabooking.com</a></li>
-                </ul>
-              </div>
+  <div class="top_nav">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-5 mbl_hidden">
+          <div class="row">
+            <div class="top_left">
+              <ul>
+                <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +98 930-939-9796</a></li>
+                <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> info@persiabooking.com</a></li>
+              </ul>
             </div>
           </div>
-          <!-- modal Registraton -->
-        <div class="modal fade" id="registraionmodal" tabindex="-1" role="dialog" aria-labelledby="RegistrationModalLabel"
-        >
+        </div>
+        <!-- modal Registraton -->
+        <div class="modal fade" id="registraionmodal" tabindex="-1" role="dialog"
+          aria-labelledby="RegistrationModalLabel">
           <div class="modal-dialog" role="document">
-        
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
@@ -25,32 +23,111 @@
                 <h4 class="modal-title">Create Your Free Account</h4>
               </div>
               <div class="modal-body">
-                <form>
+                <form [formGroup]="registrationForm" (submit)="onRegisterSubmit(registrationForm)">
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="firstname">First Name</label>
-                      <input type="text" class="form-control" id="firstname" placeholder="Enter First Name">
+                      <input type="text" formControlName="firstName" class="form-control" id="firstName" required
+                        placeholder="Enter First Name">
+                      <!-- First Name Validation  Start -->
+                      <div *ngIf="isSubmitted && !registrationForm.controls['firstName'].valid">
+                        <span *ngIf="registrationForm.controls['firstName'].hasError('required')"
+                          class="form-control-validation">
+                          First name is required
+                        </span>
+                      </div>
+                      <!-- End First Name Valiation End -->
                     </div>
                     <div class="form-group col-md-6">
                       <label for="lastname">Last Name</label>
-                      <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name">
+                      <input type="text" class="form-control" formControlName="lastName" id="lastName" required
+                        placeholder="Enter Last Name">
+                      <!-- Last Name Validation  Start -->
+                      <div *ngIf="isSubmitted && !registrationForm.controls['lastName'].valid">
+                        <span *ngIf="registrationForm.controls['lastName'].hasError('required')"
+                          class="form-control-validation">
+                          Last name is required
+                        </span>
+                      </div>
+                      <!-- End Last Name Valiation End -->
                     </div>
                   </div>
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter Email Address">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="email">Email Address</label>
+                      <input type="email" class="form-control" formControlName="email" id="email" required
+                        placeholder="Enter Email Address">
+                      <!-- Email Validation  Start -->
+                      <div *ngIf="isSubmitted && !registrationForm.controls['email'].valid">
+                        <span *ngIf="registrationForm.controls['email'].hasError('required')"
+                          class="form-control-validation">
+                          Email is required
+                        </span>
+                        <span *ngIf="registrationForm.controls['email'].hasError('pattern')"
+                          class="form-control-validation">
+                          Please enter valid email
+                        </span>
                       </div>
-                      <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter Password">
-                      </div>
-                      <div class="form-group">
-                        <label for="confirmpass">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirmpass" placeholder="Enter Confirm Password">
-                      </div>
+                      <!-- End Email Valiation End -->
                     </div>
-                                   
+
+                    <!-- Mobile form field start -->
+                    <!-- <div class="form-group">
+                      <label for="mobile">Mobile Number</label>
+                      <input type="text" class="form-control" minlength="10" maxlength="10" formControlName="mobile"
+                        id="mobile" required placeholder="Enter Mobile Number">
+                      <div *ngIf="isSubmitted && !registrationForm.controls['mobile'].valid">
+                        <span *ngIf="registrationForm.controls['mobile'].hasError('required')"
+                          class="form-control-validation">
+                          Mobile is required
+                        </span>
+                        <span *ngIf="registrationForm.controls['mobile'].hasError('pattern')"
+                          class="form-control-validation">
+                          Please enter valid mobile
+                        </span>
+                      </div>
+                    </div> -->
+                    <!-- Mobile form field end -->
+
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <input type="password" class="form-control" formControlName="password" id="password" required
+                        placeholder="Enter Password">
+                      <!-- Password Validation  Start -->
+                      <div *ngIf="isSubmitted && !registrationForm.controls['password'].valid">
+                        <span *ngIf="registrationForm.controls['password'].hasError('required')"
+                          class="form-control-validation">
+                          Password is required
+                        </span>
+                        <span *ngIf="registrationForm.controls['password'].hasError('minlength')"
+                          class="form-control-validation">
+                          Password should be greator than 6 characters
+                        </span>
+                      </div>
+                      <!-- End Password Valiation End -->
+                    </div>
+                    <div class="form-group">
+                      <label for="confirmpass">Confirm Password</label>
+                      <input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword"
+                        required placeholder="Enter Confirm Password">
+                      <!-- Confirm password Validation  Start -->
+                      <div *ngIf="isSubmitted && !registrationForm.controls['confirmPassword'].valid">
+                        <span *ngIf="registrationForm.controls['confirmPassword'].hasError('required')"
+                          class="form-control-validation">
+                          Confirm password is required
+                        </span>
+                        <span *ngIf="registrationForm.controls['confirmPassword'].hasError('minlength')"
+                          class="form-control-validation">
+                          Confirm password should be greator than 6 characters
+                        </span>
+                        <span class="form-control-validation"
+                          *ngIf="registrationForm.controls['confirmPassword'].hasError('mustMatch')">Password and
+                          confirm password should be same</span>
+                      </div>
+                      <!-- End Confirm password Valiation End -->
+                    </div>
+                  </div>
+
                   <div class="sing_in_btn text-center">
                     <button type="submit" class="btn vertical_btn">Sing Up</button>
                   </div>
@@ -60,13 +137,16 @@
                 <div class="social_btn">
                   <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-12">
-                      <button type="submit" class="btn google_btn"><img src="../../../assets/icon/google.png" class="img-fluid">Create With Google</button>
+                      <button type="submit" class="btn google_btn"><img src="../../../assets/icon/google.png"
+                          class="img-fluid">Create With Google</button>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
-                      <button type="submit" class="btn fb_btn"><img src="../../../assets/icon/facebook.png" class="img-fluid">Create With Facebook</button>
+                      <button type="submit" class="btn fb_btn"><img src="../../../assets/icon/facebook.png"
+                          class="img-fluid">Create With Facebook</button>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
-                      <button type="submit" class="btn wechat_btn"><img src="../../../assets/icon/we-chat.png" class="img-fluid">Create With WeChat</button>
+                      <button type="submit" class="btn wechat_btn"><img src="../../../assets/icon/we-chat.png"
+                          class="img-fluid">Create With WeChat</button>
                     </div>
                   </div>
                 </div>
@@ -74,7 +154,8 @@
                   <div class="row">
                     <div class="col-md-2 col-sm-2 col-xs-0"></div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
-                      <button type="submit" class="btn insta_btn"><img src="../../../assets/icon/instat_icon.png" class="img-fluid">Create With Instagram</button>
+                      <button type="submit" class="btn insta_btn"><img src="../../../assets/icon/instat_icon.png"
+                          class="img-fluid">Create With Instagram</button>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                       <button type="submit" class="btn otp_btn">Create With OTP</button>
@@ -82,19 +163,19 @@
                     <div class="col-md-2 col-sm-2 col-xs-0"></div>
                   </div>
                 </div>
-               
+
               </div>
             </div>
-        
+
           </div>
         </div>
         <!-- modal Registration end -->
 
         <!-- Login modal -->
         <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
+          aria-hidden="true">
           <div class="modal-dialog">
-        
+
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
@@ -102,20 +183,61 @@
                 <h4 class="modal-title">Login</h4>
               </div>
               <div class="modal-body">
-                <form>
+                <form [formGroup]="loginForm" (submit)="onLoginForm(loginForm)">
                   <div class="form-row">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter Email Address">
+                        <input type="email" formControlName="email" required class="form-control" id="email"
+                          placeholder="Enter Email Address">
+                        <!-- Email Validation  Start -->
+                        <div *ngIf="isSubmitted && !loginForm.controls['email'].valid">
+                          <span *ngIf="loginForm.controls['email'].hasError('required')"
+                            class="form-control-validation">
+                            Email is required
+                          </span>
+                          <span *ngIf="loginForm.controls['email'].hasError('pattern')" class="form-control-validation">
+                            Please enter valid email
+                          </span>
+                        </div>
+                        <!-- End Email Valiation End -->
                       </div>
                       <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter Password">
+                        <input type="password" formControlName="password" required class="form-control" id="password"
+                          placeholder="Enter Password">
+                        <!-- Password Validation  Start -->
+                        <div *ngIf="isSubmitted && !loginForm.controls['password'].valid">
+                          <span *ngIf="loginForm.controls['password'].hasError('required')"
+                            class="form-control-validation">
+                            Password is required
+                          </span>
+                          <span *ngIf="loginForm.controls['password'].hasError('minlength')"
+                            class="form-control-validation">
+                            Password should be greator than 6 characters
+                          </span>
+                        </div>
+                        <!-- End Password Valiation End -->
                       </div>
                       <div class="form-group">
                         <label for="confirmpass">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirmpass" placeholder="Enter Confirm Password">
+                        <input type="password" formControlName="confirmPassword" class="form-control" required
+                          id="confirmpass" placeholder="Enter Confirm Password">
+                        <!-- Confirm password Validation  Start -->
+                        <div *ngIf="isSubmitted && !loginForm.controls['confirmPassword'].valid">
+                          <span *ngIf="loginForm.controls['confirmPassword'].hasError('required')"
+                            class="form-control-validation">
+                            Confirm password is required
+                          </span>
+                          <span *ngIf="loginForm.controls['confirmPassword'].hasError('minlength')"
+                            class="form-control-validation">
+                            Confirm password should be greator than 6 characters
+                          </span>
+                          <span class="form-control-validation"
+                            *ngIf="loginForm.controls['confirmPassword'].hasError('mustMatch')">Password and
+                            confirm password should be same</span>
+                        </div>
+                        <!-- End Confirm password Valiation End -->
                       </div>
                     </div>
                   </div>
@@ -123,7 +245,9 @@
                     <button type="submit" class="btn vertical_btn">Login</button>
                   </div>
                   <div class="forget text-center">
-                    <a class="forget_text" data-toggle="modal" data-target="#forgetmodal" class="forgetmodal">Forget Password?</a>
+                    <a class="forget_text" data-toggle="modal" (click)="onToggleLogin()" data-target="#forgetmodal"
+                      class="forgetmodal">Forget
+                      Password?</a>
                   </div>
                   <div class="horizhonalline">
                     <p><span>or</span></p>
@@ -134,13 +258,16 @@
                 <div class="social_btn">
                   <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-12">
-                      <button type="submit" class="btn google_btn"><img src="../../../assets/icon/google.png" class="img-fluid">&nbsp;Sign Up With Google</button>
+                      <button type="submit" class="btn google_btn"><img src="../../../assets/icon/google.png"
+                          class="img-fluid">&nbsp;Sign Up With Google</button>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
-                      <button type="submit" class="btn fb_btn"><img src="../../../assets/icon/facebook.png" class="img-fluid">&nbsp;Sign Up With Facebook</button>
+                      <button type="submit" class="btn fb_btn"><img src="../../../assets/icon/facebook.png"
+                          class="img-fluid">&nbsp;Sign Up With Facebook</button>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
-                      <button type="submit" class="btn wechat_btn"><img src="../../../assets/icon/we-chat.png" class="img-fluid">&nbsp;Sign Up With WeChat</button>
+                      <button type="submit" class="btn wechat_btn"><img src="../../../assets/icon/we-chat.png"
+                          class="img-fluid">&nbsp;Sign Up With WeChat</button>
                     </div>
                   </div>
                 </div>
@@ -148,7 +275,8 @@
                   <div class="row">
                     <div class="col-md-2 col-sm-2 col-xs-0"></div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
-                      <button type="submit" class="btn insta_btn"><img src="../../../assets/icon/instat_icon.png" class="img-fluid">&nbsp;Sign Up With Instagram</button>
+                      <button type="submit" class="btn insta_btn"><img src="../../../assets/icon/instat_icon.png"
+                          class="img-fluid">&nbsp;Sign Up With Instagram</button>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                       <button type="submit" class="btn otp_btn">Sign Up With OTP</button>
@@ -156,19 +284,19 @@
                     <div class="col-md-2 col-sm-2 col-xs-0"></div>
                   </div>
                 </div>
-               
+
               </div>
             </div>
-        
+
           </div>
         </div>
         <!-- login modal ends -->
 
         <!-- Forget Password -->
         <div class="modal fade" id="forgetmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
+          aria-hidden="true">
           <div class="modal-dialog">
-        
+
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
@@ -177,12 +305,25 @@
                 <p>Enter The Email Address Associated with your Account. You will receive link</p>
               </div>
               <div class="modal-body">
-                <form>
+                <form [formGroup]="forgetPwdForm" (submit)="onSubmitForgetPWD(forgetPwdForm)">
                   <div class="form-row">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter Email Address">
+                        <input type="email" formControlName="email" class="form-control" id="email"
+                          placeholder="Enter Email Address">
+                        <!-- Email Validation  Start -->
+                        <div *ngIf="isSubmitted && !forgetPwdForm.controls['email'].valid">
+                          <span *ngIf="forgetPwdForm.controls['email'].hasError('required')"
+                            class="form-control-validation">
+                            Email is required
+                          </span>
+                          <span *ngIf="forgetPwdForm.controls['email'].hasError('pattern')"
+                            class="form-control-validation">
+                            Please enter valid email
+                          </span>
+                        </div>
+                        <!-- End Email Valiation End -->
                       </div>
                     </div>
                   </div>
@@ -193,67 +334,74 @@
                 </form>
               </div>
             </div>
-        
+
           </div>
         </div>
-  
-          <div class="col-md-6 col-sm-7">
-            <div class="row mbl_pad">
-              <div class="top_right">
-                <ul>
-                <li><a href="#" data-toggle="modal" data-target="#registraionmodal"><img class="img-fluid" width="15" src="../../../assets/icon/register.png"> Register</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#login"><img class="img-fluid" width="15" src="../../../assets/icon/login_icon.png"> Login</a></li>
-                <li><a href="#"><img class="img-fluid" width="15" src="../../../assets/icon/cart_icon.png"> Shopping</a></li>
-                <li><a href="#"><img class="img-fluid" width="15" src="../../../assets/icon/currency_icon.png"> Currency</a></li>
-                  <li class="nav-item dropdown show caret_cust">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <span class="mr-2 d-none d-lg-inline text-gray-600 small">En</span>
-                      <img class="img-fluid" src="../../../assets/tourist_card/uk.svg" width="15">
-                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+
+        <div class="col-md-6 col-sm-7">
+          <div class="row mbl_pad">
+            <div class="top_right">
+              <ul>
+                <li><a href="#" data-toggle="modal" data-target="#registraionmodal"><img class="img-fluid" width="15"
+                      src="../../../assets/icon/register.png"> Register</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#login"><img class="img-fluid" width="15"
+                      src="../../../assets/icon/login_icon.png"> Login</a></li>
+                <li><a href="#"><img class="img-fluid" width="15" src="../../../assets/icon/cart_icon.png"> Shopping</a>
+                </li>
+                <li><a href="#"><img class="img-fluid" width="15" src="../../../assets/icon/currency_icon.png">
+                    Currency</a></li>
+                <li class="nav-item dropdown show caret_cust">
+                  <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">En</span>
+                    <img class="img-fluid" src="../../../assets/tourist_card/uk.svg" width="15">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </a>
+                  <!-- Dropdown - lang Information -->
+                  <div class="dropdown-menu dropdown-menu-right caret_cust_anckor" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#"><img class="img-fluid" width="15"
+                        src="../../../assets/tourist_card/uk.svg"> En
                     </a>
-                    <!-- Dropdown - lang Information -->
-                    <div class="dropdown-menu dropdown-menu-right caret_cust_anckor" aria-labelledby="userDropdown">
-                      <a class="dropdown-item" href="#"><img class="img-fluid" width="15" src="../../../assets/tourist_card/uk.svg"> En
-                      </a>
-                      <a class="dropdown-item" href="#"><img class="img-fluid" width="15" src="../../../assets/tourist_card/uk.svg"> En
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                    <a class="dropdown-item" href="#"><img class="img-fluid" width="15"
+                        src="../../../assets/tourist_card/uk.svg"> En
+                    </a>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <nav class="navbar navbar-default pic_top_nav">
-        <div class="container">
-          <div class="row">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="qu_brand_logo" [routerLink]="'/landing'"><img src="../../../assets/icon.png" alt="logo">
-                </a>
-            </div>
-            <div id="navbar2" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">	
-                    <li id="" class="activeBB"><a [routerLink]="'/landing'">Home</a></li>
-                    <li id="" class=""><a [routerLink]="'/flight'">Flight</a></li>
-                    <li id="" class=""><a [routerLink]="'/hotel'">Hotel</a></li>
-                    <li id="" class=""><a [routerLink]="'/hostel'">Hostel</a></li>
-                    <li id="" class=""><a [routerLink]="'/tour'">Tour</a></li>
-                    <li id="" class=""><a [routerLink]="'/car'">Car</a></li>
-                    <li id="" class=""><a [routerLink]="'/activity'">Activity</a></li>
-                    <li id="" class=""><a [routerLink]="'/transfer'">Transfer</a></li>
-                    <li id="" class=""><a [routerLink]="'/bus'">Bus</a></li>
-                </ul>
-            </div>
-          </div>
-        </div>
-    </nav>
-    <div class="clearfix"></div>
   </div>
+  <nav class="navbar navbar-default pic_top_nav">
+    <div class="container">
+      <div class="row">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="qu_brand_logo" [routerLink]="'/landing'"><img src="../../../assets/icon.png" alt="logo">
+          </a>
+        </div>
+        <div id="navbar2" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li id="" class="activeBB"><a [routerLink]="'/landing'">Home</a></li>
+            <li id="" class=""><a [routerLink]="'/flight'">Flight</a></li>
+            <li id="" class=""><a [routerLink]="'/hotel'">Hotel</a></li>
+            <li id="" class=""><a>Hostel</a></li>
+            <li id="" class=""><a [routerLink]="'/tour'">Tour</a></li>
+            <li id="" class=""><a [routerLink]="'/car'">Car</a></li>
+            <li id="" class=""><a [routerLink]="'/activity'">Activity</a></li>
+            <li id="" class=""><a [routerLink]="'/transfer'">Transfer</a></li>
+            <li id="" class=""><a [routerLink]="'/bus'">Bus</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="clearfix"></div>
+</div>

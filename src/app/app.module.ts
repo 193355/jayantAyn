@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,18 @@ import { CarComponent } from './car/car.component';
 import { ActivityComponent } from './activity/activity.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { BusComponent } from './bus/bus.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { NgxPaginationModule } from 'ngx-pagination';
+
+
+// Import Primeng dependencies - 
+import {ButtonModule} from 'primeng/button';
+import { ChipsModule } from 'primeng/chips';
+import { CalendarModule } from 'primeng/calendar';
+import { TableModule } from 'primeng/table'; 
+
 
 @NgModule({
   declarations: [
@@ -29,10 +42,21 @@ import { BusComponent } from './bus/bus.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,  
+
+    NgxPaginationModule,
+
+    ButtonModule,
+    ChipsModule,
+    CalendarModule,
+    TableModule, 
+
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 

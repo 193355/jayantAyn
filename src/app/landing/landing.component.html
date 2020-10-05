@@ -1,31 +1,30 @@
-
 <section>
-    <div class="container-fluid banner_fluid">
-      <div class="carousel slide" data-ride="carousel" id="carousel_slider">
-          <div class="carousel-inner banner">
-              <div class="item active">
-                  <img src="../../../assets/bg_home.jpg" alt="home slide 1" />
-              </div>
-              <div class="item">
-                  <img src="../../../assets/bg_home.jpg" alt="home slide 1" />
-              </div>
-              <div class="item">
-                  <img src="../../../assets/bg_home.jpg" alt="home slide 1" />
-              </div>
-          </div>
-          <div href="#carousel_slider" class="left carousel-control" data-slide="prev">
-              <span>
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-              </span>
-          </div>
-          <div href="#carousel_slider" class="right carousel-control" data-slide="next">
-              <span>
-                <i class="fa fa-arrow-right" aria-hidden="true"></i>
-              </span>
-          </div>
+  <div class="container-fluid banner_fluid">
+    <div class="carousel slide" data-ride="carousel" id="carousel_slider">
+      <div class="carousel-inner banner">
+        <div class="item active">
+          <img src="../../../assets/bg_home.jpg" alt="home slide 1" />
+        </div>
+        <div class="item">
+          <img src="../../../assets/bg_home.jpg" alt="home slide 1" />
+        </div>
+        <div class="item">
+          <img src="../../../assets/bg_home.jpg" alt="home slide 1" />
+        </div>
       </div>
+      <div href="#carousel_slider" class="left carousel-control" data-slide="prev">
+        <span>
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div href="#carousel_slider" class="right carousel-control" data-slide="next">
+        <span>
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
   </div>
-    <!-- <div class="banner" style="background-image:url('../../../assets/bg_home.jpg')">
+  <!-- <div class="banner" style="background-image:url('../../../assets/bg_home.jpg')">
       <div class="banner_overlay">
       <div class="container">
           <div class="">
@@ -34,665 +33,685 @@
           </div>
       </div>
     </div> -->
-  </section>
-  <section class="search_tab">
-    <div class="container">
-      <ul class="nav nav-tabs">
-        <li class="active"><a href="#tab1" data-toggle="tab">Hotel</a></li>  
-        <li><a href="#tab2" data-toggle="tab">Flight</a></li>
-        <li><a href="#tab3" data-toggle="tab">Tour</a></li>
-        <li><a href="#tab4" data-toggle="tab">Room</a></li>
-        <li><a href="#tab4" data-toggle="tab">Car</a></li>
-        <li><a href="#tab4" data-toggle="tab">Bus</a></li>
-        <li><a href="#tab4" data-toggle="tab">Transfer</a></li>
-      </ul>
-    
-      <div class="tab-content">
-        <div class="tab-pane active" id="tab1">
-          <div class="panel panel-default">
-            <div class="panel-heading search_tab_input">
-              <h4 class="panel-title">
-                <a data-toggle="collapse">
-                    <div class="col-md-6 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
-                      <div class="col-md-6 col-sm-12 col-xs-12">
-                        <label for="username">Origin:</label><br>
-                        <ul>
-                          <li>
-                          <i class="fa fa-map-marker" aria-hidden="true"></i></li>
-                          <li><input type="text" id="username" class="form-control" placeholder="Enter your origin" name="username"></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-6 col-sm-12 col-xs-12">
-                        <label for="username">Destination:</label>
-                        <ul>
-                          <li>
-                          <i class="fa fa-map-marker" aria-hidden="true"></i></li>
-                          <li><input type="text" id="username" class="form-control" placeholder="Enter your destination" name="username"></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="col-md-5 col-sm-6 col-xs-6 search_filed mbl_pad">
-                      <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
-                        <label for="username">Depart:</label><br>
-                          <input type="date" class="date_birth datepicker" id="birthday" name="birthday">
-                      </div>
-                      <div class="col-md-6 col-sm-12 col-xs-12">
-                        <label for="username">Return:</label><br>
-                        <input type="date" id="birthday" class="date_birth datepicker" name="birthday">
-                      </div>
-                    </div>
-                  <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
-                      <button type="submit" class="btn btn_search">Search</button>
-                  </div>
-                </a>
-              </h4>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-        </div>
-        <div class="tab-pane" id="tab2">
-          <div class="panel panel-default">
-            <div class="panel-heading search_tab_input">
-              <h4 class="panel-title">
-                <a data-toggle="collapse">
-                  <div class="col-md-6 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                      <label for="username">Origin:</label><br>
-                      <ul>
-                        <li>
-                        <i class="fa fa-map-marker" aria-hidden="true"></i></li>
-                        <li><input type="text" id="username" class="form-control" placeholder="Enter your origin" name="username"></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                      <label for="username">Destination:</label>
-                      <ul>
-                        <li>
-                        <i class="fa fa-map-marker" aria-hidden="true"></i></li>
-                        <li><input type="text" id="username" class="form-control" placeholder="Enter your destination" name="username"></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-md-5 col-sm-6 col-xs-6 search_filed mbl_pad">
-                    <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
-                      <label for="username">Depart:</label><br>
-                        <input type="date" class="date_birth" id="birthday" name="birthday">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                      <label for="username">Return:</label><br>
-                      <input type="date" id="birthday" class="date_birth" name="birthday">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                    </div>
-                  </div>
-                <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
-                    <button type="submit" class="btn btn_search">Search</button>
-                </div>
-              </a>
-              </h4>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-        </div>
-        <div class="tab-pane" id="tab3">
-          <div class="panel panel-default">
-            <div class="panel-heading search_tab_input">
-              <h4 class="panel-title">
-                <a data-toggle="collapse">
-                  <div class="col-md-6 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                      <label for="username">Origin:</label><br>
-                      <ul>
-                        <li>
-                        <i class="fa fa-map-marker" aria-hidden="true"></i></li>
-                        <li><input type="text" id="username" class="form-control" placeholder="Enter your origin" name="username"></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                      <label for="username">Destination:</label>
-                      <ul>
-                        <li>
-                        <i class="fa fa-map-marker" aria-hidden="true"></i></li>
-                        <li><input type="text" id="username" class="form-control" placeholder="Enter your destination" name="username"></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-md-5 col-sm-6 col-xs-6 search_filed mbl_pad">
-                    <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
-                      <label for="username">Depart:</label><br>
-                        <input type="date" class="date_birth" id="birthday" name="birthday">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                      <label for="username">Return:</label><br>
-                      <input type="date" id="birthday" class="date_birth" name="birthday">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                    </div>
-                  </div>
-                <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
-                    <button type="submit" class="btn btn_search">Search</button>
-                </div>
-              </a>
-              </h4>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-        </div>
-        <div class="tab-pane" id="tab4">
-          <div class="panel panel-default">
-            <div class="panel-heading search_tab_input">
-              <h4 class="panel-title">
-                <a data-toggle="collapse">
-                  <div class="col-md-6 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                      <label for="username">Origin:</label><br>
-                      <ul>
-                        <li>
-                        <i class="fa fa-map-marker" aria-hidden="true"></i></li>
-                        <li><input type="text" id="username" class="form-control" placeholder="Enter your origin" name="username"></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                      <label for="username">Destination:</label>
-                      <ul>
-                        <li>
-                        <i class="fa fa-map-marker" aria-hidden="true"></i></li>
-                        <li><input type="text" id="username" class="form-control" placeholder="Enter your destination" name="username"></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-md-5 col-sm-6 col-xs-6 search_filed mbl_pad">
-                    <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
-                      <label for="username">Depart:</label><br>
-                        <input type="date" class="date_birth" id="birthday" name="birthday">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                      <label for="username">Return:</label><br>
-                      <input type="date" id="birthday" class="date_birth" name="birthday">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                    </div>
-                  </div>
-                <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
-                    <button type="submit" class="btn btn_search">Search</button>
-                </div>
-              </a>
-              </h4>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="our_service">
-    <div class="container">
-      <div class="row">
-        <h2>Our Services</h2>
-        <div class="underline"></div>
-        <div class="col-md-4 col-sm-6">
-          <div class="our_service_content" style="background-image: url(../../../assets/home/home.jpg)">
-            <div class="overlay_service">
-              <h3>Iran Travel Insurance</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="our_service_content" style="background-image: url(../../../assets/home/home1.jpg)">
-            <div class="overlay_service overlay_bg">
-              <h3>Iran Travel Insurance</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-12">
-          <div class="our_service_content aside_service" style="background-image: url(../../../assets/home/home2.jpg)">
-            <div class="overlay_service">
-              <h3>Iran Travel Insurance</h3>
-            </div>
-          </div>
-          <div class="our_service_content aside_service mb-0" style="background-image: url(../../../assets/home/home3.jpg)">
-            <div class="overlay_service overlay_bg">
-              <h3>Iran Travel Insurance</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="trending">
-    <div class="container">
-      <div class="row">
-        <h2>Trending</h2>
-        <div class="underline"></div>
-        <div id="exTab1" class="container">	
-          <ul  class="nav nav-pills trending_tab">
-                <li class="active">
-                  <a  href="#1a" data-toggle="tab">Tour</a>
-                </li>
-                <li><a href="#2a" data-toggle="tab">Hotel</a>
-                </li>
-                <li><a href="#3a" data-toggle="tab">Activity</a>
-                </li>
-                <li><a href="#4a" data-toggle="tab">Hostel</a>
-                </li>
-                <li><a href="#4a" data-toggle="tab">Car</a>
-                </li>
-                <li><a href="#4a" data-toggle="tab">Bus</a>
-                </li>
-                <li><a href="#4a" data-toggle="tab">Flight</a>
-                </li>
-              </ul>
-                <div class="row">
-                <div class="tab-content clearfix">
-                  <div class="tab-pane active" id="1a">
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home4.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home5.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home6.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure class="nth">
-                        <img src="../../../assets/home/home7.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                  </div>
-                  <div class="tab-pane" id="2a">
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home4.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home5.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home6.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure class="nth">
-                        <img src="../../../assets/home/home7.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                  </div>
-                  <div class="tab-pane" id="3a">
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home4.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home5.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home6.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure class="nth">
-                        <img src="../../../assets/home/home7.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                  </div>
-                    <div class="tab-pane" id="4a">
-                      <div class="col-md-3 col-sm-4">
-                        <figure>
-                          <img src="../../../assets/home/home4.jpg" alt="Trulli" style="width:100%">
-                          <span class="trending-label">Featured</span>
-                          <div class="fig_content">
-                            <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-    
-                            <img src="../../../assets/icon/star.png">
-                            <img src="../../../assets/icon/star.png">
-                            <img src="../../../assets/icon/star.png">
-                            <img src="../../../assets/icon/star.png">
-                            <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                          </div>
-                        </figure>
-                      </div>
-                      <div class="col-md-3 col-sm-4">
-                        <figure>
-                          <img src="../../../assets/home/home5.jpg" alt="Trulli" style="width:100%">
-                          <span class="trending-label">Featured</span>
-                          <div class="fig_content">
-                            <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-    
-                            <img src="../../../assets/icon/star.png">
-                            <img src="../../../assets/icon/star.png">
-                            <img src="../../../assets/icon/star.png">
-                            <img src="../../../assets/icon/star.png">
-                            <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                          </div>
-                        </figure>
-                      </div>
-                      <div class="col-md-3 col-sm-4">
-                        <figure>
-                          <img src="../../../assets/home/home6.jpg" alt="Trulli" style="width:100%">
-                          <span class="trending-label">Featured</span>
-                          <div class="fig_content">
-                            <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-    
-                            <img src="../../../assets/icon/star.png">
-                            <img src="../../../assets/icon/star.png">
-                            <img src="../../../assets/icon/star.png">
-                            <img src="../../../assets/icon/star.png">
-                            <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                          </div>
-                        </figure>
-                      </div>
-                      <div class="col-md-3 col-sm-4">
-                        <figure class="nth">
-                          <img src="../../../assets/home/home7.jpg" alt="Trulli" style="width:100%">
-                          <span class="trending-label">Featured</span>
-                          <div class="fig_content">
-                            <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-    
-                            <img src="../../../assets/icon/star.png">
-                            <img src="../../../assets/icon/star.png">
-                            <img src="../../../assets/icon/star.png">
-                            <img src="../../../assets/icon/star.png">
-                            <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                          </div>
-                        </figure>
-                      </div>
-                    </div>
-                </div>
-            </div>
-          </div>
-      </div>
-    </div>
-  </section>
-  <section class="top_destination">
-    <div class="container">
-      <div class="row">
-        <h2>Top Destination</h2>
-        <div class="underline"></div>
-        <div class="col-md-4 col-sm-4">
-          <div class="top_destination_content" style="background-image: url(../../../assets/home/home2.jpg)">
-            <div class="overlay_top_destination">
-              <h3>Tehran</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-4">
-          <div class="top_destination_content" style="background-image: url(../../../assets/home/home3.jpg)">
-            <div class="overlay_top_destination">
-              <h3>Isfashan</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-4">
-          <div class="top_destination_content" style="background-image: url(../../../assets/home/home1.jpg)">
-            <div class="overlay_top_destination">
-              <h3>Shiraz</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-4">
-          <div class="top_destination_content" style="background-image: url(../../../assets/home/home.jpg)">
-            <div class="overlay_top_destination">
-              <h3>Tehran</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-4">
-          <div class="top_destination_content" style="background-image: url(../../../assets/home/home6.jpg)">
-            <div class="overlay_top_destination">
-              <h3>Isfashan</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-4">
-          <div class="top_destination_content nth" style="background-image: url(../../../assets/home/home5.jpg)">
-            <div class="overlay_top_destination">
-              <h3>Shiraz</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="our_project">
-    <div class="container">
-      <div class="row">
-        <h2>Our Project</h2>
-        <div class="underline"></div>
-        <div class="col-md-6 col-sm-6">
-          <div class="our_project_content" style="background-image: url(../../../assets/home/home7.jpg)">
-            <div class="overlay_our_project">
-              <h3><a [routerLink]="'/empoweringwomen'">Empowering Women</a></h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-          <div class="our_project_content nth" style="background-image: url(../../../assets/home/home6.jpg)">
-            <div class="overlay_our_project">
-              <h3><a [routerLink]="'/environmentalprotection'">Environmental Protection</a></h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="why_travel">
-    <div class="container">
-      <div class="row">
-        <h2>Why Travel With Us</h2>
-        <div class="underline"></div>
-        <div class="col-md-3 col-sm-3">
-          <div class="why_content">
-            <img src="../../../assets/icon/profile.png">
-            <p>We are a women-run company based in South
-              Iran but operating all over the country. </p>
-          </div>
-         </div>
-         <div class="col-md-3 col-sm-3">
-          <div class="why_content">
-            <img src="../../../assets/icon/profile.png">
-            <p>We are a women-run company based in South
-              Iran but operating all over the country. </p>
-          </div>
-         </div>
-         <div class="col-md-3 col-sm-3">
-          <div class="why_content">
-            <img src="../../../assets/icon/profile.png">
-            <p>We are a women-run company based in South
-              Iran but operating all over the country. </p>
-          </div>
-         </div>
-         <div class="col-md-3 col-sm-3">
-          <div class="why_content">
-            <img src="../../../assets/icon/profile.png">
-            <p>We are a women-run company based in South
-              Iran but operating all over the country. </p>
-          </div>
-         </div>
-      </div>
-    </div>
-  </section>
-  
-  <section class="testimonial_main" style="background-image: url('../../../assets/back_ground.jpg');">
-    <div class="overlay_testimonial">
-      <div class="container">
-        <h2>Recent Reviews</h2>
-        <div class="underline"></div>
-        <div class="slideset">
-          <div>
-            <figure class="testimonial">
-              <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                <div class="arrow"></div>
-              </blockquote>
-              <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
-              <div class="author">
-                <h5>Maksim Goffin</h5>
-                <p class="th-margin-remove">Graphic Designer</p>
-              </div>
-            </figure>
-          </div>
-          <div>
-            <figure class="testimonial">
-              <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                <div class="arrow"></div>
-              </blockquote>
-              <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
-              <div class="author">
-                <h5>Maksim Goffin</h5>
-                <p class="th-margin-remove">Graphic Designer</p>
-              </div>
-            </figure>
-          </div>
-          <div>
-            <figure class="testimonial">
-              <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                <div class="arrow"></div>
-              </blockquote>
-              <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
-              <div class="author">
-                <h5>Maksim Goffin</h5>
-                <p class="th-margin-remove">Graphic Designer</p>
-              </div>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
+</section>
+<section class="search_tab">
+  <div class="container">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#tab1" data-toggle="tab">Hotel</a></li>
+      <li><a href="#tab2" data-toggle="tab">Flight</a></li>
+      <li><a href="#tab3" data-toggle="tab">Tour</a></li>
+      <li><a href="#tab4" data-toggle="tab">Room</a></li>
+      <li><a href="#tab4" data-toggle="tab">Car</a></li>
+      <li><a href="#tab4" data-toggle="tab">Bus</a></li>
+      <li><a href="#tab4" data-toggle="tab">Transfer</a></li>
+    </ul>
 
-  
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab1">
+        <div class="panel panel-default">
+          <div class="panel-heading search_tab_input">
+            <h4 class="panel-title">
+              <a data-toggle="collapse">
+                <div class="col-md-6 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <label for="username">Origin:</label><br>
+                    <ul>
+                      <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i></li>
+                      <li><input type="text" id="username" class="form-control" placeholder="Enter your origin"
+                          name="username"></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <label for="username">Destination:</label>
+                    <ul>
+                      <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i></li>
+                      <li><input type="text" id="username" class="form-control" placeholder="Enter your destination"
+                          name="username"></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-5 col-sm-6 col-xs-6 search_filed mbl_pad">
+                  <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
+                    <label for="username">Depart:</label><br>
+                    <!-- <input type="date" class="date_birth datepicker" id="birthday" name="birthday">   -->
+                    <p-calendar [(ngModel)]="originDate" [showIcon]="true"></p-calendar>
+                  </div>
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <label for="username">Return:</label><br>
+                    <!-- <input type="date" id="birthday" class="date_birth datepicker" name="birthday"> -->
+                    <p-calendar [(ngModel)]="destinatiion" [showIcon]="true"></p-calendar>
+
+                  </div>
+                </div>
+                <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
+                  <button type="submit" class="btn btn_search">Search</button>
+                </div>
+              </a>
+            </h4>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab2">
+        <div class="panel panel-default">
+          <div class="panel-heading search_tab_input">
+            <h4 class="panel-title">
+              <a data-toggle="collapse">
+                <div class="col-md-6 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <label for="username">Origin:</label><br>
+                    <ul>
+                      <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i></li>
+                      <li><input type="text" id="username" class="form-control" placeholder="Enter your origin"
+                          name="username"></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <label for="username">Destination:</label>
+                    <ul>
+                      <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i></li>
+                      <li><input type="text" id="username" class="form-control" placeholder="Enter your destination"
+                          name="username"></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-5 col-sm-6 col-xs-6 search_filed mbl_pad">
+                  <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
+                    <label for="username">Depart:</label><br>
+                    <input type="date" class="date_birth" id="birthday" name="birthday">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <label for="username">Return:</label><br>
+                    <input type="date" id="birthday" class="date_birth" name="birthday">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                </div>
+                <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
+                  <button type="submit" class="btn btn_search">Search</button>
+                </div>
+              </a>
+            </h4>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab3">
+        <div class="panel panel-default">
+          <div class="panel-heading search_tab_input">
+            <h4 class="panel-title">
+              <a data-toggle="collapse">
+                <div class="col-md-6 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <label for="username">Origin:</label><br>
+                    <ul>
+                      <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i></li>
+                      <li><input type="text" id="username" class="form-control" placeholder="Enter your origin"
+                          name="username"></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <label for="username">Destination:</label>
+                    <ul>
+                      <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i></li>
+                      <li><input type="text" id="username" class="form-control" placeholder="Enter your destination"
+                          name="username"></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-5 col-sm-6 col-xs-6 search_filed mbl_pad">
+                  <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
+                    <label for="username">Depart:</label><br>
+                    <input type="date" class="date_birth" id="birthday" name="birthday">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <label for="username">Return:</label><br>
+                    <input type="date" id="birthday" class="date_birth" name="birthday">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                </div>
+                <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
+                  <button type="submit" class="btn btn_search">Search</button>
+                </div>
+              </a>
+            </h4>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab4">
+        <div class="panel panel-default">
+          <div class="panel-heading search_tab_input">
+            <h4 class="panel-title">
+              <a data-toggle="collapse">
+                <div class="col-md-6 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <label for="username">Origin:</label><br>
+                    <ul>
+                      <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i></li>
+                      <li><input type="text" id="username" class="form-control" placeholder="Enter your origin"
+                          name="username"></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <label for="username">Destination:</label>
+                    <ul>
+                      <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i></li>
+                      <li><input type="text" id="username" class="form-control" placeholder="Enter your destination"
+                          name="username"></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-5 col-sm-6 col-xs-6 search_filed mbl_pad">
+                  <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
+                    <label for="username">Depart:</label><br>
+                    <input type="date" class="date_birth" id="birthday" name="birthday">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <label for="username">Return:</label><br>
+                    <input type="date" id="birthday" class="date_birth" name="birthday">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                </div>
+                <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
+                  <button type="submit" class="btn btn_search">Search</button>
+                </div>
+              </a>
+            </h4>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="our_service">
+  <div class="container">
+    <div class="row">
+      <h2>Our Services</h2>
+      <div class="underline"></div>
+      <div class="col-md-4 col-sm-6">
+        <div class="our_service_content" style="background-image: url(../../../assets/home/home.jpg)">
+          <div class="overlay_service">
+            <h3>Iran Travel Insurance</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="our_service_content" style="background-image: url(../../../assets/home/home1.jpg)">
+          <div class="overlay_service overlay_bg">
+            <h3>Iran Travel Insurance</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="our_service_content aside_service" style="background-image: url(../../../assets/home/home2.jpg)">
+          <div class="overlay_service">
+            <h3>Iran Travel Insurance</h3>
+          </div>
+        </div>
+        <div class="our_service_content aside_service mb-0"
+          style="background-image: url(../../../assets/home/home3.jpg)">
+          <div class="overlay_service overlay_bg">
+            <h3>Iran Travel Insurance</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="trending">
+  <div class="container">
+    <div class="row">
+      <h2>Trending</h2>
+      <div class="underline"></div>
+      <div id="exTab1" class="container">
+        <ul class="nav nav-pills trending_tab">
+          <li class="active">
+            <a href="#1a" data-toggle="tab">Tour</a>
+          </li>
+          <li><a href="#2a" data-toggle="tab">Hotel</a>
+          </li>
+          <li><a href="#3a" data-toggle="tab">Activity</a>
+          </li>
+          <li><a href="#4a" data-toggle="tab">Hostel</a>
+          </li>
+          <li><a href="#4a" data-toggle="tab">Car</a>
+          </li>
+          <li><a href="#4a" data-toggle="tab">Bus</a>
+          </li>
+          <li><a href="#4a" data-toggle="tab">Flight</a>
+          </li>
+        </ul>
+        <div class="row">
+          <div class="tab-content clearfix">
+            <div class="tab-pane active" id="1a">
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home4.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home5.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home6.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure class="nth">
+                  <img src="../../../assets/home/home7.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+            </div>
+            <div class="tab-pane" id="2a">
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home4.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home5.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home6.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure class="nth">
+                  <img src="../../../assets/home/home7.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+            </div>
+            <div class="tab-pane" id="3a">
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home4.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home5.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home6.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure class="nth">
+                  <img src="../../../assets/home/home7.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+            </div>
+            <div class="tab-pane" id="4a">
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home4.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home5.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home6.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure class="nth">
+                  <img src="../../../assets/home/home7.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="top_destination">
+  <div class="container">
+    <div class="row">
+      <h2>Top Destination</h2>
+      <div class="underline"></div>
+      <div class="col-md-4 col-sm-4">
+        <div class="top_destination_content" style="background-image: url(../../../assets/home/home2.jpg)">
+          <div class="overlay_top_destination">
+            <h3>Tehran</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="top_destination_content" style="background-image: url(../../../assets/home/home3.jpg)">
+          <div class="overlay_top_destination">
+            <h3>Isfashan</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="top_destination_content" style="background-image: url(../../../assets/home/home1.jpg)">
+          <div class="overlay_top_destination">
+            <h3>Shiraz</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="top_destination_content" style="background-image: url(../../../assets/home/home.jpg)">
+          <div class="overlay_top_destination">
+            <h3>Tehran</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="top_destination_content" style="background-image: url(../../../assets/home/home6.jpg)">
+          <div class="overlay_top_destination">
+            <h3>Isfashan</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="top_destination_content nth" style="background-image: url(../../../assets/home/home5.jpg)">
+          <div class="overlay_top_destination">
+            <h3>Shiraz</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="our_project">
+  <div class="container">
+    <div class="row">
+      <h2>Our Project</h2>
+      <div class="underline"></div>
+      <div class="col-md-6 col-sm-6">
+        <div class="our_project_content" style="background-image: url(../../../assets/home/home7.jpg)">
+          <div class="overlay_our_project">
+            <h3><a [routerLink]="'/empoweringwomen'">Empowering Women</a></h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <div class="our_project_content nth" style="background-image: url(../../../assets/home/home6.jpg)">
+          <div class="overlay_our_project">
+            <h3><a [routerLink]="'/environmentalprotection'">Environmental Protection</a></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="why_travel">
+  <div class="container">
+    <div class="row">
+      <h2>Why Travel With Us</h2>
+      <div class="underline"></div>
+      <div class="col-md-3 col-sm-3">
+        <div class="why_content">
+          <img src="../../../assets/icon/profile.png">
+          <p>We are a women-run company based in South
+            Iran but operating all over the country. </p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-3">
+        <div class="why_content">
+          <img src="../../../assets/icon/profile.png">
+          <p>We are a women-run company based in South
+            Iran but operating all over the country. </p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-3">
+        <div class="why_content">
+          <img src="../../../assets/icon/profile.png">
+          <p>We are a women-run company based in South
+            Iran but operating all over the country. </p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-3">
+        <div class="why_content">
+          <img src="../../../assets/icon/profile.png">
+          <p>We are a women-run company based in South
+            Iran but operating all over the country. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial_main" style="background-image: url('../../../assets/back_ground.jpg');">
+  <div class="overlay_testimonial">
+    <div class="container">
+      <h2>Recent Reviews</h2>
+      <div class="underline"></div>
+      <div class="slideset">
+        <div>
+          <figure class="testimonial">
+            <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur.
+              <div class="arrow"></div>
+            </blockquote>
+            <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
+            <div class="author">
+              <h5>Maksim Goffin</h5>
+              <p class="th-margin-remove">Graphic Designer</p>
+            </div>
+          </figure>
+        </div>
+        <div>
+          <figure class="testimonial">
+            <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur.
+              <div class="arrow"></div>
+            </blockquote>
+            <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
+            <div class="author">
+              <h5>Maksim Goffin</h5>
+              <p class="th-margin-remove">Graphic Designer</p>
+            </div>
+          </figure>
+        </div>
+        <div>
+          <figure class="testimonial">
+            <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur.
+              <div class="arrow"></div>
+            </blockquote>
+            <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
+            <div class="author">
+              <h5>Maksim Goffin</h5>
+              <p class="th-margin-remove">Graphic Designer</p>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

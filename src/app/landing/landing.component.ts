@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 declare var $: any;
 
@@ -7,12 +8,18 @@ declare var $: any;
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-  constructor() { }
+
+  originDate: Date;
+  destinationDate: Date;
+
+  constructor(private http: HttpClient) {
+
+  }
 
   ngOnInit(): void {
 
     $(document).ready(function () {
-      
+
       $('.slideset').slick({
         slidesToShow: 2,
         autoplay: true,
@@ -24,17 +31,17 @@ export class LandingComponent implements OnInit {
             slidesToShow: 1,
             slidesToScroll: 1,
             infinite: false,
-          } 
+          }
         }]
-        
+
       });
-      $(document).ready(function(){
-        $("#forgetpassbtn").click(function(){
+      $(document).ready(function () {
+        $("#forgetpassbtn").click(function () {
           $("#loginmodale").hide();
           $("#forgetpass").show();
         });
       });
     });
+
   }
-  
 }

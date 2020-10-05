@@ -14,8 +14,8 @@ export class CarComponent implements OnInit {
     window.scroll(0,0);
    }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void { 
+ 
     $(document).ready(function () {
       $('.slider').slick({
         dots: false,
@@ -71,6 +71,6 @@ export class CarComponent implements OnInit {
         
       });
     });
-  }
+  } 
 
 }

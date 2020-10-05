@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'; 
+
 declare var $: any;
 
 @Component({
@@ -7,7 +8,7 @@ declare var $: any;
   styleUrls: ['./hotel.component.css']
 })
 export class HotelComponent implements OnInit {
-  
+   
 
   constructor() { 
     window.scroll(0,0);
@@ -70,6 +71,7 @@ export class HotelComponent implements OnInit {
         
       });
     });
-  }
+   
+  } 
 
 }

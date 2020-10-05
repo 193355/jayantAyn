@@ -1,4 +1,12 @@
 /* nav section start here */
+
+/* Form Validation CSS */
+.form-control-validation {
+    color: red;
+    font-size:14px;
+    /* font-family: serif !important;     */
+}
+
 .top_right ul li img {
     margin-bottom: 3px;
 }
