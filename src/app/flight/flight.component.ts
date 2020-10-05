@@ -1,4 +1,5 @@
 import { MapsAPILoader } from '@agm/core';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ElementRef, NgZone, ViewChild } from '@angular/core';
 
 @Component({
@@ -14,16 +15,19 @@ export class FlightComponent implements OnInit {
   zoom:number;
   address: string;
   private geoCoder;
-
+  hotels:any = [];
   @ViewChild('search',{static: true})
   
   public searchElementRef: ElementRef;
   public searchElementRef1: ElementRef;
-  constructor(private mapsAPILoader: MapsAPILoader,private ngZone: NgZone) {
+
+  constructor(private mapsAPILoader: MapsAPILoader,private ngZone: NgZone,private http: HttpClient) {
     window.scroll(0,0);
    }
    
+   
   ngOnInit(): void {
+    this.getHotels();
     this.setCurrentLocation();
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
@@ -88,4 +92,13 @@ export class FlightComponent implements OnInit {
   }
   
 
+
+  getHotels(){
+    debugger
+    return this.http.get("https://fake-hotel-api.herokuapp.com/api/hotels")
+    .subscribe(data =>{
+          this.hotels = data;
+          console.log(this.hotels); 
+    })
+  }
 }

@@ -2,6 +2,7 @@ import { MapsAPILoader } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit,ElementRef, NgZone, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 declare var $: any;
 @Component({
   selector: 'app-hotel',
@@ -17,15 +18,23 @@ export class HotelComponent implements OnInit {
   private geoCoder;
   hotels:any = [];
 
+  isReadonly: boolean = true;
+  private rate:number = 3;
+
   @ViewChild('search',{static: true})
 
   public searchElementRef: ElementRef;
-  constructor(private http: HttpClient,private mapsAPILoader: MapsAPILoader,private ngZone: NgZone,private fb: FormBuilder) { 
+  constructor(private http: HttpClient,private mapsAPILoader: MapsAPILoader,private ngZone: 
+    NgZone,private fb: FormBuilder) { 
+      this.form = this.fb.group({
+        rating: ['', Validators.required],
+      })
     window.scroll(0,0);  
     this.form = this.fb.group({
       rating : ['',Validators.required]
     })
   }
+
 
   ngOnInit(): void {
     this.getHotels();
@@ -132,18 +141,15 @@ export class HotelComponent implements OnInit {
       } else {
         window.alert('Geocoder failed due to: ' + status);
       }
-
     });
   }
-  
 
+  
   getHotels(){
-    debugger
     return this.http.get("https://fake-hotel-api.herokuapp.com/api/hotels")
     .subscribe(data =>{
           this.hotels = data;
           console.log(this.hotels); 
     })
   }
-
 }

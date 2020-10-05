@@ -1,87 +1,120 @@
 <section>
-    <div class="banner"  width="100%">
-      <div class="banner_overlay">
-        <div class="container">
-          <div class="content_bann">
-            <!-- <h2>About Us</h2>
+  <div class="banner" width="100%">
+    <div class="banner_overlay">
+      <div class="container">
+        <div class="content_bann">
+          <!-- <h2>About Us</h2>
             <p><a href="#">Home</a> > <a href="#">About Us</a></p> -->
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <div class="search_box_section">
-    <div class="container">
-      <div class="searchbox row">
-        <div class="col-md-3 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <label for="username">Destination:</label><br>
-            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your origin" name="username" (keydown.enter)="$event.preventDefault()" #search></i>  
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-6 search_filed mbl_pad">
-          <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
-            <label for="username">Check out</label><br>
-              <input type="date" class="date_birth datepicker" id="birthday" name="birthday">
-          </div>
-
-          <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
-            <label for="username">Check out</label><br>
-              <input type="date" class="date_birth datepicker" id="birthday" name="birthday">
-          </div>
-          
-        </div>
-        <div class="col-md-2 col-sm-12 col-xs-12 search_filed ">
-    <label for="username">Guest</label><br>
-    <select class="browser-default custom-select">
-      <option selected>1</option>
-      <option value="1">2</option>
-      <option value="2">3</option>
-      <option value="3">4</option>
-    </select>
-        </div>
-      <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
-        <button type="submit" class="btn btn_search">Search</button>
-    </div>
       </div>
     </div>
   </div>
-  <section class="trending">
-    <div class="container">
-      <div class="row">
-        <h2>Accommodations Iran Hotel</h2>
-        <div class="underline"></div>
-        <div id="exTab1" class="container">	
-             <ul class="nav nav-pills trending_tab">
-                <li class="active">
-                  <a  href="#1a" data-toggle="tab">Hotel Appartment</a>
-                </li>
-                <li><a href="#2a" data-toggle="tab">Traditional Hotel</a>
-                </li>
-                <li><a href="#3a" data-toggle="tab">Eco Tourism Resort</a>
-                </li>
-              </ul>
-                <div class="row">
-                <div class="tab-content clearfix">
-                  <div class="tab-pane active" id="1a" *ngFor="let hotel of hotels | paginate:{itemsPerPage: 4, currentPage:p}">
-                    <div class="col-md-3 col-sm-3" >
-                      <figure>
-                        <img [src]="hotel.images" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h4><i class="fa fa-map-marker" aria-hidden="true"></i> {{hotel.name}}</h4>
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+</section>
+<div class="search_box_section">
+  <div class="container">
+    <div class="searchbox row">
+      <div class="col-md-3 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <label for="username">Destination:</label><br>
+          <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username"
+              class="form-control custome_control" placeholder="Enter your origin" name="username"
+              (keydown.enter)="$event.preventDefault()" #search></i>
+        </div>
+      </div>
 
-                        </div>
-                      </figure>
+      <div class="col-md-6 col-sm-6 col-xs-6 search_filed mbl_pad">
+        <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
+          <label for="username">Check In</label><br>
+          <input type="date" class="date_birth datepicker" id="birthday" name="birthday">
+        </div>
+
+        <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
+          <label for="username">Check out</label><br>
+          <input type="date" class="date_birth datepicker" id="birthday" name="birthday">
+        </div>
+
+      </div>
+
+      <div class="col-md-2 col-sm-12 col-xs-12 search_filed ">
+        <label for="username">Guest</label><br>
+        <select class="browser-default custom-select">
+          <option selected>1</option>
+          <option value="1">2</option>
+          <option value="2">3</option>
+          <option value="3">4</option>
+        </select>
+      </div>
+
+      <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
+        <button type="submit" class="btn btn_search">Search</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<section class="trending">
+  <div class="container">
+    <div class="row">
+      <h2>Accommodations Iran Hotel</h2>
+      <div class="underline"></div>
+      <div id="exTab1" class="container">
+        <ul class="nav nav-pills trending_tab">
+          <li class="active">
+            <a href="#1a" data-toggle="tab">Hotel Appartment</a>
+          </li>
+          <li><a href="#2a" data-toggle="tab">Traditional Hotel</a>
+          </li>
+          <li><a href="#3a" data-toggle="tab">Eco Tourism Resort</a>
+          </li>
+        </ul>
+        <div class="row">
+          <div class="tab-content clearfix">
+            <div class="tab-pane active" id="1a"
+              *ngFor="let hotel of hotels | paginate:{itemsPerPage: 4, currentPage:p}">
+              <div class="col-md-3 col-sm-3">
+                <figure>
+                  <img [src]="hotel.images" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h4><i class="fa fa-hotel" aria-hidden="true"></i> {{hotel.name}}</h4>
+                    <h4><i class="fa fa-map-marker" aria-hidden="true"></i> {{hotel.country}}</h4>
+                    <div *ngIf="hotel.stars == 1">
+                      <ngx-stars [readonly]="true" [size]="1" [initialStars]="1" [readonly]="true" [customStarIcons]="heartIcons" [color]="'#FDCC0D'">
+                        {{hotel.stars}}
+                      </ngx-stars>
+                    </div>
+
+                    <div *ngIf="hotel.stars == 2">
+                      <ngx-stars [readonly]="true" [size]="1" [initialStars]="2" [readonly]="true" [customStarIcons]="heartIcons"
+                        [color]="'#FDCC0D'">{{hotel.stars}}
+                      </ngx-stars>
+                    </div>
+
+                    <div *ngIf="hotel.stars == 3">
+                      <ngx-stars [readonly]="true" [size]="1" [initialStars]="3" [readonly]="true" [customStarIcons]="heartIcons"
+                        [color]="'#FDCC0D'">{{hotel.stars}}
+                      </ngx-stars>
+                    </div>
+
+                    <div *ngIf="hotel.stars == 4">
+                      <ngx-stars [readonly]="true" [size]="1" [initialStars]="4" [readonly]="true" [customStarIcons]="heartIcons"
+                        [color]="'#FDCC0D'">{{hotel.stars}}
+                      </ngx-stars>
+                    </div>
+
+                    <div *ngIf="hotel.stars == 5">
+                      <ngx-stars [readonly]="true" [size]="1" [initialStars]="5" [readonly]="true" [customStarIcons]="heartIcons"
+                        [color]="'#FDCC0D'">{{hotel.stars}}
+                      </ngx-stars>
                     </div>
 
 
-                    <!-- <div class="col-md-3 col-sm-4">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Price <strong>{{hotel.price}}</strong></h4>
+                  </div>
+                </figure>
+              </div>
+
+              <!-- <div class="col-md-3 col-sm-4">
                       <figure>
                         <img src="../../../assets/home/home5.jpg" alt="Trulli" style="width:100%">
                         <span class="trending-label">Featured</span>
@@ -129,143 +162,142 @@
                       </figure>
                     </div> -->
 
-                  </div>
-                  <div class="tab-pane" id="2a">
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home4.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home5.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home6.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure class="nth">
-                        <img src="../../../assets/home/home7.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                  </div>
-                  <div class="tab-pane" id="3a">
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home4.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home5.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure>
-                        <img src="../../../assets/home/home6.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                      <figure class="nth">
-                        <img src="../../../assets/home/home7.jpg" alt="Trulli" style="width:100%">
-                        <span class="trending-label">Featured</span>
-                        <div class="fig_content">
-                          <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
-  
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <img src="../../../assets/icon/star.png">
-                          <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
-                        </div>
-                      </figure>
-                    </div>
-                  </div>
-                    
-                </div>
             </div>
-            <br>
-            <br>
-            <pagination-controls (pageChange)="p=$event"></pagination-controls>
+            <div class="tab-pane" id="2a">
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home4.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home5.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home6.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure class="nth">
+                  <img src="../../../assets/home/home7.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+            </div>
+            <div class="tab-pane" id="3a">
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home4.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home5.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure>
+                  <img src="../../../assets/home/home6.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <figure class="nth">
+                  <img src="../../../assets/home/home7.jpg" alt="Trulli" style="width:100%">
+                  <span class="trending-label">Featured</span>
+                  <div class="fig_content">
+                    <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Tehran</h3>
+
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <img src="../../../assets/icon/star.png">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4>
+                  </div>
+                </figure>
+              </div>
+            </div>
+
           </div>
+        </div>
+        <br>
+        <br>
+        <pagination-controls (pageChange)="p=$event"></pagination-controls>
       </div>
     </div>
-  </section>
-  <section class="about_slide">
-    <div class="about_slide_overlay">
+  </div>
+</section>
+<section class="about_slide">
+  <div class="about_slide_overlay">
     <div class="container">
       <h2 class="text-center">Top Most Visited Hotels</h2>
       <div class="underline"></div>
@@ -278,13 +310,14 @@
               <h4>Pasin Traditional Hotel</h4>
               <div class="revive_star">
                 <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star uncheked"></span>
-              <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star uncheked"></span>
+                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
               </div>
+
               <h5>from <span class="cust_color">12.3/day</span></h5>
-              
+
             </div>
           </div>
         </div>
@@ -296,13 +329,13 @@
               <h4>Homayouni House</h4>
               <div class="revive_star">
                 <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star uncheked"></span>
-              <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star uncheked"></span>
+                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
               </div>
               <h5>from <span class="cust_color">12.3/day</span></h5>
-              
+
             </div>
           </div>
         </div>
@@ -314,13 +347,13 @@
               <h4>Yazd Hostel Restup</h4>
               <div class="revive_star">
                 <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star uncheked"></span>
-              <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star uncheked"></span>
+                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
               </div>
               <h5>from <span class="cust_color">12.3/day</span></h5>
-              
+
             </div>
           </div>
         </div>
@@ -332,70 +365,70 @@
               <h4>Iran Cozy Hostel</h4>
               <div class="revive_star">
                 <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star uncheked"></span>
-              <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star uncheked"></span>
+                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
               </div>
               <h5>from <span class="cust_color">12.3/day</span></h5>
-              
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  </section>
-  <section class="luxury_we_provide">
-      <div class='container'>
-          <h2 class="text-center">Luxury We Provide</h2>
-          <div class="underline"></div>
-          <div class="row">
-          <div class="col-md-12">
-              <div class="pool_img">
-                <div class="pool" style="background-image: url(../../assets/hotel/private_pool.jpg)">
-                    <div class="bottom-left">
-                        <h3>Private Pool Suite</h3>
-                    </div>      
-              </div>
+</section>
+<section class="luxury_we_provide">
+  <div class='container'>
+    <h2 class="text-center">Luxury We Provide</h2>
+    <div class="underline"></div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="pool_img">
+          <div class="pool" style="background-image: url(../../assets/hotel/private_pool.jpg)">
+            <div class="bottom-left">
+              <h3>Private Pool Suite</h3>
+            </div>
           </div>
         </div>
+      </div>
     </div>
-        <div class="row">
-            <div class="col-md-8">
-                <div class="sea_view_img">
-                    <div class="sea_view" style="background-image: url(../../assets/hotel/sea_view_site.jpg)">
-                      
-                        <div class="bottom-left">
-                          <div class="row"></div>
-                            <h3>Sea View Site</h3>
-                        </div> 
-                  </div>
-              </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="sea_view_img">
+          <div class="sea_view" style="background-image: url(../../assets/hotel/sea_view_site.jpg)">
+
+            <div class="bottom-left">
+              <div class="row"></div>
+              <h3>Sea View Site</h3>
             </div>
-            <div class="col-md-4">
-                <div class="spa_img">
-                    <div class="spa" style="background-image: url(../../assets/hotel/spa.jpg)">
-                        <div class="bottom-left">
-                            <h3>Spa</h3>
-                        </div>      
-                  </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-                <div class="restaurant_img">
-                    <div class="restaurant" style="background-image: url(../../assets/hotel/restaurant.jpg)">
-                        <div class="bottom-left ">
-                            <h3>Restaurant</h3>
-                        </div>      
-                  </div>
-              </div>
-            </div>
+          </div>
         </div>
       </div>
-  </section>
-  <section class="about_slide">
-    <div class="about_slide_overlay">
+      <div class="col-md-4">
+        <div class="spa_img">
+          <div class="spa" style="background-image: url(../../assets/hotel/spa.jpg)">
+            <div class="bottom-left">
+              <h3>Spa</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="restaurant_img">
+          <div class="restaurant" style="background-image: url(../../assets/hotel/restaurant.jpg)">
+            <div class="bottom-left ">
+              <h3>Restaurant</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="about_slide">
+  <div class="about_slide_overlay">
     <div class="container">
       <h2 class="text-center">Latest Discount Hotel</h2>
       <div class="underline"></div>
@@ -412,13 +445,13 @@
               </div>
               <div class="revive_star">
                 <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star uncheked"></span>
-              <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star uncheked"></span>
+                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
               </div>
               <h5>Our Lowest Price <span class="cust_color">$605</span></h5>
-              
+
             </div>
           </div>
         </div>
@@ -434,13 +467,13 @@
               </div>
               <div class="revive_star">
                 <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star uncheked"></span>
-              <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star uncheked"></span>
+                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
               </div>
               <h5>Our Lowest Price <span class="cust_color">$1205</span></h5>
-              
+
             </div>
           </div>
         </div>
@@ -456,13 +489,13 @@
               </div>
               <div class="revive_star">
                 <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star uncheked"></span>
-              <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star uncheked"></span>
+                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
               </div>
               <h5>Our Lowest Price <span class="cust_color">$220</span></h5>
-              
+
             </div>
           </div>
         </div>
@@ -478,61 +511,70 @@
               </div>
               <div class="revive_star">
                 <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star uncheked"></span>
-              <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star uncheked"></span>
+                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
               </div>
               <h5>Our Lowest Price <span class="cust_color">$65</span></h5>
-              
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  </section>
+</section>
 <section class="testimonial_main">
-      <div class="container">
-        <h2 class="text-center">Recent Reviews</h2>
-        <div class="underline"></div>
-        <div class="slideset">
-          <div>
-            <figure class="testimonial">
-              <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                <div class="arrow"></div>
-              </blockquote>
-              <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
-              <div class="author">
-                <h5>Maksim Goffin</h5>
-                <p class="th-margin-remove">Graphic Designer</p>
-              </div>
-            </figure>
+  <div class="container">
+    <h2 class="text-center">Recent Reviews</h2>
+    <div class="underline"></div>
+    <div class="slideset">
+      <div>
+        <figure class="testimonial">
+          <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+            dolore eu fugiat nulla pariatur.
+            <div class="arrow"></div>
+          </blockquote>
+          <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
+          <div class="author">
+            <h5>Maksim Goffin</h5>
+            <p class="th-margin-remove">Graphic Designer</p>
           </div>
-          <div>
-            <figure class="testimonial">
-              <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                <div class="arrow"></div>
-              </blockquote>
-              <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
-              <div class="author">
-                <h5>Maksim Goffin</h5>
-                <p class="th-margin-remove">Graphic Designer</p>
-              </div>
-            </figure>
-          </div>
-          <div>
-            <figure class="testimonial">
-              <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                <div class="arrow"></div>
-              </blockquote>
-              <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
-              <div class="author">
-                <h5>Maksim Goffin</h5>
-                <p class="th-margin-remove">Graphic Designer</p>
-              </div>
-            </figure>
-          </div>
-        </div>
+        </figure>
       </div>
-  </section>
+      <div>
+        <figure class="testimonial">
+          <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+            dolore eu fugiat nulla pariatur.
+            <div class="arrow"></div>
+          </blockquote>
+          <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
+          <div class="author">
+            <h5>Maksim Goffin</h5>
+            <p class="th-margin-remove">Graphic Designer</p>
+          </div>
+        </figure>
+      </div>
+      <div>
+        <figure class="testimonial">
+          <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+            dolore eu fugiat nulla pariatur.
+            <div class="arrow"></div>
+          </blockquote>
+          <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
+          <div class="author">
+            <h5>Maksim Goffin</h5>
+            <p class="th-margin-remove">Graphic Designer</p>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>

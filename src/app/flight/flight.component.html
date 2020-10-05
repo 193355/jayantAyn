@@ -193,15 +193,16 @@
   <!-- latest iron domastic flight deals -->
 
 
-  <div class="domastic_flight_section">
-      <div class="container">
+  <div class="domastic_flight_section" >
+      <div class="container" >
         <div class="col-md-12 text-center" style="margin-bottom: 30px;">
           <span class="domastic_flight_deal_title">Latest Iran Domastic Flight Deals</span>
         </div>
       </div>
       <div class="container">
+        <div *ngFor="let fl of hotels"> 
             <div class="col-md-4 col-sm-6">
-                <div class="iron_flight">
+                <div class="iron_flight" >
                     <div style="background-image:url('../../../assets/about_iran/flight_banner.jpg'); height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
                       <div class="deals_details">
                         <div class="flight_head">
@@ -211,7 +212,7 @@
                     </div>
                     <div class="side_d"></div>
                     <div class="flight_deal">
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran {{fl.name}}<span class="pull-right"><span>$</span></span></p>
                         <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
                         <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
                         <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
@@ -223,7 +224,8 @@
                     <div class="side_bottom"></div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6">
+        </div>
+            <!-- <div class="col-md-4 col-sm-6">
                 <div class="iron_flight">
                   <div style="background-image:url('../../../assets/about_iran/flight_banner.jpg'); height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
                     <div class="deals_details">
@@ -337,7 +339,7 @@
                     </div>
                     <div class="side_bottom"></div>
                 </div>
-            </div>
+            </div> -->
       </div>
   </div>   
 

@@ -7,6 +7,10 @@ body{
 	font-family: 'Poppins', sans-serif!important;
 }
 
+.stars{
+    font-size: 17px!important;
+ }
+
 .slider .fa-chevron-left{
     position: absolute;
     top: 155px;

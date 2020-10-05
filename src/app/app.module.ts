@@ -17,6 +17,8 @@ import { AgmCoreModule } from '@agm/core';
 import { NgxSpinnerModule, NgxSpinnerService} from "ngx-spinner";
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxStarRatingModule } from 'ngx-star-rating';
+import { NgxStarsModule } from 'ngx-stars';
+import {SplitButtonModule} from 'primeng/splitbutton';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
     NgxPaginationModule,
     NgxStarRatingModule,
     ReactiveFormsModule,
+    NgxStarsModule,
+    SplitButtonModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBxPqdmg2ouIJZs4SKNHC3N2Qbi7mdboFY',
       libraries: ['places']
