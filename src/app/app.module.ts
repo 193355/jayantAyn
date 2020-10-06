@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -43,6 +44,7 @@ import {SplitButtonModule} from 'primeng/splitbutton';
     NgxStarRatingModule,
     ReactiveFormsModule,
     NgxStarsModule,
+    BrowserAnimationsModule,
     SplitButtonModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBxPqdmg2ouIJZs4SKNHC3N2Qbi7mdboFY',

@@ -9,6 +9,7 @@ declare var $: any;
   templateUrl: './hotel.component.html',
   styleUrls: ['./hotel.component.css']
 })
+
 export class HotelComponent implements OnInit {
   public form: FormGroup;
   latitude: number;
@@ -17,15 +18,16 @@ export class HotelComponent implements OnInit {
   address: string;
   private geoCoder;
   hotels:any = [];
-
+  regForm :FormGroup
   isReadonly: boolean = true;
+  submitted = false;
   private rate:number = 3;
-
+  
   @ViewChild('search',{static: true})
 
   public searchElementRef: ElementRef;
   constructor(private http: HttpClient,private mapsAPILoader: MapsAPILoader,private ngZone: 
-    NgZone,private fb: FormBuilder) { 
+    NgZone,private fb: FormBuilder,private formBuilder:FormBuilder) { 
       this.form = this.fb.group({
         rating: ['', Validators.required],
       })
@@ -35,8 +37,12 @@ export class HotelComponent implements OnInit {
     })
   }
 
-
   ngOnInit(): void {
+    this.regForm = this.formBuilder.group({
+      source: ['',Validators.required]
+    })
+
+
     this.getHotels();
     $(document).ready(function () {
       $('.slider, slideset').slick({
@@ -75,6 +81,7 @@ export class HotelComponent implements OnInit {
           }]
       });
     });
+
     $(document).ready(function () {
       $('.slideset').slick({
         slidesToShow: 2,
@@ -88,8 +95,7 @@ export class HotelComponent implements OnInit {
             slidesToScroll: 1,
             infinite: false,
           } 
-        }]
-        
+        }]  
       });
     });
 
@@ -116,7 +122,6 @@ export class HotelComponent implements OnInit {
     });
   }
 
-
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -126,6 +131,7 @@ export class HotelComponent implements OnInit {
       });
     }
   }
+
 
   getAddress(latitude, longitude) {
     this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
@@ -144,12 +150,16 @@ export class HotelComponent implements OnInit {
     });
   }
 
-  
   getHotels(){
     return this.http.get("https://fake-hotel-api.herokuapp.com/api/hotels")
     .subscribe(data =>{
           this.hotels = data;
           console.log(this.hotels); 
     })
+  }
+
+  onSubmit(){
+    debugger
+    this.submitted = true;
   }
 }

@@ -1,23 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
+
 export class NavComponent implements OnInit {
   regId;
-  form: FormGroup
-    constructor(private http: HttpClient) { 
-      // this.form = this.fb.group({
-      //   fname :[''],
-      //   lname :[''],
-      //   email :[''],
-      //   password : [''],
-      //   confpassword :[''],
-      // })
+  registerForm: FormGroup;
+  submitted = false;
+    constructor(private http: HttpClient,private fb: FormBuilder) { 
+      this.registerForm = this.fb.group({
+        fName: ['', Validators.required],
+        lName :['', Validators.required],
+        email :['', [Validators.required,Validators.email]],
+        password:['', [Validators.required,Validators.minLength(6)]],
+        confPassword :['', Validators.required],
+     })
+
+     this.registerForm = new FormGroup({
+      'fName': new FormControl(null),
+      'lName': new FormControl(null),
+      'email': new FormControl(null),
+      'password': new FormControl(null),
+      'confPass': new FormControl(null),
+     })
     }
     
   ngOnInit() {
@@ -34,8 +44,13 @@ Addreg(){
   })
 }
 
-submitForm() {
-  console.log(this.form.value)
+get f() { return this.registerForm.controls; }
+
+onSubmit() {
+  debugger
+  this.submitted = true;
+  debugger
+  console.log(this.registerForm.value)
+  }
 }
 
-}

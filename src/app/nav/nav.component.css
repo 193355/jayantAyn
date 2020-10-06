@@ -6,6 +6,9 @@ li.nav-item.dropdown.show span:after {
     content: '';
     margin-right: 6px;
 }
+.invalid-feedback{
+    border-color: red;
+}
 a.dropdown-item {
     display: block;
 }

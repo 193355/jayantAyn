@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 declare var $: any;
@@ -8,9 +9,11 @@ declare var $: any;
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css']
 })
-export class LandingComponent implements OnInit {
-  constructor(private spinner: NgxSpinnerService) { }
 
+export class LandingComponent implements OnInit {
+  form: FormGroup;
+  constructor(private spinner: NgxSpinnerService,private fb: FormBuilder)  { }
+  
   ngOnInit() { 
     this.spinner.show();
     setTimeout(() => {
@@ -30,8 +33,7 @@ export class LandingComponent implements OnInit {
             slidesToScroll: 1,
             infinite: false,
           } 
-        }]
-        
+        }]    
       });
 
       $(document).ready(function(){
@@ -40,6 +42,7 @@ export class LandingComponent implements OnInit {
           $("#forgetpass").show();
         });
       });
+
     });
   }
 

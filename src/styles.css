@@ -10,7 +10,9 @@ body{
 .stars{
     font-size: 17px!important;
  }
-
+ .invalid-feedback{
+    border-color: red;
+}
 .slider .fa-chevron-left{
     position: absolute;
     top: 155px;
