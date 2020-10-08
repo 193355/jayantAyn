@@ -1,10 +1,9 @@
+<section>
+  <div class="banner" style="background-image:url('../../../assets/activity/vlad-hilitanu-lIm5RtGPrQs-unsplash.jpg')">
 
-  <section>
-    <div class="banner" style="background-image:url('../../../assets/activity/vlad-hilitanu-lIm5RtGPrQs-unsplash.jpg')">
-
-    </div>
-  </section>
-  <!-- <section class="location_section">
+  </div>
+</section>
+<!-- <section class="location_section">
     <div class="container">
         <div class="">
         <div class="col-md-3 col-sm-6 col-xs-6">
@@ -60,60 +59,103 @@
         </div>
     </div>
   </section> -->
-  <div class="search_box_section">
-    <div class="container">
+<div class="search_box_section">
+  <div class="container">
+    <form [formGroup]="searchFlightForm" (submit)="onSearchFlight(searchFlightForm)">
       <div class="searchbox row">
         <div class="col-md-6 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
           <div class="col-md-6 col-sm-12 col-xs-12">
             <label for="username">Pick-up Location</label><br>
-              <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your origin" name="username"></i>  
+            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="pickup_location" formControlName="pickup_location"
+                class="form-control custome_control" placeholder="Enter your origin" name="pickup_location"></i>
+                <!-- pickup_location Validation  Start -->
+            <div *ngIf="isSubmitted && !searchFlightForm.controls['pickup_location'].valid">
+              <span *ngIf="searchFlightForm.controls['pickup_location'].hasError('required')" class="form-control-validation">
+                Pickup location is required
+              </span>
+            </div>
+            <!-- End drop_location Valiation End -->
           </div>
           <div class="col-md-6 col-sm-12 col-xs-12">
             <label for="username">Drop-of Location</label><br>
-              <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your destination" name="username"></i>
+            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" formControlName="drop_location" id="drop_location"
+                class="form-control custome_control" placeholder="Enter your destination" name="drop_location"></i>
+                 <!-- drop_location Validation  Start -->
+            <div *ngIf="isSubmitted && !searchFlightForm.controls['drop_location'].valid">
+              <span *ngIf="searchFlightForm.controls['drop_location'].hasError('required')" class="form-control-validation">
+                Drop location is required
+              </span>
+            </div>
+            <!-- End pickup_location Valiation End -->
           </div>
         </div>
         <div class="col-md-5 col-sm-6 col-xs-6 search_filed mbl_pad">
           <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
             <label for="username">Pick Up Date/Time</label><br>
-              <input type="date" class="date_birth datepicker" id="birthday" name="birthday">
+            <input type="date" class="date_birth datepicker" id="pickup_date_time" formControlName="pickup_date_time" name="pickup_date_time">
+               <!-- pickup_date_time Validation  Start -->
+               <div *ngIf="isSubmitted && !searchFlightForm.controls['pickup_date_time'].valid">
+                <span *ngIf="searchFlightForm.controls['pickup_date_time'].hasError('required')" class="form-control-validation">
+                  pickup_date_time is required
+                </span>
+              </div>
+              <!-- End pickup_date_time Valiation End -->
           </div>
           <div class="col-md-6 col-sm-12 col-xs-12">
-            <label for="username">Passengers</label><br>
-      <select class="browser-default custom-select">
-        <option selected>1</option>
-        <option value="1">2</option>
-        <option value="2">3</option>
-        <option value="3">4</option>
-      </select>
+            <label for="drop_date_time">Passengers</label><br>
+            <select class="browser-default custom-select" formControlName="drop_date_time" id="drop_date_time" name="drop_date_time">
+              <option selected>1</option>
+              <option value="1">2</option>
+              <option value="2">3</option>
+              <option value="3">4</option>
+            </select>
+                <!-- Passengers Validation  Start -->
+                <div *ngIf="isSubmitted && !searchFlightForm.controls['drop_date_time'].valid">
+                  <span *ngIf="searchFlightForm.controls['drop_date_time'].hasError('required')" class="form-control-validation">
+                    Passengers is required
+                  </span>
+                </div>
+                <!-- End Passengers Valiation End -->
           </div>
         </div>
-      <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
-        <button type="submit" class="btn btn_search">Search</button>
-    </div>
+        <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
+          <button type="submit" class="btn btn_search" [disabled]="!searchFlightForm.valid">Search</button>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
-  <section class="Air_port">
-    <div class="container">
-        <h2>Airport transfers</h2>
-        <div class="underline"></div>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </p>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </p>
-    </div>
-  </section>
-  <!-- start count stats -->
+</div>
+<section class="Air_port">
+  <div class="container">
+    <h2>Airport transfers</h2>
+    <div class="underline"></div>
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+      standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+      type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+      remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+      Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+      of Lorem Ipsum.
+    </p>
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+      standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+      type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+      remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+      Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+      of Lorem Ipsum.
+    </p>
+  </div>
+</section>
+<!-- start count stats -->
 
-<section id="counter-stats " class="wow fadeInRight transfer" data-wow-duration="1.4s" style="background-image: url('../../../assets/activity/vlad-hilitanu-lIm5RtGPrQs-unsplash.jpg');">
-    <div class="overlay_counter">
-        <div class="container">
-            <div class="row">
-              <h2>Why use transfer service with us</h2>
-              <!-- <ul>
+<section id="counter-stats " class="wow fadeInRight transfer" data-wow-duration="1.4s"
+  style="background-image: url('../../../assets/activity/vlad-hilitanu-lIm5RtGPrQs-unsplash.jpg');">
+  <div class="overlay_counter">
+    <div class="container">
+      <div class="row">
+        <h2>Why use transfer service with us</h2>
+        <!-- <ul>
                   <li><img src="../../../assets/transfer/Artboard – 16.png"></li>
                   <li><img src="../../../assets/transfer/Artboard – 17.png"></li>
                   <li><img src="../../../assets/transfer/Artboard – 18.png"></li>
@@ -121,14 +163,30 @@
                   <li><img src="../../../assets/transfer/Artboard – 20.png"></li>
 
               </ul>     -->
-              <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-3"><div class="whyItem"><i class="fa fa-percent" aria-hidden="true"></i><h3>Low rates</h3><strong>No booking fees · No Credit Card surcharges</strong></div></div>
-                <div class="col-xs-12 col-sm-6 col-md-3"><div class="whyItem"><i class="fa fa-hourglass-end" aria-hidden="true"></i><h3>Save money & time</h3><strong>Fixed rates · No surprises</strong></div></div>
-                <div class="col-xs-12 col-sm-6 col-md-3"><div class="whyItem"><i class="fa fa-check-square-o" aria-hidden="true"></i><h3>Reliability</h3><strong>Carefully selected transportation companies</strong></div></div>
-                <div class="col-xs-12 col-sm-6 col-md-3"><div class="whyItem"><i class="fa fa-lightbulb-o" aria-hidden="true"></i><h3>Convenience</h3><strong>Web reservation takes less than a minute · Manage your booking on-line</strong></div></div>
-              </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="whyItem"><i class="fa fa-percent" aria-hidden="true"></i>
+              <h3>Low rates</h3><strong>No booking fees · No Credit Card surcharges</strong>
             </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="whyItem"><i class="fa fa-hourglass-end" aria-hidden="true"></i>
+              <h3>Save money & time</h3><strong>Fixed rates · No surprises</strong>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="whyItem"><i class="fa fa-check-square-o" aria-hidden="true"></i>
+              <h3>Reliability</h3><strong>Carefully selected transportation companies</strong>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="whyItem"><i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+              <h3>Convenience</h3><strong>Web reservation takes less than a minute · Manage your booking
+                on-line</strong>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
-

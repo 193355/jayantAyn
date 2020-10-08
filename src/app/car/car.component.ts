@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 declare var $: any;
 
@@ -8,13 +10,24 @@ declare var $: any;
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit {
+  
+  searchFlightForm: FormGroup;
+  isSubmitted: boolean;
 
-
-  constructor() {
+  constructor(private formBuilder: FormBuilder,private http: HttpClient) {
     window.scroll(0,0);
    }
 
   ngOnInit(): void { 
+
+    this.searchFlightForm = this.formBuilder.group({
+      pickup_vanue: ['', Validators.compose([Validators.required])],
+      drop_vanue: ['', Validators.compose([Validators.required])],
+      pickup_date_time: ['', Validators.compose([Validators.required])],
+      drop_date_time: ['', Validators.compose([Validators.required])],
+      passengers: ['', Validators.compose([Validators.required])]
+
+    })
  
     $(document).ready(function () {
       $('.slider').slick({
@@ -72,5 +85,11 @@ export class CarComponent implements OnInit {
       });
     });
   } 
+
+  // onSearchFlight - 
+  onSearchFlight(form) {
+    this.isSubmitted = true;
+    console.log("form data =", form);
+  }
 
 }

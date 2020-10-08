@@ -1,5 +1,5 @@
 <section>
-  <div class="banner"  width="100%">
+  <div class="banner" width="100%">
     <div class="banner_overlay">
       <div class="container">
         <div class="content_bann">
@@ -68,92 +68,141 @@
 <div class="search_box_section">
   <div class="container">
     <div class="searchbox row">
-      <div class="col-md-4 col-sm-12 col-xs-12 border_mid search_filed mbl_pad">
-        <div class="col-md-6 col-sm-6 col-xs-6">
-          <label for="username">Pick-up From</label><br>
-            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your origin" name="username"></i>  
+      <form [formGroup]="searchFlightForm" (submit)="onSearchFlight(searchFlightForm)">
+        <div class="col-md-4 col-sm-12 col-xs-12 border_mid search_filed mbl_pad">
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <label for="username">Pick-up From</label><br>
+            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" formControlName="pickup_vanue"
+                name="pickup_vanue" id="pickup_vanue" class="form-control custome_control"
+                placeholder="Enter your origin" name="username"></i>
+            <!-- Pick-up From Validation  Start -->
+            <div *ngIf="isSubmitted && !searchFlightForm.controls['pickup_vanue'].valid">
+              <span *ngIf="searchFlightForm.controls['pickup_vanue'].hasError('required')"
+                class="form-control-validation">
+                Pickup from is required
+              </span>
+            </div>
+            <!-- End Pick-up From Valiation End -->
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <label for="username">Drop of to:</label><br>
+            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" formControlName="drop_vanue"
+                id="drop_vanue" name="drop_vanue" class="form-control custome_control"
+                placeholder="Enter your destination" name="username"></i>
+            <!-- Drop To Validation  Start -->
+            <div *ngIf="isSubmitted && !searchFlightForm.controls['drop_vanue'].valid">
+              <span *ngIf="searchFlightForm.controls['drop_vanue'].hasError('required')"
+                class="form-control-validation">
+                Drop to is required
+              </span>
+            </div>
+            <!-- End Drop To Valiation End -->
+          </div>
         </div>
-        <div class="col-md-6 col-sm-6 col-xs-6">
-          <label for="username">Drop of to:</label><br>
-            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your destination" name="username"></i>
-        </div>
-      </div>
-      <div class="col-md-5 col-sm-12 col-xs-12 search_filed mbl_pad">
-        <div class="col-md-6 col-sm-6 col-xs-6 mb-20">
-          <label for="username">Pick up Time</label><br>
+        <div class="col-md-5 col-sm-12 col-xs-12 search_filed mbl_pad">
+          <div class="col-md-6 col-sm-6 col-xs-6 mb-20">
+            <label for="username">Pick up Time</label><br>
             <!-- <input type="date" class="date_birth datepicker" id="birthday" name="birthday"> -->
-            <input type="datetime-local" class="date_birth datepicker" id="birthday" name="birthday">
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-6 mb-20">
-          <label for="username">Return Time</label><br>
+            <input type="datetime-local" class="date_birth datepicker" formControlName="pickup_date_time"
+              id="pickup_date_time" name="pickup_date_time">
+            <!-- Pick up Time Validation  Start -->
+            <div *ngIf="isSubmitted && !searchFlightForm.controls['pickup_date_time'].valid">
+              <span *ngIf="searchFlightForm.controls['pickup_date_time'].hasError('required')"
+                class="form-control-validation">
+                Pick up time is required
+              </span>
+            </div>
+            <!-- End Pick up Time Valiation End -->
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 mb-20">
+            <label for="username">Return Time</label><br>
             <!-- <input type="date" class="date_birth datepicker" id="birthday" name="birthday"> -->
-             <input type="datetime-local" class="date_birth datepicker" id="birthday" name="birthday">
+            <input type="datetime-local" class="date_birth datepicker" formControlName="drop_date_time"
+              id="drop_date_time" name="drop_date_time">
+            <!-- drop_date_time Validation  Start -->
+            <div *ngIf="isSubmitted && !searchFlightForm.controls['drop_date_time'].valid">
+              <span *ngIf="searchFlightForm.controls['drop_date_time'].hasError('required')"
+                class="form-control-validation">
+                Drop date time is required
+              </span>
+            </div>
+            <!-- End drop_date_time Valiation End -->
+          </div>
+
         </div>
-        
-      </div>
-      <div class="col-md-2 col-sm-12 col-xs-12 search_filed">
-        <div class="col-md-12 col-sm-12 col-xs-12 mb-20">
-          <label for="username">Passengers</label><br>
-      <select class="browser-default custom-select">
-        <option selected>1</option>
-        <option value="1">2</option>
-        <option value="2">3</option>
-        <option value="3">4</option>
-      </select>
+        <div class="col-md-2 col-sm-12 col-xs-12 search_filed">
+          <div class="col-md-12 col-sm-12 col-xs-12 mb-20">
+            <label for="username">Passengers</label><br>
+            <select class="browser-default custom-select" formControlName="passengers" id="passengers"
+              name="passengers">
+              <option selected>1</option>
+              <option value="1">2</option>
+              <option value="2">3</option>
+              <option value="3">4</option>
+            </select>
+            <!-- Passengers Validation  Start -->
+            <div *ngIf="isSubmitted && !searchFlightForm.controls['passengers'].valid">
+              <span *ngIf="searchFlightForm.controls['passengers'].hasError('required')"
+                class="form-control-validation">
+                Passengers is required
+              </span>
+            </div>
+            <!-- End Passengers Valiation End -->
+          </div>
+
         </div>
-        
-      </div>
-    <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
-      <button type="submit" class="btn btn_search">Search</button>
-  </div>
+        <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
+          <button type="submit" class="btn btn_search" [disabled]="!searchFlightForm.valid">Search</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
 <!--car top three section-->
 <div class="top_three_section">
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 col-xs-12   col-sm-4">
-      <div class="icon_div">
-        <div>
-          <i class="fa fa-recycle" aria-hidden="true"></i> 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-xs-12   col-sm-4">
+        <div class="icon_div">
+          <div>
+            <i class="fa fa-recycle" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="icon_info">
+          <div>
+            <h4>24/7 Customer Care</h4>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat dolores quae a</p>
+          </div>
         </div>
       </div>
-      <div class="icon_info">
-        <div>
-          <h4>24/7 Customer Care</h4>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat dolores quae a</p>
+      <div class="col-md-4 col-xs-12 col-sm-4">
+        <div class="icon_div">
+          <div>
+            <i class="fa fa-recycle" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="icon_info">
+          <div>
+            <h4>Free Cancellation</h4>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat dolores quae a</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-4 col-xs-12 col-sm-4">
-      <div class="icon_div">
-        <div>
-          <i class="fa fa-recycle" aria-hidden="true"></i> 
+      <div class="col-md-4 col-xs-12 col-sm-4">
+        <div class="icon_div">
+          <div>
+            <i class="fa fa-recycle" aria-hidden="true"></i>
+          </div>
         </div>
-      </div>
-      <div class="icon_info">
-        <div>
-          <h4>Free Cancellation</h4>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat dolores quae a</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 col-xs-12 col-sm-4">
-      <div class="icon_div">
-        <div>
-          <i class="fa fa-recycle" aria-hidden="true"></i> 
-        </div>
-      </div>
-      <div class="icon_info">
-        <div>
-          <h4>No Hidden Cost</h4>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat dolores quae a</p>
+        <div class="icon_info">
+          <div>
+            <h4>No Hidden Cost</h4>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat dolores quae a</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 <!-- Browse by Categories -->
@@ -162,7 +211,7 @@
     <h2 class="text-center">Browse by Categories</h2>
     <div class="underline"></div>
   </div>
-  <div  class="car_categories">
+  <div class="car_categories">
     <div class="row">
       <div class="col-md-3 col-sm-6 col-xs-12">
         <div>
@@ -223,96 +272,128 @@
 <!--Trending car section-->
 <section class="about_slide">
   <div class="about_slide_overlay">
-  <div class="container">
-    <h2 class="text-center">Trending Car</h2>
-    <div class="underline"></div>
-    <div class="slider">
-      <div class="col-md-4">
-        <div class="trending">
-          <div class="trending_activity" style="background-image: url(../../../assets/icon/vehicles.png)">  
-          </div>
+    <div class="container">
+      <h2 class="text-center">Trending Car</h2>
+      <div class="underline"></div>
+      <div class="slider">
+        <div class="col-md-4">
+          <div class="trending">
+            <div class="trending_activity" style="background-image: url(../../../assets/icon/vehicles.png)">
+            </div>
 
-          <div class="trending_activity_content">
-            <p>Convertibles</p>
-            <h4>Mercedes Benz 2019</h4>            
+            <div class="trending_activity_content">
+              <p>Convertibles</p>
+              <h4>Mercedes Benz 2019</h4>
               <div class="car_feature_iocn">
                 <ul>
-                  <li><i class="fa fa-users" aria-hidden="true"></i> <p>4</p></li>
-                  <li><i class="fa fa-repeat" aria-hidden="true"></i> <p>Auto</p></li>
-                  <li><i class="fa fa-suitcase" aria-hidden="true"></i> <p>2</p></li>
-                  <li><i class="fa fa-car" aria-hidden="true"></i> <p>4</p></li>
-                </ul>                
+                  <li><i class="fa fa-users" aria-hidden="true"></i>
+                    <p>4</p>
+                  </li>
+                  <li><i class="fa fa-repeat" aria-hidden="true"></i>
+                    <p>Auto</p>
+                  </li>
+                  <li><i class="fa fa-suitcase" aria-hidden="true"></i>
+                    <p>2</p>
+                  </li>
+                  <li><i class="fa fa-car" aria-hidden="true"></i>
+                    <p>4</p>
+                  </li>
+                </ul>
               </div>
-            <p class="kilometer">12.3/kilometer</p>
+              <p class="kilometer">12.3/kilometer</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      
-      <div class="col-md-4">
-        <div class="trending">
-          <div class="trending_activity" style="background-image: url(../../../assets/icon/vehicles.png)">
-            
-          </div>
 
-          <div class="trending_activity_content">
-            <p>Convertibles</p>
-            <h4>Mercedes Benz 2019</h4>            
+        <div class="col-md-4">
+          <div class="trending">
+            <div class="trending_activity" style="background-image: url(../../../assets/icon/vehicles.png)">
+
+            </div>
+
+            <div class="trending_activity_content">
+              <p>Convertibles</p>
+              <h4>Mercedes Benz 2019</h4>
               <div class="car_feature_iocn">
                 <ul>
-                  <li><i class="fa fa-users" aria-hidden="true"></i> <p>4</p></li>
-                  <li><i class="fa fa-repeat" aria-hidden="true"></i> <p>Auto</p></li>
-                  <li><i class="fa fa-suitcase" aria-hidden="true"></i> <p>2</p></li>
-                  <li><i class="fa fa-car" aria-hidden="true"></i> <p>4</p></li>
-                </ul>                
+                  <li><i class="fa fa-users" aria-hidden="true"></i>
+                    <p>4</p>
+                  </li>
+                  <li><i class="fa fa-repeat" aria-hidden="true"></i>
+                    <p>Auto</p>
+                  </li>
+                  <li><i class="fa fa-suitcase" aria-hidden="true"></i>
+                    <p>2</p>
+                  </li>
+                  <li><i class="fa fa-car" aria-hidden="true"></i>
+                    <p>4</p>
+                  </li>
+                </ul>
               </div>
-            <p class="kilometer">12.3/kilometer</p>
+              <p class="kilometer">12.3/kilometer</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="trending">
-          <div class="trending_activity" style="background-image: url(../../../assets/icon/vehicles.png)">
-            
-          </div>
-          <div class="trending_activity_content">
-            <p>Convertibles</p>
-            <h4>Mercedes Benz 2019</h4>            
+        <div class="col-md-4">
+          <div class="trending">
+            <div class="trending_activity" style="background-image: url(../../../assets/icon/vehicles.png)">
+
+            </div>
+            <div class="trending_activity_content">
+              <p>Convertibles</p>
+              <h4>Mercedes Benz 2019</h4>
               <div class="car_feature_iocn">
                 <ul>
-                  <li><i class="fa fa-users" aria-hidden="true"></i> <p>4</p></li>
-                  <li><i class="fa fa-repeat" aria-hidden="true"></i> <p>Auto</p></li>
-                  <li><i class="fa fa-suitcase" aria-hidden="true"></i> <p>2</p></li>
-                  <li><i class="fa fa-car" aria-hidden="true"></i> <p>4</p></li>
-                </ul>                
+                  <li><i class="fa fa-users" aria-hidden="true"></i>
+                    <p>4</p>
+                  </li>
+                  <li><i class="fa fa-repeat" aria-hidden="true"></i>
+                    <p>Auto</p>
+                  </li>
+                  <li><i class="fa fa-suitcase" aria-hidden="true"></i>
+                    <p>2</p>
+                  </li>
+                  <li><i class="fa fa-car" aria-hidden="true"></i>
+                    <p>4</p>
+                  </li>
+                </ul>
               </div>
-            <p class="kilometer">12.3/kilometer</p>
+              <p class="kilometer">12.3/kilometer</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="trending">
-          <div class="trending_activity" style="background-image: url(../../../assets/icon/vehicles.png)">
-            
-          </div>
-          <div class="trending_activity_content">
-            <p>Convertibles</p>
-            <h4>Mercedes Benz 2019</h4>            
+        <div class="col-md-4">
+          <div class="trending">
+            <div class="trending_activity" style="background-image: url(../../../assets/icon/vehicles.png)">
+
+            </div>
+            <div class="trending_activity_content">
+              <p>Convertibles</p>
+              <h4>Mercedes Benz 2019</h4>
               <div class="car_feature_iocn">
                 <ul>
-                  <li><i class="fa fa-users" aria-hidden="true"></i> <p>4</p></li>
-                  <li><i class="fa fa-repeat" aria-hidden="true"></i> <p>Auto</p></li>
-                  <li><i class="fa fa-suitcase" aria-hidden="true"></i> <p>2</p></li>
-                  <li><i class="fa fa-car" aria-hidden="true"></i> <p>4</p></li>
-                </ul>                
+                  <li><i class="fa fa-users" aria-hidden="true"></i>
+                    <p>4</p>
+                  </li>
+                  <li><i class="fa fa-repeat" aria-hidden="true"></i>
+                    <p>Auto</p>
+                  </li>
+                  <li><i class="fa fa-suitcase" aria-hidden="true"></i>
+                    <p>2</p>
+                  </li>
+                  <li><i class="fa fa-car" aria-hidden="true"></i>
+                    <p>4</p>
+                  </li>
+                </ul>
               </div>
-            <p class="kilometer">12.3/kilometer</p>
+              <p class="kilometer">12.3/kilometer</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </section>
 
 
@@ -323,12 +404,12 @@
       <h2 class="text-center">How Does it Work</h2>
       <div class="underline"></div>
     </div>
-    <div class="row">      
+    <div class="row">
       <div class="col-md-4 col-xs-12 col-sm-4">
         <div class="icon_div">
           <div>
             <p class="how_does_num"></p>
-          <h2 class="how_does_step">1</h2>
+            <h2 class="how_does_step">1</h2>
           </div>
         </div>
         <div class="icon_info">
@@ -342,7 +423,7 @@
         <div class="icon_div">
           <div>
             <p class="how_does_num"></p>
-          <h2 class="how_does_step">2</h2>
+            <h2 class="how_does_step">2</h2>
           </div>
         </div>
         <div class="icon_info">
@@ -356,7 +437,7 @@
         <div class="icon_div">
           <div>
             <p class="how_does_num"></p>
-          <h2 class="how_does_step">3</h2>
+            <h2 class="how_does_step">3</h2>
           </div>
         </div>
         <div class="icon_info">
@@ -422,4 +503,3 @@
 </section>
 
 <!--email update section-->
-

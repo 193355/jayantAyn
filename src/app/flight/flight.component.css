@@ -248,7 +248,16 @@ nav a:hover{
     margin-bottom: 0px;
 }
 .deals_details {
-    padding: 30px 30px;
+    /* padding: 30px 30px; */
+    padding: 25px 20px;
+    position: absolute;
+    width: 100%;
+    margin-top: -52%;
+}
+
+.stars_rate{
+    margin-top: -7%;
+
 }
 /* search box */
 .border_mid {
@@ -355,3 +364,9 @@ select.custom-select {
     }
 }
 
+
+/* Form Control Validation CSS */
+.form-control-validation {
+    color: red;
+    font-size: 14px;
+}

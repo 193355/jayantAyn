@@ -889,3 +889,9 @@ select.custom-select {
     
 }
 
+
+  /* Form Control Validation CSS */
+  .form-control-validation {
+    color: red;
+    font-size: 14px;
+}

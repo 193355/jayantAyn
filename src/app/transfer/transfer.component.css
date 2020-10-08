@@ -318,11 +318,13 @@ select.custom-select {
     .start_trip img {
         width: auto;
     }
+} 
+
+/* Form Control Validation CSS */
+.form-control-validation {
+    color: red;
+    font-size: 14px;
 }
-
-
-
-
 
 
 

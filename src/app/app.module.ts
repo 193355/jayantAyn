@@ -25,6 +25,8 @@ import {ButtonModule} from 'primeng/button';
 import { ChipsModule } from 'primeng/chips';
 import { CalendarModule } from 'primeng/calendar';
 import { TableModule } from 'primeng/table'; 
+import { RatingModule } from 'primeng/rating';
+import { PaginatorModule } from 'primeng/paginator';
 
 
 @NgModule({
@@ -54,6 +56,8 @@ import { TableModule } from 'primeng/table';
     ChipsModule,
     CalendarModule,
     TableModule, 
+    RatingModule,
+    PaginatorModule,
 
   ],
   providers: [ ],

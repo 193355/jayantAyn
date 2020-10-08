@@ -1,16 +1,16 @@
 <section>
-    <div class="banner"  width="100%">
-      <div class="banner_overlay">
-        <div class="container">
-          <div class="content_bann">
-            <!-- <h2>About Us</h2>
+  <div class="banner" width="100%">
+    <div class="banner_overlay">
+      <div class="container">
+        <div class="content_bann">
+          <!-- <h2>About Us</h2>
             <p><a href="#">Home</a> > <a href="#">About Us</a></p> -->
-          </div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- <div class="container location_section">
+  </div>
+</section>
+<!-- <div class="container location_section">
     <div class="">
       <div class="">
       <div class="col-md-2 col-md-offset-1 col-sm-6 col-xs-6">
@@ -89,340 +89,412 @@
 <div class="search_box_section">
   <div class="container">
     <div class="searchbox row">
-      <div class="col-md-7 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
-        <div class="col-md-6 col-sm-12 col-xs-12">
-          <label for="username">Origin:</label><br>
-            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your origin" name="username"></i>  
+      <form [formGroup]="searchFlightForm" (submit)="onSearchFlight(searchFlightForm)">
+        <div class="col-md-7 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <label for="username">Origin:</label><br>
+            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" formControlName="origin" id="origin"
+                name="origin" class="form-control custome_control" placeholder="Enter your origin" name="username"></i>
+            <!-- Origin Validation  Start -->
+            <div *ngIf="isSubmitted && !searchFlightForm.controls['origin'].valid">
+              <span *ngIf="searchFlightForm.controls['origin'].hasError('required')" class="form-control-validation">
+                Origin is required
+              </span>
+            </div>
+            <!-- End Origin Valiation End -->
+          </div>
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <label for="username">Destination:</label><br>
+            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" formControlName="destination"
+                id="destination" name="destination" class="form-control custome_control"
+                placeholder="Enter your destination" name="username"></i>
+            <!-- Destination Validation  Start -->
+            <div *ngIf="isSubmitted && !searchFlightForm.controls['destination'].valid">
+              <span *ngIf="searchFlightForm.controls['destination'].hasError('required')"
+                class="form-control-validation">
+                Destination is required
+              </span>
+            </div>
+            <!-- End Destination Valiation End -->
+          </div>
         </div>
-        <div class="col-md-6 col-sm-12 col-xs-12">
-          <label for="username">Destination:</label><br>
-            <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your destination" name="username"></i>
+        <div class="col-md-4 col-sm-6 col-xs-6 search_filed mbl_pad">
+          <div class="col-md-12 col-sm-12 col-xs-12 mb-20">
+            <label for="username">Depart</label><br>
+            <input type="date" class="date_birth datepicker" formControlName="depart" id="depart" name="depart">
+            <!-- Depart Validation  Start -->
+            <div *ngIf="isSubmitted && !searchFlightForm.controls['depart'].valid">
+              <span *ngIf="searchFlightForm.controls['depart'].hasError('required')" class="form-control-validation">
+                Depart is required
+              </span>
+            </div>
+            <!-- End Destination Valiation End -->
+          </div>
         </div>
-      </div>
-      <div class="col-md-4 col-sm-6 col-xs-6 search_filed mbl_pad">
-        <div class="col-md-12 col-sm-12 col-xs-12 mb-20">
-          <label for="username">Depart</label><br>
-            <input type="date" class="date_birth datepicker" id="birthday" name="birthday">
+        <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
+          <button type="submit" class="btn btn_search" [disabled]="!searchFlightForm.valid">Search</button>
         </div>
-        
-      </div>
-    <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
-      <button type="submit" class="btn btn_search">Search</button>
-  </div>
+      </form>
     </div>
   </div>
 </div>
 
 <div class="ticket_with_presiabooking">
-    <div class="bus_page_title">
-      <h2 class="text-center">Why Booking Flight Ticket With Persiabooking</h2>
-      <hr class="bus_ul">
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4  col-sm-12 col-xs-12">
-          <div class="instant_easy">
-            <i class="fa fa-bolt" aria-hidden="true"></i>
-            <h4>Instant and Easy</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-          </div>
+  <div class="bus_page_title">
+    <h2 class="text-center">Why Booking Flight Ticket With Persiabooking</h2>
+    <hr class="bus_ul">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4  col-sm-12 col-xs-12">
+        <div class="instant_easy">
+          <i class="fa fa-bolt" aria-hidden="true"></i>
+          <h4>Instant and Easy</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
         </div>
-        <div class="col-md-4  col-sm-12 col-xs-12">
-          <div class="instant_easy">
-            <i class="fa fa-credit-card" aria-hidden="true"></i>
-            <h4>Instant and Easy</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-          </div>
+      </div>
+      <div class="col-md-4  col-sm-12 col-xs-12">
+        <div class="instant_easy">
+          <i class="fa fa-credit-card" aria-hidden="true"></i>
+          <h4>Instant and Easy</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
         </div>
-        <div class="col-md-4  col-sm-12 col-xs-12">
-          <div class="instant_easy">
-            <i class="fa fa-usd" aria-hidden="true"></i>
-            <h4>Instant and Easy</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-          </div>
+      </div>
+      <div class="col-md-4  col-sm-12 col-xs-12">
+        <div class="instant_easy">
+          <i class="fa fa-usd" aria-hidden="true"></i>
+          <h4>Instant and Easy</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
         </div>
       </div>
     </div>
+  </div>
 </div>
 
 <div class="iron_bus_tickets">
-    <div class="bus_page_title">
-      <h2 class="text-center">How to Book Iron Bus Tickets</h2>
-      <hr class="bus_ul">
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-sm-12 col-xs-12">
-          <div class="instant_easy">
-            <i class="fa fa-search" aria-hidden="true"></i>
-            <h4>Search Routes</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-          </div>
-        </div>
-        <div class="col-md-4  col-sm-12 col-xs-12">
-          <div class="instant_easy">
-            <i class="fa fa-compress" aria-hidden="true"></i>
-            <h4>Compare & Book</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-          </div>
-        </div>
-        <div class="col-md-4  col-sm-12 col-xs-12">
-          <div class="instant_easy">
-            <i class="fa fa-ticket" aria-hidden="true"></i>
-            <h4>Get your tickets</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- latest iron domastic flight deals -->
-
-
-  <div class="domastic_flight_section">
-      <div class="container">
-        <div class="col-md-12 text-center" style="margin-bottom: 30px;">
-          <span class="domastic_flight_deal_title">Latest Iran Domastic Flight Deals</span>
-        </div>
-      </div>
-      <div class="container">
-            <div class="col-md-4 col-sm-6">
-                <div class="iron_flight">
-                    <div style="background-image:url('../../../assets/about_iran/flight_banner.jpg'); height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
-                      <div class="deals_details">
-                        <div class="flight_head">
-                          <h5>From Kerman To</h5>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="side_d"></div>
-                    <div class="flight_deal">
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                    </div>
-                    <div class="side_bottom"></div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="iron_flight">
-                  <div style="background-image:url('../../../assets/about_iran/flight_banner.jpg'); height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
-                    <div class="deals_details">
-                      <div class="flight_head">
-                        <h5>From Kerman To</h5>
-                      </div>
-                    </div>
-                  </div>
-                    <div class="side_d"></div>
-                    <div class="flight_deal">
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                    </div>
-                    <div class="side_bottom"></div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="iron_flight">
-                  <div style="background-image:url('../../../assets/about_iran/flight_banner.jpg'); height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
-                    <div class="deals_details">
-                      <div class="flight_head">
-                        <h5>From Kerman To</h5>
-                      </div>
-                    </div>
-                  </div>
-                    <div class="side_d"></div>
-                    <div class="flight_deal">
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                    </div>
-                    <div class="side_bottom"></div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="iron_flight">
-                  <div style="height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
-                    <div class="deals_details">
-                      <div class="flight_head">
-                        <h5>From Kerman To</h5>
-                      </div>
-                    </div>
-                  </div>
-                    <div class="side_d"></div>
-                    <div class="flight_deal">
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                    </div>
-                    <div class="side_bottom"></div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="iron_flight">
-                  <div style="height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
-                    <div class="deals_details">
-                      <div class="flight_head">
-                        <h5>From Kerman To</h5>
-                      </div>
-                    </div>
-                  </div>
-                    <div class="side_d"></div>
-                    <div class="flight_deal">
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                    </div>
-                    <div class="side_bottom"></div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="iron_flight">
-                  <div style="background-image:url('../../../assets/about_iran/flight_banner.jpg'); height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
-                    <div class="deals_details">
-                      <div class="flight_head">
-                        <h5>From Kerman To</h5>
-                      </div>
-                    </div>
-                  </div>
-                    <div class="side_d"></div>
-                    <div class="flight_deal">
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                    </div>
-                    <div class="side_bottom"></div>
-                </div>
-            </div>
-      </div>
-  </div>   
-
-<div class="booking_flight_iron">
-  <div class="complete_guide_div">
-    <div class="bus_page_title">
-      <h2 class="text-center col-md-12">A Complete Guide for booking Flight in Iron</h2>
-      <hr class="bus_ul">
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="need_to_know">
-            <h4>Booking Iraning domestic Buses</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos accusamus commodi deserunt iure maxime rem cum
-              at sapiente, assumenda corporis consequuntur ducimus quae odit ratione tenetur autem cumque alias delectus.
-            </p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi unde, rem iste aut eius optio minus
-              excepturi provident vitae illo nulla consequatur, voluptate soluta tenetur enim cum alias delectus non?</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="need_to_know">
-            <h4>Booking Iraning domestic Buses</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos accusamus commodi deserunt iure maxime rem cum
-              at sapiente, assumenda corporis consequuntur ducimus quae odit ratione tenetur autem cumque alias delectus.
-            </p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi unde, rem iste aut eius optio minus
-              excepturi provident vitae illo nulla consequatur, voluptate soluta tenetur enim cum alias delectus non?</p>
-          </div>
-        </div>
-      </div>
-  
-      <div class="row">
-        <div class="col-md-6">
-          <div class="need_to_know">
-            <h4>Booking Iraning domestic Buses</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos accusamus commodi deserunt iure maxime rem cum
-              at sapiente, assumenda corporis consequuntur ducimus quae odit ratione tenetur autem cumque alias delectus.
-            </p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi unde, rem iste aut eius optio minus
-              excepturi provident vitae illo nulla consequatur, voluptate soluta tenetur enim cum alias delectus non?</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="need_to_know">
-            <h4>Booking Iraning domestic Buses</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos accusamus commodi deserunt iure maxime rem cum
-              at sapiente, assumenda corporis consequuntur ducimus quae odit ratione tenetur autem cumque alias delectus.
-            </p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi unde, rem iste aut eius optio minus
-              excepturi provident vitae illo nulla consequatur, voluptate soluta tenetur enim cum alias delectus non?</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>  
-  
-  <!-- Frequently asked Question -->
-<div class="faq_section">
   <div class="bus_page_title">
-    <h2 class="text-center">Frequently asked Question</h2>
+    <h2 class="text-center">How to Book Iron Bus Tickets</h2>
     <hr class="bus_ul">
   </div>
-  <div class="container"> 
-    <h4 class="faq_question" data-toggle="collapse" data-target="#demo1">What are the differance betweenstandard & VIP class Buses? <span class="pull-right">+</span></h4>
-    <div id="demo1" class="collapse">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </div>
-  </div>
-
-  <div class="container"> 
-    <h4 class="faq_question" data-toggle="collapse" data-target="#demo2">What are the differance betweenstandard & VIP class Buses? <span class="pull-right">+</span></h4>
-    <div id="demo2" class="collapse">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </div>
-  </div>
-
-  <div class="container"> 
-    <h4 class="faq_question" data-toggle="collapse" data-target="#demo3">What are the differance betweenstandard & VIP class Buses? <span class="pull-right">+</span></h4>
-    <div id="demo3" class="collapse">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </div>
-  </div>
-
-  <div class="container"> 
-    <h4 class="faq_question" data-toggle="collapse" data-target="#demo4">What are the differance betweenstandard & VIP class Buses? <span class="pull-right">+</span></h4>
-    <div id="demo4" class="collapse">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <div class="instant_easy">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <h4>Search Routes</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        </div>
+      </div>
+      <div class="col-md-4  col-sm-12 col-xs-12">
+        <div class="instant_easy">
+          <i class="fa fa-compress" aria-hidden="true"></i>
+          <h4>Compare & Book</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        </div>
+      </div>
+      <div class="col-md-4  col-sm-12 col-xs-12">
+        <div class="instant_easy">
+          <i class="fa fa-ticket" aria-hidden="true"></i>
+          <h4>Get your tickets</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- latest iron domastic flight deals -->
+
+
+<div class="domastic_flight_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center" style="margin-bottom: 30px;">
+        <span class="domastic_flight_deal_title">Latest Iran Domastic Flight Deals</span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div *ngFor="let flight of flightDetails | paginate:{itemsPerPage: 3, currentPage:p}">
+          <div class="col-md-4 col-sm-6">
+            <div class="iron_flight">
+              <div
+                style="height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
+                <img [src]="flight.images" alt="" style="width: 100%; height: 200px;">
+                <div class="deals_details">
+                  <div class="flight_head">
+                    <h5>From Kerman To</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="side_d"></div>
+              <div class="flight_deal">
+                <!-- <p>{{ flight.name }} <span class="pull-right"><span>$</span>{{ flight.price}}</span></p> -->
+                <p>{{(flight.name.length > 15)? (flight.name | slice:0:10) + '...':(flight.name)}} <span class="pull-right"><span>$</span>{{ flight.price}}</span></p>
+
+                <p>{{ flight.country }} <span class="pull-right">{{ flight.city}}</span></p>
+
+                <p *ngIf="flight.stars == 1">
+                  <p-rating [(ngModel)]="one_star_rating" [stars]="flight.stars" [readonly]="true" [cancel]="false">
+                  </p-rating><span class="pull-right stars_rate">{{ flight.stars}}</span>
+                </p>
+
+                <p *ngIf="flight.stars == 2">
+                  <p-rating [(ngModel)]="two_star_rating" [readonly]="true" [stars]="flight.stars" [cancel]="false">
+                  </p-rating><span class="pull-right stars_rate">{{ flight.stars}}</span>
+                </p>
+                <p *ngIf="flight.stars == 3">
+                  <p-rating [(ngModel)]="three_star_rating" [readonly]="true" [stars]="flight.stars" [cancel]="false">
+                  </p-rating><span class="pull-right stars_rate">{{ flight.stars}}</span>
+                </p>
+                <p *ngIf="flight.stars == 4">
+                  <p-rating [(ngModel)]="four_star_rating" [readonly]="true" [stars]="flight.stars" [cancel]="false">
+                  </p-rating><span class="pull-right stars_rate">{{ flight.stars}}</span>
+                </p>
+                <p *ngIf="flight.stars == 5">
+                  <p-rating [(ngModel)]="five_star_rating" [readonly]="true" [stars]="flight.stars" [cancel]="false">
+                  </p-rating><span class="pull-right stars_rate">{{ flight.stars}}</span>
+                </p>
+                 <!-- <p>{{ flight.description }} </p> -->
+                 <p>{{(flight.description.length > 25)? (flight.description | slice:0:20) + '...':(flight.description)}}</p>
+              </div>
+              <div class="side_bottom"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <pagination-controls (pageChange)="p=$event"></pagination-controls>
+
+      <!-- <div class="col-md-4 col-sm-6">
+                <div class="iron_flight">
+                  <div style="background-image:url('../../../assets/about_iran/flight_banner.jpg'); height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
+                    <div class="deals_details">
+                      <div class="flight_head">
+                        <h5>From Kerman To</h5>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="side_d"></div>
+                    <div class="flight_deal">
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                    </div>
+                    <div class="side_bottom"></div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="iron_flight">
+                  <div style="background-image:url('../../../assets/about_iran/flight_banner.jpg'); height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
+                    <div class="deals_details">
+                      <div class="flight_head">
+                        <h5>From Kerman To</h5>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="side_d"></div>
+                    <div class="flight_deal">
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                    </div>
+                    <div class="side_bottom"></div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="iron_flight">
+                  <div style="height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
+                    <div class="deals_details">
+                      <div class="flight_head">
+                        <h5>From Kerman To</h5>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="side_d"></div>
+                    <div class="flight_deal">
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                    </div>
+                    <div class="side_bottom"></div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="iron_flight">
+                  <div style="height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
+                    <div class="deals_details">
+                      <div class="flight_head">
+                        <h5>From Kerman To</h5>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="side_d"></div>
+                    <div class="flight_deal">
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                    </div>
+                    <div class="side_bottom"></div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="iron_flight">
+                  <div style="background-image:url('../../../assets/about_iran/flight_banner.jpg'); height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
+                    <div class="deals_details">
+                      <div class="flight_head">
+                        <h5>From Kerman To</h5>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="side_d"></div>
+                    <div class="flight_deal">
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
+                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                    </div>
+                    <div class="side_bottom"></div>
+                </div>
+            </div> -->
+    </div>
+  </div>
+
+
+  <div class="booking_flight_iron">
+    <div class="complete_guide_div">
+      <div class="bus_page_title">
+        <h2 class="text-center col-md-12">A Complete Guide for booking Flight in Iron</h2>
+        <hr class="bus_ul">
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="need_to_know">
+              <h4>Booking Iraning domestic Buses</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos accusamus commodi deserunt iure maxime rem
+                cum
+                at sapiente, assumenda corporis consequuntur ducimus quae odit ratione tenetur autem cumque alias
+                delectus.
+              </p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi unde, rem iste aut eius optio minus
+                excepturi provident vitae illo nulla consequatur, voluptate soluta tenetur enim cum alias delectus non?
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="need_to_know">
+              <h4>Booking Iraning domestic Buses</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos accusamus commodi deserunt iure maxime rem
+                cum
+                at sapiente, assumenda corporis consequuntur ducimus quae odit ratione tenetur autem cumque alias
+                delectus.
+              </p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi unde, rem iste aut eius optio minus
+                excepturi provident vitae illo nulla consequatur, voluptate soluta tenetur enim cum alias delectus non?
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="need_to_know">
+              <h4>Booking Iraning domestic Buses</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos accusamus commodi deserunt iure maxime rem
+                cum
+                at sapiente, assumenda corporis consequuntur ducimus quae odit ratione tenetur autem cumque alias
+                delectus.
+              </p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi unde, rem iste aut eius optio minus
+                excepturi provident vitae illo nulla consequatur, voluptate soluta tenetur enim cum alias delectus non?
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="need_to_know">
+              <h4>Booking Iraning domestic Buses</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos accusamus commodi deserunt iure maxime rem
+                cum
+                at sapiente, assumenda corporis consequuntur ducimus quae odit ratione tenetur autem cumque alias
+                delectus.
+              </p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi unde, rem iste aut eius optio minus
+                excepturi provident vitae illo nulla consequatur, voluptate soluta tenetur enim cum alias delectus non?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Frequently asked Question -->
+  <div class="faq_section">
+    <div class="bus_page_title">
+      <h2 class="text-center">Frequently asked Question</h2>
+      <hr class="bus_ul">
+    </div>
+    <div class="container">
+      <h4 class="faq_question" data-toggle="collapse" data-target="#demo1">What are the differance betweenstandard & VIP
+        class Buses? <span class="pull-right">+</span></h4>
+      <div id="demo1" class="collapse">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </div>
+    </div>
+
+    <div class="container">
+      <h4 class="faq_question" data-toggle="collapse" data-target="#demo2">What are the differance betweenstandard & VIP
+        class Buses? <span class="pull-right">+</span></h4>
+      <div id="demo2" class="collapse">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </div>
+    </div>
+
+    <div class="container">
+      <h4 class="faq_question" data-toggle="collapse" data-target="#demo3">What are the differance betweenstandard & VIP
+        class Buses? <span class="pull-right">+</span></h4>
+      <div id="demo3" class="collapse">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </div>
+    </div>
+
+    <div class="container">
+      <h4 class="faq_question" data-toggle="collapse" data-target="#demo4">What are the differance betweenstandard & VIP
+        class Buses? <span class="pull-right">+</span></h4>
+      <div id="demo4" class="collapse">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </div>
+    </div>
+  </div>

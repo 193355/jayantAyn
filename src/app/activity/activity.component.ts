@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 declare var $: any;
 
 @Component({
@@ -7,12 +10,21 @@ declare var $: any;
   styleUrls: ['./activity.component.css']
 })
 export class ActivityComponent implements OnInit {
+  searchFlightForm: FormGroup;
+  isSubmitted: boolean;
 
-  constructor() { 
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) { 
     window.scroll(0,0);
   }
 
   ngOnInit(): void {
+
+    this.searchFlightForm = this.formBuilder.group({
+      destination: ['', Validators.compose([Validators.required])],
+      pickup_date_time: ['', Validators.compose([Validators.required])],
+      activity: ['', Validators.compose([Validators.required])],  
+    }) 
+
     $(document).ready(function () {
       $('.slider').slick({
         dots: false,
@@ -62,5 +74,13 @@ export class ActivityComponent implements OnInit {
       });
     });
   }
+
+    // Search fligh - 
+    onSearchFlight(flightForm) {
+      console.log("form data =", flightForm.value);
+      
+      this.isSubmitted = true;
+      // flightForm.resetForm();
+    }
 
 }

@@ -66,12 +66,19 @@ export class NavComponent implements OnInit {
 
 
   // Registration submit event
-  onRegisterSubmit(form: NgForm) {
+  onRegisterSubmit(form) {
     this.isSubmitted = true;
-    if (this.registrationForm.invalid) {
+    if (this.registrationForm.invalid) { 
       return;
     }
     console.log("form data =", this.registrationForm.value);
+    this.resetForm();
+  }
+
+  // Reset Form Function -
+  resetForm() {
+    this.isSubmitted = false;
+    this.registrationForm.reset();
   }
 
 

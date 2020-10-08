@@ -496,3 +496,9 @@ figure.testimonial .author h5 span {
         font-size:22px;
     }
   }
+
+  /* Form Control Validation CSS */
+.form-control-validation {
+    color: red;
+    font-size: 14px;
+}

@@ -12,28 +12,51 @@
   </section>
   <div class="search_box_section">
     <div class="container">
-      <div class="searchbox row">
-        <div class="col-md-7 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
-          <div class="col-md-6 col-sm-12 col-xs-12">
-            <label for="username">Origin:</label><br>
-              <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your origin" name="username"></i>  
+      <form [formGroup]="searchFlightForm" (submit)="onSearchFlight(searchFlightForm)">
+        <div class="searchbox row">
+          <div class="col-md-7 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+              <label for="username">Origin:</label><br>
+                <i class="fa fa-map-marker" aria-hidden="true"><input type="text" formControlName="origin"id="origin" name="origin" class="form-control custome_control" placeholder="Enter your origin"></i>  
+                 <!-- Origin Validation  Start -->
+            <div *ngIf="isSubmitted && !searchFlightForm.controls['origin'].valid">
+              <span *ngIf="searchFlightForm.controls['origin'].hasError('required')" class="form-control-validation">
+                Origin is required
+              </span>
+            </div>
+            <!-- End Origin Valiation End -->
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+              <label for="username">Destination:</label><br>
+                <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="destination" name="destination" formControlName="destination" class="form-control custome_control" placeholder="Enter your destination"></i>
+                 <!-- Destination Validation  Start -->
+            <div *ngIf="isSubmitted && !searchFlightForm.controls['destination'].valid">
+              <span *ngIf="searchFlightForm.controls['destination'].hasError('required')" class="form-control-validation">
+                Destination is required
+              </span>
+            </div>
+            <!-- End Destination Valiation End -->
+            </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-xs-12">
-            <label for="username">Destination:</label><br>
-              <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your destination" name="username"></i>
+          <div class="col-md-4 col-sm-6 col-xs-6 search_filed mbl_pad">
+            <div class="col-md-12 col-sm-12 col-xs-12 mb-20">
+              <label for="username">Depart</label><br>
+                <input type="date" class="date_birth datepicker" formControlName="depart" id="depart" name="depart">
+                    <!-- Depart Validation  Start -->
+            <div *ngIf="isSubmitted && !searchFlightForm.controls['depart'].valid">
+              <span *ngIf="searchFlightForm.controls['depart'].hasError('required')" class="form-control-validation">
+                Depart is required
+              </span>
+            </div>
+            <!-- End Depart Valiation End -->
+            </div>
+            
           </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-6 search_filed mbl_pad">
-          <div class="col-md-12 col-sm-12 col-xs-12 mb-20">
-            <label for="username">Depart</label><br>
-              <input type="date" class="date_birth datepicker" id="birthday" name="birthday">
-          </div>
-          
-        </div>
-      <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
-        <button type="submit" class="btn btn_search">Search</button>
-    </div>
+        <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
+          <button type="submit" class="btn btn_search">Search</button>
       </div>
+        </div>
+      </form> 
     </div>
   </div>
   <div class="why_get_section">
