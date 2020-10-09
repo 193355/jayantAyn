@@ -13,21 +13,23 @@
               <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your origin" name="username"></i>  
           </div>
         </div>
+
         <div class="col-md-4 col-sm-6 col-xs-6 search_filed mbl_pad">
           <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
             <label for="username">Pick Up Date/Time</label><br>
               <input type="date" class="date_birth datepicker" id="birthday" name="birthday">
           </div>
         </div>
+
+
         <div class="col-md-3 col-sm-12 col-xs-12 search_filed ">
           <label for="username">Activity</label><br>
-    <select class="browser-default custom-select">
-      <option selected>1</option>
-      <option value="1">2</option>
-      <option value="2">3</option>
-      <option value="3">4</option>
-    </select>
+          <select class="browser-default custom-select">
+            <option *ngFor="let dl of list">{{dl}}</option>
+          </select>
         </div>
+        
+
 
       <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
         <button type="submit" class="btn btn_search">Search</button>
@@ -115,6 +117,41 @@
       </div>
     </div>
   </section>
+
+
+  <section>
+<div class="container">
+    <div class="row">
+      
+    <div class="col-md-4 col-sm-12 col-xs-12 search_filed ">
+      <label for="username">Country</label><br>
+      <select class="browser-default custom-select" placeholder="Country" [(ngModel)]="selectedCountry" (change)="changeCountry($event.target.value)">
+        <option>--Choose Country--</option>
+        <option *ngFor="let country of Countries">{{country.name}}</option>
+      </select>
+    </div>
+
+    <div class="col-md-4 col-sm-12 col-xs-12 search_filed ">
+      <label for="username">State</label><br>
+      <select placeholder="State" class="browser-default custom-select" (change)="changeState($event.target.value)">
+        <option *ngFor="let state of states">{{state.name}}</option>
+      </select>
+    </div>
+
+
+    <div class="col-md-4 col-sm-12 col-xs-12 search_filed ">
+      <label for="username">City</label><br>
+      <select placeholder="City" class="browser-default custom-select">
+        <option *ngFor="let city of cities">{{city}}</option>
+      </select>
+    </div>
+
+
+  </div>
+</div>
+  </section>
+
+
   <section class="top_destination">
     <div class="container">
       <div class="row">

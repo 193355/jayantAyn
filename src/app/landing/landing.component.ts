@@ -10,16 +10,19 @@ declare var $: any;
   styleUrls: ['./landing.component.css']
 })
 
+
 export class LandingComponent implements OnInit {
   form: FormGroup;
   constructor(private spinner: NgxSpinnerService,private fb: FormBuilder)  { }
   
+
   ngOnInit() { 
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-    }, 4000);
+    }, 2000);
 
+    
     $(document).ready(function () {
       $('.slideset').slick({
         slidesToShow: 2,

@@ -98,12 +98,6 @@
             <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your origin" name="username" (keydown.enter)="$event.preventDefault()" #search></i>  
         </div>
 
-        <!-- <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" style="height: 100px;">
-          <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
-            (dragEnd)="markerDragEnd($event)">
-          </agm-marker>
-        </agm-map> -->
-
         <div class="col-md-6 col-sm-12 col-xs-12">
           <label for="username">Destination:</label><br>
           <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username" class="form-control custome_control" placeholder="Enter your origin" name="username" (keydown.enter)="$event.preventDefault()" #search1></i>  
@@ -115,13 +109,13 @@
         <div class="col-md-12 col-sm-12 col-xs-12 mb-20">
           <label for="username">Depart</label><br>
             <input type="date" class="date_birth datepicker" id="birthday" name="birthday">
-        </div>
-        
+        </div>       
       </div>
-
+   
     <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
       <button type="submit" class="btn btn_search">Search</button>
-  </div>
+   </div>
+
     </div>
   </div>
 </div>
@@ -140,6 +134,7 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
           </div>
         </div>
+
         <div class="col-md-4  col-sm-12 col-xs-12">
           <div class="instant_easy">
             <i class="fa fa-credit-card" aria-hidden="true"></i>
@@ -147,6 +142,8 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
           </div>
         </div>
+
+
         <div class="col-md-4  col-sm-12 col-xs-12">
           <div class="instant_easy">
             <i class="fa fa-usd" aria-hidden="true"></i>
@@ -155,6 +152,7 @@
           </div>
         </div>
       </div>
+
     </div>
 </div>
 
@@ -191,8 +189,6 @@
   </div>
 
   <!-- latest iron domastic flight deals -->
-
-
   <div class="domastic_flight_section" >
       <div class="container" >
         <div class="col-md-12 text-center" style="margin-bottom: 30px;">
@@ -200,33 +196,34 @@
         </div>
       </div>
       <div class="container">
-        <div *ngFor="let fl of hotels"> 
+        <div class="text-center" *ngFor="let fl of datas.items | paginate:{itemsPerPage: 3, currentPage:p}"> 
             <div class="col-md-4 col-sm-6">
-                <div class="iron_flight" >
+                <div class="iron_flight">
                     <div style="background-image:url('../../../assets/about_iran/flight_banner.jpg'); height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
                       <div class="deals_details">
                         <div class="flight_head">
-                          <h5>From Kerman To</h5>
+                          <h5>{{fl?.owner?.display_name}}</h5>                          
                         </div>
                       </div>
                     </div>
+
                     <div class="side_d"></div>
+
                     <div class="flight_deal">
-                        <p>Tehran {{fl.name}}<span class="pull-right"><span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
-                        <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
+                        <p>Tags <span class="pull-right">{{fl.tags[0]}} <span></span></span></p>
                         <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
                         <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
                         <p>Tehran <span class="pull-right">9.68 <span>$</span></span></p>
                         <p>Tehran <span class="pull-right">29.68 <span>$</span></span></p>
                     </div>
+
                     <div class="side_bottom"></div>
+
                 </div>
             </div>
         </div>
-            <!-- <div class="col-md-4 col-sm-6">
-                <div class="iron_flight">
+        <pagination-controls class="text-center" (pageChange)="p=$event"></pagination-controls>
+                <!-- <div class="iron_flight">
                   <div style="background-image:url('../../../assets/about_iran/flight_banner.jpg'); height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
                     <div class="deals_details">
                       <div class="flight_head">
@@ -339,7 +336,7 @@
                     </div>
                     <div class="side_bottom"></div>
                 </div>
-            </div> -->
+            </div>  -->
       </div>
   </div>   
 
@@ -361,6 +358,7 @@
               excepturi provident vitae illo nulla consequatur, voluptate soluta tenetur enim cum alias delectus non?</p>
           </div>
         </div>
+
         <div class="col-md-6">
           <div class="need_to_know">
             <h4>Booking Iraning domestic Buses</h4>
@@ -371,6 +369,7 @@
               excepturi provident vitae illo nulla consequatur, voluptate soluta tenetur enim cum alias delectus non?</p>
           </div>
         </div>
+
       </div>
   
       <div class="row">
@@ -395,6 +394,7 @@
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 </div>  
@@ -405,6 +405,7 @@
     <h2 class="text-center">Frequently asked Question</h2>
     <hr class="bus_ul">
   </div>
+
   <div class="container"> 
     <h4 class="faq_question" data-toggle="collapse" data-target="#demo1">What are the differance betweenstandard & VIP class Buses? <span class="pull-right">+</span></h4>
     <div id="demo1" class="collapse">
@@ -440,4 +441,5 @@
       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     </div>
   </div>
+
 </div>

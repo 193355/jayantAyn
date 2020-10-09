@@ -24,20 +24,24 @@
                 <h4 class="modal-title">Create Your Free Account</h4>
               </div>
               <div class="modal-body">
-                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="firstname">First Name</label>
                       <input type="text" class="form-control" formControlName="fName"  id="firstname" placeholder="Enter First Name">
-                           <span class="text-danger"
-                                *ngIf="(f.fName.touched || submitted) && f.fName.errors?.required">
+                            <span class="help-block text-danger"
+                                *ngIf="this.registerForm.get('fName').invalid && submitted">
                                 Name is required
                             </span>
-                    </div>
+                     </div>
 
                     <div class="form-group col-md-6">
                       <label for="lastname">Last Name</label>
                       <input type="text" class="form-control" id="lastname" formControlName="lName" placeholder="Enter Last Name">
+                            <span class="help-block text-danger"
+                                *ngIf="this.registerForm.get('lName').invalid && submitted">
+                              Last Name is required
+                            </span>
                     </div>     
                   
                    </div>
@@ -46,24 +50,38 @@
                       <div class="form-group">
                         <label for="email">Email Address</label>
                         <input type="email" formControlName="email" class="form-control" id="email" placeholder="Enter Email Address" >  
+                        <span class="help-block text-danger"
+                        *ngIf="this.registerForm.get('email').invalid && submitted">
+                           Email is required
+                       </span>
                       </div>
 
                       <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" class="form-control" formControlName="password" id="password" placeholder="Enter Password">
+                        <span class="help-block text-danger"
+                        *ngIf="this.registerForm.get('password').invalid && submitted">
+                           Password is required
+                       </span>  
                       </div>
 
                       <div class="form-group">
                         <label for="confirmpass">Confirm Password</label>
                         <input type="password" class="form-control" formControlName="confPass" id="confirmpass" placeholder="Enter Confirm Password">
+                        <span class="help-block text-danger"
+                        *ngIf="this.registerForm.get('password').invalid && submitted">
+                           Confirm Password is required
+                       </span>
                       </div>
                     </div>
                                    
                   <div class="sing_in_btn text-center">
-                    <button type="submit" class="btn vertical_btn">Sing Up</button>
+                     <button type="submit" (click)="showSuccess()" class="btn vertical_btn">Sing Up</button>
                   </div>
+
                 </form>
               </div>
+
               <div class="modal-footer">
                 <div class="social_btn">
                   <div class="row">
@@ -110,26 +128,31 @@
                 <h4 class="modal-title">Login</h4>
               </div>
               <div class="modal-body">
-                <form>
+                <form [formGroup]="loginForm" (submit)="onLoginSubmit(loginForm.value)">
                   <div class="form-row">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter Email Address">
+                        <input type="email" class="form-control" id="email" placeholder="Enter Email Address" formControlName="email">
+                        <span class="help-block text-danger"
+                        *ngIf="this.loginForm.get('email').invalid && submitted">
+                           Email is required
+                       </span>
                       </div>
+
                       <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter Password">
+                        <input type="password" class="form-control" id="password" placeholder="Enter Password" formControlName="password">
+                        <span class="help-block text-danger"
+                        *ngIf="this.loginForm.get('password').invalid && submitted">
+                           Password is required
+                       </span>
                       </div>
-                      <div class="form-group">
-                        <label for="confirmpass">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirmpass" placeholder="Enter Confirm Password">
-                      </div>
-                      
+                    
                     </div>
                   </div>
                   <div class="sing_in_btn text-center">
-                    <button class="btn vertical_btn">Login</button>
+                    <button type="submit" class="btn vertical_btn">Login</button>
                   </div>
                   <div class="forget text-center">
                     <a class="forget_text" data-toggle="modal" data-target="#forgetmodal" class="forgetmodal">Forget Password?</a>
@@ -154,6 +177,7 @@
                     </div>
                   </div>
                 </div>
+                
                 <div class="social_btn">
                   <div class="row">
                     <div class="col-md-2 col-sm-2 col-xs-0"></div>
@@ -248,17 +272,27 @@
                 <a class="qu_brand_logo" [routerLink]="'/landing'"><img src="../../../assets/icon.png" alt="logo">
                 </a>
             </div>
+
             <div id="navbar2" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">	
-                    <li id="" class="activeBB"><a [routerLink]="'/landing'">Home</a></li>
-                    <li id="" class=""><a [routerLink]="'/flight'">Flight</a></li>
-                    <li id="" class=""><a [routerLink]="'/hotel'">Hotel</a></li>
-                    <li id="" class=""><a [routerLink]="'/hostel'">Hostel</a></li>
-                    <li id="" class=""><a [routerLink]="'/tour'">Tour</a></li>
-                    <li id="" class=""><a [routerLink]="'/car'">Car</a></li>
-                    <li id="" class=""><a [routerLink]="'/activity'">Activity</a></li>
-                    <li id="" class=""><a [routerLink]="'/transfer'">Transfer</a></li>
-                    <li id="" class=""><a [routerLink]="'/bus'">Bus</a></li>
+                    <li id="" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"class="" (click)="showSpinner()"><a [routerLink]="'/landing'">Home</a></li>
+                    
+                    <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" 
+                    id="" (click)="showSpinner()"><a [routerLink]="'/flight'">Flight</a></li>
+
+                    <li id="" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"class="" (click)="showSpinner()"><a [routerLink]="'/hotel'">Hotel</a></li>
+
+                    <li id="" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class=""><a [routerLink]="'/hostel'">Hostel</a></li>
+
+                    <li id="" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class=""><a [routerLink]="'/tour'">Tour</a></li>
+
+                    <li id="" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="" (click)="showSpinner()"><a [routerLink]="'/car'" >Car</a></li>
+
+                    <li id="" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class=""><a [routerLink]="'/activity'">Activity</a></li>
+
+                    <li id="" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="" (click)="showSpinner()"><a [routerLink]="'/transfer'">Transfer</a></li>
+
+                    <li id="" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="" (click)="showSpinner()"><a [routerLink]="'/bus'">Bus</a></li>
                 </ul>
             </div>
           </div>

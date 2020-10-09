@@ -20,6 +20,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { NgxStarsModule } from 'ngx-stars';
 import {SplitButtonModule} from 'primeng/splitbutton';
+import {ToastModule} from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { AgmDirectionModule } from 'agm-direction';   // agm-direction
 
 @NgModule({
   declarations: [
@@ -46,12 +49,14 @@ import {SplitButtonModule} from 'primeng/splitbutton';
     NgxStarsModule,
     BrowserAnimationsModule,
     SplitButtonModule,
+    ToastModule,
+    AgmDirectionModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBxPqdmg2ouIJZs4SKNHC3N2Qbi7mdboFY',
       libraries: ['places']
     }),
   ],
-  providers: [NgxSpinnerService],
+  providers: [NgxSpinnerService,MessageService],
   bootstrap: [AppComponent]
 })
 

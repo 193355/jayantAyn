@@ -10,7 +10,8 @@
     </div>
   </div>
 </section>
-<form [formGroup]="regForm" (submit)="onSubmit()">
+
+<form [formGroup]="regForm" (ngSubmit)="onSubmit()">
 <div class="search_box_section">
   <div class="container">
     <div class="searchbox row">
@@ -20,10 +21,10 @@
           <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username"
               class="form-control custome_control" formControlName="source" placeholder="Enter your origin" name="username"
               (keydown.enter)="$event.preventDefault()" #search></i>
-        </div>
+        </div>       
       </div>
 
-      <div class="col-md-6 col-sm-6 col-xs-6 search_filed mbl_pad">
+        <div class="col-md-6 col-sm-6 col-xs-6 search_filed mbl_pad">
         <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
           <label for="username">Check In</label><br>
           <input type="date" class="date_birth datepicker" id="birthday" name="birthday">
@@ -33,6 +34,7 @@
           <label for="username">Check out</label><br>
           <input type="date" class="date_birth datepicker" id="birthday" name="birthday">
         </div>
+
       </div>
 
       <div class="col-md-2 col-sm-12 col-xs-12 search_filed ">
@@ -48,10 +50,12 @@
       <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
         <button type="submit" class="btn btn_search">Search</button>
       </div>
+      
     </div>
   </div>
 </div>
 </form>
+
 
 <section class="trending">
   <div class="container">
@@ -68,6 +72,7 @@
           <li><a href="#3a" data-toggle="tab">Eco Tourism Resort</a>
           </li>
         </ul>
+
         <div class="row">
           <div class="tab-content clearfix">
             <div class="tab-pane active" id="1a"

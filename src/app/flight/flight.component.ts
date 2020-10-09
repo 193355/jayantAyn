@@ -1,39 +1,38 @@
 import { MapsAPILoader } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ElementRef, NgZone, ViewChild } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-flight',
   templateUrl: './flight.component.html',
   styleUrls: ['./flight.component.css']
 })
-
-
 export class FlightComponent implements OnInit {
   latitude: number;
   longitude: number;
   zoom:number;
   address: string;
+ 
   private geoCoder;
   hotels:any = [];
+  datas:any = [];
   @ViewChild('search',{static: true})
-  
   public searchElementRef: ElementRef;
-  public searchElementRef1: ElementRef;
 
-  constructor(private mapsAPILoader: MapsAPILoader,private ngZone: NgZone,private http: HttpClient) {
+  constructor(private mapsAPILoader: MapsAPILoader,private ngZone: NgZone,private http: 
+    HttpClient) {
     window.scroll(0,0);
    }
-   
-   
+  
   ngOnInit(): void {
     this.getHotels();
+    this.getData();
     this.setCurrentLocation();
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
-
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
           //get the place result
@@ -49,11 +48,8 @@ export class FlightComponent implements OnInit {
         });
       });
 
-    });
-
-    
+    });  
   }
-
 
    // Get Current Location Coordinates
    private setCurrentLocation() {
@@ -66,12 +62,6 @@ export class FlightComponent implements OnInit {
     }
   }
 
-  // markerDragEnd($event: MouseEvent) {
-  //   console.log($event);
-  //   this.latitude = $event.coords.lat;
-  //   this.longitude = $event.coords.lng;
-  //   this.getAddress(this.latitude, this.longitude);
-  // }
 
   getAddress(latitude, longitude) {
     this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
@@ -87,18 +77,26 @@ export class FlightComponent implements OnInit {
       } else {
         window.alert('Geocoder failed due to: ' + status);
       }
-
     });
   }
   
-
-
   getHotels(){
-    debugger
     return this.http.get("https://fake-hotel-api.herokuapp.com/api/hotels")
     .subscribe(data =>{
           this.hotels = data;
-          console.log(this.hotels); 
     })
+  }
+
+  getData(){
+    return this.http.get('https://api.stackexchange.com/2.2/questions/featured?order=desc&sort=activity&site=stackoverflow').subscribe
+    (dt =>{
+          this.datas = dt;
+          console.log(this.datas);
+    })
+  }
+
+
+  bindDropdown(){
+      
   }
 }

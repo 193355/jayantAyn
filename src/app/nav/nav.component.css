@@ -6,8 +6,10 @@ li.nav-item.dropdown.show span:after {
     content: '';
     margin-right: 6px;
 }
-.invalid-feedback{
-    border-color: red;
+.help-block{
+    position: relative;
+    color: red; 
+    font-size: 12px;
 }
 a.dropdown-item {
     display: block;

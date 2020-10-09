@@ -8,7 +8,7 @@ import { HotelComponent } from './hotel/hotel.component';
 import { LandingComponent } from './landing/landing.component';
 import { TransferComponent } from './transfer/transfer.component';
 
-const routes: Routes = [
+const routes: Routes = [ 
     {path: '', redirectTo: 'landing', pathMatch: 'full' },
     {path: 'landing', component: LandingComponent },
     {path: 'hotel' ,component: HotelComponent},
@@ -19,9 +19,12 @@ const routes: Routes = [
     {path: 'bus' ,component: BusComponent},
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+  
+}

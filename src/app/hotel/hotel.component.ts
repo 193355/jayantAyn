@@ -22,26 +22,25 @@ export class HotelComponent implements OnInit {
   isReadonly: boolean = true;
   submitted = false;
   private rate:number = 3;
-  
-  @ViewChild('search',{static: true})
 
+  @ViewChild('search',{static: true})
   public searchElementRef: ElementRef;
   constructor(private http: HttpClient,private mapsAPILoader: MapsAPILoader,private ngZone: 
     NgZone,private fb: FormBuilder,private formBuilder:FormBuilder) { 
       this.form = this.fb.group({
         rating: ['', Validators.required],
       })
+      
     window.scroll(0,0);  
     this.form = this.fb.group({
       rating : ['',Validators.required]
     })
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.regForm = this.formBuilder.group({
       source: ['',Validators.required]
     })
-
 
     this.getHotels();
     $(document).ready(function () {
@@ -132,9 +131,10 @@ export class HotelComponent implements OnInit {
     }
   }
 
-
   getAddress(latitude, longitude) {
-    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
+    debugger
+    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, 
+    (results, status) => {
       console.log(results);
       console.log(status);
       if (status === 'OK') {
@@ -162,4 +162,5 @@ export class HotelComponent implements OnInit {
     debugger
     this.submitted = true;
   }
+
 }

@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-nav',
@@ -9,48 +11,73 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 
 export class NavComponent implements OnInit {
-  regId;
+  id;
+  name: string;
+  postId;
   registerForm: FormGroup;
+  loginForm: FormGroup;
   submitted = false;
-    constructor(private http: HttpClient,private fb: FormBuilder) { 
-      this.registerForm = this.fb.group({
-        fName: ['', Validators.required],
-        lName :['', Validators.required],
-        email :['', [Validators.required,Validators.email]],
-        password:['', [Validators.required,Validators.minLength(6)]],
-        confPassword :['', Validators.required],
-     })
 
-     this.registerForm = new FormGroup({
-      'fName': new FormControl(null),
-      'lName': new FormControl(null),
-      'email': new FormControl(null),
-      'password': new FormControl(null),
-      'confPass': new FormControl(null),
-     })
-    }
-    
+  constructor(private http: HttpClient, private fb: FormBuilder, private messageService: MessageService,private spinner: NgxSpinnerService) {
+
+    //register  
+    this.registerForm = new FormGroup({
+      fName: new FormControl(null, Validators.required),
+      lName: new FormControl(null, Validators.required),
+      email: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
+      confPass: new FormControl(null, Validators.required),
+    })
+
+    //login
+    this.loginForm = new FormGroup({
+      email: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required)
+    })
+  }
+
+  
   ngOnInit() {
-
+    
   }
 
-Addreg(){
-  return this.http.post('https://jayantp-3b4e1.firebaseio.com/data.json',{
-    "Name": "jason",
-    "Value" :"123"
-  }).subscribe(dt => {
-    this.regId = dt
-    console.log(this.Addreg); 
-  })
-}
+  get f() { return this.registerForm.controls; }
+  get f2() { return this.loginForm.controls; }
 
-get f() { return this.registerForm.controls; }
 
-onSubmit() {
-  debugger
-  this.submitted = true;
-  debugger
-  console.log(this.registerForm.value)
+  showSuccess() {
+    debugger
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
   }
+
+  showSpinner(){
+    this.spinner.show()
+  }
+
+  onSubmit() {
+    debugger
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
+  }
+
+  onLoginSubmit() {
+    debugger
+    if (this.loginForm.invalid) {
+      return;
+    }
+    const headers = new HttpHeaders
+      ({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer'
+      })     
+    const body = { name: 'Jayant' }
+    this.http.post('https://jsonplaceholder.typicode.com/posts', body, { headers }).subscribe(data => {
+      this.postId = data;
+      console.log(data);
+    })
+  }
+
 }
 

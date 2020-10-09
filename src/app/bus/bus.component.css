@@ -1,6 +1,12 @@
 #qu_banner{
     padding-top: 95px;
 }
+
+agm-map {
+    height: 200px;
+    width: 300px;
+  }
+
 .hero-overlay{
     background: rgba(0, 0, 0, 0.37);
     left: 0;
