@@ -1,9 +1,12 @@
 import { MapsAPILoader } from '@agm/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders} from '@angular/common/http';
 import { Component, OnInit,ElementRef, NgZone, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import {filter, map } from 'rxjs/operators';
 
 declare var $: any;
+
 @Component({
   selector: 'app-hotel',
   templateUrl: './hotel.component.html',
@@ -17,7 +20,8 @@ export class HotelComponent implements OnInit {
   zoom:number;
   address: string;
   private geoCoder;
-  hotels:any = [];
+  hotelsIv:any = [];
+
   regForm :FormGroup
   isReadonly: boolean = true;
   submitted = false;
@@ -30,7 +34,7 @@ export class HotelComponent implements OnInit {
       this.form = this.fb.group({
         rating: ['', Validators.required],
       })
-      
+
     window.scroll(0,0);  
     this.form = this.fb.group({
       rating : ['',Validators.required]
@@ -38,11 +42,13 @@ export class HotelComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getHotelInventory();
     this.regForm = this.formBuilder.group({
       source: ['',Validators.required]
-    })
-
-    this.getHotels();
+    }) 
+    //to get hotel list
+    //this.getHotels();
+   
     $(document).ready(function () {
       $('.slider, slideset').slick({
         dots: false,
@@ -120,7 +126,8 @@ export class HotelComponent implements OnInit {
       });
     });
   }
-
+  
+  //set location
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -130,9 +137,8 @@ export class HotelComponent implements OnInit {
       });
     }
   }
-
+  
   getAddress(latitude, longitude) {
-    debugger
     this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, 
     (results, status) => {
       console.log(results);
@@ -144,23 +150,53 @@ export class HotelComponent implements OnInit {
         } else {
           window.alert('No results found');
         }
-      } else {
+      }
+       else {
         window.alert('Geocoder failed due to: ' + status);
       }
     });
   }
 
-  getHotels(){
-    return this.http.get("https://fake-hotel-api.herokuapp.com/api/hotels")
-    .subscribe(data =>{
-          this.hotels = data;
-          console.log(this.hotels); 
-    })
-  }
+  // getHotels(){
+  //   return this.http.get("https://fake-hotel-api.herokuapp.com/api/hotels")
+  //   .subscribe(data =>{
+  //         this.hotels = data;
+  //         console.log(this.hotels); 
+  //   })
+  // }
 
-  onSubmit(){
-    debugger
-    this.submitted = true;
+
+  // hoteSearch()  {
+  //     this.http.get('https://fake-hotel-api.herokuapp.com/api/hotels')
+  //     .subscribe(data =>{
+  //       this.hotels = data;
+  //     })
+  // }
+
+  // onSubmit(){
+  //   this.submitted = true;
+  // }
+
+  
+  //get hotel inventory
+  getHotelInventory(){
+    
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     "Content-Type": "application/json",
+    //     "Authorization": "3c97535fc4116f636a52ee31593e5fe2e2cefea1",
+    //   })
+    // };
+
+    const headers = {
+      "Content-Type": "application/json",
+      "Authorization": "3c97535fc4116f636a52ee31593e5fe2e2cefea1"
+    }
+    return this.http.get<any>('https://api.lamasoo.com/booking/hotel_inventory', {headers})
+    .subscribe(dt =>{
+      this.hotelsIv = dt['hotels'];
+      console.log(dt);
+    })
   }
 
 }

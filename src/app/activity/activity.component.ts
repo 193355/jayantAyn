@@ -8,7 +8,6 @@ declare var $: any;
 })
 export class ActivityComponent implements OnInit {
   selectedCountry: String = "--Choose Country--";
-
   Countries: Array<any> = [
 		{ name: 'Germany', states: [ {name: 'A', cities: ['Duesseldorf', 'Leinfelden-Echterdingen', 'Eschborn']} ] },
 		{ name: 'Spain', states: [ {name: 'B', cities: ['Barcelona']} ] },
@@ -18,7 +17,7 @@ export class ActivityComponent implements OnInit {
   ];
   
   states: Array<any>;
-  
+
   cities: Array<any>;
 
   // list: any = ['1', '2', '3']
@@ -80,10 +79,12 @@ export class ActivityComponent implements OnInit {
 
 //change country
 changeCountry(country) {
+  debugger
   this.states = this.Countries.find(cntry => cntry.name == country).states;
 }
 
 changeState(state) {
+  debugger
   this.cities = this.Countries.find(cntry => cntry.name == this.selectedCountry).states.find(stat => stat.name == state).cities;
 }
 

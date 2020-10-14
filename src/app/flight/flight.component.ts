@@ -1,7 +1,6 @@
 import { MapsAPILoader } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ElementRef, NgZone, ViewChild } from '@angular/core';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-flight',
@@ -13,11 +12,11 @@ export class FlightComponent implements OnInit {
   longitude: number;
   zoom:number;
   address: string;
- 
   private geoCoder;
   hotels:any = [];
   datas:any = [];
   @ViewChild('search',{static: true})
+
   public searchElementRef: ElementRef;
 
   constructor(private mapsAPILoader: MapsAPILoader,private ngZone: NgZone,private http: 
@@ -29,10 +28,12 @@ export class FlightComponent implements OnInit {
     this.getHotels();
     this.getData();
     this.setCurrentLocation();
+    
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
+  
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
           //get the place result
@@ -47,9 +48,9 @@ export class FlightComponent implements OnInit {
           this.zoom = 12;
         });
       });
-
-    });  
+    });      
   }
+
 
    // Get Current Location Coordinates
    private setCurrentLocation() {
@@ -61,7 +62,6 @@ export class FlightComponent implements OnInit {
       });
     }
   }
-
 
   getAddress(latitude, longitude) {
     this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
@@ -95,8 +95,4 @@ export class FlightComponent implements OnInit {
     })
   }
 
-
-  bindDropdown(){
-      
-  }
 }

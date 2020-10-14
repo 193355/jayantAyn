@@ -134,6 +134,7 @@
     <div class="col-md-4 col-sm-12 col-xs-12 search_filed ">
       <label for="username">State</label><br>
       <select placeholder="State" class="browser-default custom-select" (change)="changeState($event.target.value)">
+        <option>--Choose state--</option>
         <option *ngFor="let state of states">{{state.name}}</option>
       </select>
     </div>
@@ -145,7 +146,6 @@
         <option *ngFor="let city of cities">{{city}}</option>
       </select>
     </div>
-
 
   </div>
 </div>

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { LandingComponent } from './landing/landing.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FlightComponent } from './flight/flight.component';
 import { HotelComponent } from './hotel/hotel.component';
 import { FooterComponent } from './footer/footer.component';
@@ -17,7 +17,6 @@ import { BusComponent } from './bus/bus.component';
 import { AgmCoreModule } from '@agm/core';
 import { NgxSpinnerModule, NgxSpinnerService} from "ngx-spinner";
 import { NgxPaginationModule } from 'ngx-pagination';
-import { NgxStarRatingModule } from 'ngx-star-rating';
 import { NgxStarsModule } from 'ngx-stars';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {ToastModule} from 'primeng/toast';
@@ -44,7 +43,6 @@ import { AgmDirectionModule } from 'agm-direction';   // agm-direction
     FormsModule,
     NgxSpinnerModule,
     NgxPaginationModule,
-    NgxStarRatingModule,
     ReactiveFormsModule,
     NgxStarsModule,
     BrowserAnimationsModule,

@@ -18,8 +18,8 @@ export class NavComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
 
-  constructor(private http: HttpClient, private fb: FormBuilder, private messageService: MessageService,private spinner: NgxSpinnerService) {
-
+  constructor(private http: HttpClient, private fb: FormBuilder, private messageService: 
+    MessageService,private spinner: NgxSpinnerService) {
     //register  
     this.registerForm = new FormGroup({
       fName: new FormControl(null, Validators.required),
@@ -36,30 +36,47 @@ export class NavComponent implements OnInit {
     })
   }
 
-  
   ngOnInit() {
-    
+    this.spinner.show()
   }
 
   get f() { return this.registerForm.controls; }
   get f2() { return this.loginForm.controls; }
-
-
+  
   showSuccess() {
     debugger
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
+    this.messageService.add({ 
+      severity: 'success', 
+      summary: 'Success', 
+      detail: 'Message Content' 
+     });
   }
 
-  showSpinner(){
-    this.spinner.show()
+  tost(){
+    console.log('Authentication Failed');
+    this.messageService.add({
+       severity:'error',
+       summary: 'authentication failed',
+       detail: 'API Key URL is invalid'
+    })
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' })
   }
 
+//register form
   onSubmit() {
     debugger
     this.submitted = true;
+    const formData  = new FormData();
+    formData.append('fName',this.registerForm.get('fName').value),
+    formData.append('lName',this.registerForm.get('lName').value),
+    formData.append('email',this.registerForm.get('email').value),
+    formData.append('password',this.registerForm.get('password').value),
+    formData.append('confirmpass',this.registerForm.get('confirmpass').value)
+
     if (this.registerForm.invalid) {
       return;
     }
+    this.registerForm.reset();
   }
 
   onLoginSubmit() {
@@ -72,12 +89,12 @@ export class NavComponent implements OnInit {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer'
       })     
-    const body = { name: 'Jayant' }
+    const body = { name: 'sd' }
     this.http.post('https://jsonplaceholder.typicode.com/posts', body, { headers }).subscribe(data => {
       this.postId = data;
       console.log(data);
+      this.loginForm.reset();
     })
-  }
-
+  }  
 }
 

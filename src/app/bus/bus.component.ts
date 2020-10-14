@@ -70,7 +70,6 @@ export class BusComponent implements OnInit {
           });
         });
       });
-   
   }
 
       private setCurrentLocation() {
@@ -98,10 +97,9 @@ export class BusComponent implements OnInit {
             }
           } else {
             window.alert('Geocoder failed due to: ' + status);
-          }
+          } 
         });
       }
-      
       //source to destination
       getDirection() {
         this.origin = { lat: 24.799448, lng: 120.979021 };

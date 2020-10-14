@@ -6,7 +6,7 @@
             <div class="row">
               <div class="top_left">
                 <ul>
-                  <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +98 930-939-9796</a></li>
+                  <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +98 930-939- </a></li>
                   <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> info@persiabooking.com</a></li>
                 </ul>
               </div>
@@ -73,6 +73,7 @@
                            Confirm Password is required
                        </span>
                       </div>
+
                     </div>
                                    
                   <div class="sing_in_btn text-center">
@@ -148,15 +149,17 @@
                            Password is required
                        </span>
                       </div>
-                    
                     </div>
                   </div>
+
                   <div class="sing_in_btn text-center">
-                    <button type="submit" class="btn vertical_btn">Login</button>
+                    <button type="submit" (click)="tost()" class="btn vertical_btn">Login</button>
                   </div>
+
                   <div class="forget text-center">
                     <a class="forget_text" data-toggle="modal" data-target="#forgetmodal" class="forgetmodal">Forget Password?</a>
                   </div>
+                  
                   <div class="horizhonalline">
                     <p><span>or</span></p>
                   </div>
@@ -197,12 +200,12 @@
           </div>
         </div>
         <!-- login modal ends -->
+        <p-toast position="top-right"></p-toast>
 
         <!-- Forget Password -->
         <div class="modal fade" id="forgetmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
           <div class="modal-dialog">
-        
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
@@ -293,6 +296,7 @@
                     <li id="" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="" (click)="showSpinner()"><a [routerLink]="'/transfer'">Transfer</a></li>
 
                     <li id="" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="" (click)="showSpinner()"><a [routerLink]="'/bus'">Bus</a></li>
+
                 </ul>
             </div>
           </div>

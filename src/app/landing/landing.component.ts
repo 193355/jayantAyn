@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -12,11 +13,12 @@ declare var $: any;
 
 
 export class LandingComponent implements OnInit {
+  hotels: any= [];
   form: FormGroup;
-  constructor(private spinner: NgxSpinnerService,private fb: FormBuilder)  { }
+  constructor(private spinner: NgxSpinnerService,private fb: FormBuilder,private http: HttpClient)  { }
   
-
   ngOnInit() { 
+    this.getHotels();
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
@@ -45,10 +47,17 @@ export class LandingComponent implements OnInit {
           $("#forgetpass").show();
         });
       });
-
     });
   }
 
+
+  getHotels(){
+    return this.http.get("https://fake-hotel-api.herokuapp.com/api/hotels")
+    .subscribe(data =>{
+          this.hotels = data;
+          console.log(this.hotels); 
+    })
+  }
   
 
 }
