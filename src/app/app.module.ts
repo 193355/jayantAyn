@@ -17,8 +17,14 @@ import { BusComponent } from './bus/bus.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { NgxPaginationModule } from 'ngx-pagination';
+// angular google map -
+import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+import { AgmDirectionModule } from 'agm-direction';   // agm-direction
 
+
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MalihuScrollbarModule, MalihuScrollbarService } from 'ngx-malihu-scrollbar';
 
 // Import Primeng dependencies - 
 import {ButtonModule} from 'primeng/button';
@@ -27,6 +33,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { TableModule } from 'primeng/table'; 
 import { RatingModule } from 'primeng/rating';
 import { PaginatorModule } from 'primeng/paginator';
+
 
 
 @NgModule({
@@ -50,7 +57,17 @@ import { PaginatorModule } from 'primeng/paginator';
     FormsModule,
     ReactiveFormsModule,  
 
-    NgxPaginationModule,
+    NgxPaginationModule, 
+    MalihuScrollbarModule.forRoot(),
+
+    // angular google map -
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCYK6xoFMQVDlvgAXzo--AU75Qjv2jOdI0',
+      libraries: ['places']
+    }),
+    AgmSnazzyInfoWindowModule,
+    AgmDirectionModule,     // agm-direction
+
 
     ButtonModule,
     ChipsModule,
@@ -60,7 +77,7 @@ import { PaginatorModule } from 'primeng/paginator';
     PaginatorModule,
 
   ],
-  providers: [ ],
+  providers: [  MalihuScrollbarService,],
   bootstrap: [AppComponent]
 })
 
