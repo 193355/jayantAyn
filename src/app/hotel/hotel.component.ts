@@ -1,12 +1,9 @@
 import { MapsAPILoader } from '@agm/core';
-import { HttpClient,HttpHeaders} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Component, OnInit,ElementRef, NgZone, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
-import {filter, map } from 'rxjs/operators';
 
 declare var $: any;
-
 @Component({
   selector: 'app-hotel',
   templateUrl: './hotel.component.html',
@@ -17,11 +14,11 @@ export class HotelComponent implements OnInit {
   public form: FormGroup;
   latitude: number;
   longitude: number;
+  public hotel: any = [];
   zoom:number;
   address: string;
   private geoCoder;
   hotelsIv:any = [];
-
   regForm :FormGroup
   isReadonly: boolean = true;
   submitted = false;
@@ -46,9 +43,7 @@ export class HotelComponent implements OnInit {
     this.regForm = this.formBuilder.group({
       source: ['',Validators.required]
     }) 
-    //to get hotel list
-    //this.getHotels();
-   
+
     $(document).ready(function () {
       $('.slider, slideset').slick({
         dots: false,
@@ -139,7 +134,12 @@ export class HotelComponent implements OnInit {
   }
   
   getAddress(latitude, longitude) {
-    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, 
+    this.geoCoder.geocode({ 'location': 
+    {
+      lat: latitude, 
+      lng: longitude
+     } 
+    }, 
     (results, status) => {
       console.log(results);
       console.log(status);
@@ -187,14 +187,15 @@ export class HotelComponent implements OnInit {
     //     "Authorization": "3c97535fc4116f636a52ee31593e5fe2e2cefea1",
     //   })
     // };
-
     const headers = {
       "Content-Type": "application/json",
       "Authorization": "3c97535fc4116f636a52ee31593e5fe2e2cefea1"
     }
-    return this.http.get<any>('https://api.lamasoo.com/booking/hotel_inventory', {headers})
+    return this.http.get('https://api.lamasoo.com/booking/hotel_inventory', {headers})
     .subscribe(dt =>{
       this.hotelsIv = dt['hotels'];
+      this.latitude = parseFloat(dt['latitude']);
+      this.longitude = parseFloat(dt['longitude']);
       console.log(dt);
     })
   }

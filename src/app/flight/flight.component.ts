@@ -27,10 +27,10 @@ export class FlightComponent implements OnInit {
   ngOnInit(): void {
     this.getHotels();
     this.getData();
-    this.setCurrentLocation();
+   // this.setCurrentLocation();
     
     this.mapsAPILoader.load().then(() => {
-      this.setCurrentLocation();
+     // this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
   
@@ -94,5 +94,6 @@ export class FlightComponent implements OnInit {
           console.log(this.datas);
     })
   }
+
 
 }

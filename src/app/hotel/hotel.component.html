@@ -21,18 +21,32 @@
           <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username"
               class="form-control custome_control" formControlName="source" placeholder="Enter your origin" name="username"
               (keydown.enter)="$event.preventDefault()" #search></i>
-        </div>       
+
+              <!--<agm-map [latitude]="latitude" [longitude]="longitude">
+                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+             </agm-map>  -->
+               <!-- <agm-map [latitude]="36.2713143" [longitude]="59.5983462" [zoom]="zoom" (mapClick)="placeMarker($event)">
+              <agm-marker *ngFor="let hotel of hotelsIv" [latitude]="latitude" [longitude]="longitude">
+              </agm-marker>
+
+                <agm-direction [origin]="origin" [destination]="destination">
+               </agm-direction>
+
+            </agm-map> -->
+      
+        </div>      
       </div>
 
         <div class="col-md-6 col-sm-6 col-xs-6 search_filed mbl_pad">
+
         <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
           <label for="username">Check In</label><br>
-          <input type="date" class="date_birth" id="datetimepicker1" name="birthday">
+          <input type="datetime-local" class="date_birth datepicker">
         </div>
 
         <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
           <label for="username">Check out</label><br>
-          <input type="date" class="date_birth" id="datetimepicker1" name="birthday">
+          <input type="datetime-local" class="date_birth datepicker" name="birthday">
         </div>
 
       </div>
@@ -75,7 +89,7 @@
               *ngFor="let hotel of hotelsIv | paginate:{itemsPerPage: 4, currentPage:p}">
               <div class="col-md-3 col-sm-3">
                 <figure>
-                  <img [src]="hotel.images.url" alt="hotels" style="width:100%">
+                  <img [src]="hotel.images"  alt="hotels" style="width:100%">
                   <span class="trending-label">Featured</span>
                   <div class="fig_content">
                     <h4><i class="fa fa-hotel" aria-hidden="true"></i> {{ hotel?.name }}</h4>
@@ -118,6 +132,17 @@
                     <h5 class="desc" data-toggle="tooltip" title="{{hotel?.desc}}"><span class="label label-warning">Description</span></h5>
                    </div>
 
+                   <!-- Button trigger modal -->
+          <button type="button" 
+                class="btn btn-primary btn-sm" 
+                data-toggle="modal" data-target="#exampleModal">
+              Show Map
+         </button>
+
+
+        
+
+
                   <!-- <div class="fig_content" *ngFor="let roomT of hotel.room_types">
                      <h6 *ngIf="hotel.id == room_types.id">Room Capacity <span class="label label-warning">{{roomT.capacity}}</span></h6>
                   </div> -->
@@ -137,7 +162,12 @@
       </div>
     </div>
   </div>
+
+  
 </section>
+
+
+
 <section class="about_slide">
   <div class="about_slide_overlay">
     <div class="container">
@@ -415,3 +445,29 @@
     </div>
   </div>
 </section>
+
+<!--modal map-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <div>
+          <agm-marker *ngFor="let hotel of hotelsIv" [latitude]="hotel.latitude" [longitude]="hotel.longitude">
+          </agm-marker>
+        </div>
+            <agm-direction [origin]="origin" [destination]="destination">
+           </agm-direction>
+        </agm-map>
+      </div>
+    
+    </div>
+  </div>
+</div>

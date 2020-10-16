@@ -50,3 +50,7 @@ button {
         height: 285px !important;
     }
 }
+
+.modal-dialog{
+    margin-top: 15% !important;
+}

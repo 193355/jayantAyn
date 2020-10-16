@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { LandingComponent } from './landing/landing.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FlightComponent } from './flight/flight.component';
 import { HotelComponent } from './hotel/hotel.component';
 import { FooterComponent } from './footer/footer.component';
@@ -21,7 +21,8 @@ import { NgxStarsModule } from 'ngx-stars';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { AgmDirectionModule } from 'agm-direction';   // agm-direction
+import { AgmDirectionModule } from 'agm-direction';
+  
 
 @NgModule({
   declarations: [
