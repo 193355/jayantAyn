@@ -9,6 +9,11 @@
     height: 100%;
 }
 
+.modal-dialog{
+    margin-top: 15% !important;
+}
+
+
 agm-map {
     height: 250px;
   }

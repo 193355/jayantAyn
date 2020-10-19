@@ -28,7 +28,6 @@ export class NavComponent implements OnInit {
       password: new FormControl(null, Validators.required),
       confPass: new FormControl(null, Validators.required),
     })
-
     //login
     this.loginForm = new FormGroup({
       email: new FormControl(null, Validators.required),

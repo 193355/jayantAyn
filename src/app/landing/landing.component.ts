@@ -11,11 +11,12 @@ declare var $: any;
   styleUrls: ['./landing.component.css']
 })
 
-
 export class LandingComponent implements OnInit {
   hotels: any= [];
   form: FormGroup;
-  constructor(private spinner: NgxSpinnerService,private fb: FormBuilder,private http: HttpClient)  { }
+  constructor(private spinner: NgxSpinnerService,
+              private fb: FormBuilder,
+              private http: HttpClient)  { }
   
   ngOnInit() { 
     this.getHotels();
@@ -24,7 +25,7 @@ export class LandingComponent implements OnInit {
       this.spinner.hide();
     }, 2000);
 
-    
+
     $(document).ready(function () {
       $('.slideset').slick({
         slidesToShow: 2,
@@ -49,7 +50,6 @@ export class LandingComponent implements OnInit {
       });
     });
   }
-
 
   getHotels(){
     return this.http.get("https://fake-hotel-api.herokuapp.com/api/hotels")

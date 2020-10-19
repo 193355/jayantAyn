@@ -23,6 +23,9 @@ export class HotelComponent implements OnInit {
   isReadonly: boolean = true;
   submitted = false;
   private rate:number = 3;
+  public iconUrl = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
+  //map: google.maps.Map;
+  previous;
 
   @ViewChild('search',{static: true})
   public searchElementRef: ElementRef;
@@ -107,7 +110,11 @@ export class HotelComponent implements OnInit {
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
+
           //get the place result
+          // const autocompleteInput = new google.maps.places.Autocomplete(this.pickupInputElementRef.nativeElement, {
+          //   types: ['address']
+          // });
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
           //verify result
           if (place.geometry === undefined || place.geometry === null) {
@@ -157,30 +164,13 @@ export class HotelComponent implements OnInit {
     });
   }
 
-  // getHotels(){
-  //   return this.http.get("https://fake-hotel-api.herokuapp.com/api/hotels")
-  //   .subscribe(data =>{
-  //         this.hotels = data;
-  //         console.log(this.hotels); 
-  //   })
-  // }
+ 
 
 
-  // hoteSearch()  {
-  //     this.http.get('https://fake-hotel-api.herokuapp.com/api/hotels')
-  //     .subscribe(data =>{
-  //       this.hotels = data;
-  //     })
-  // }
-
-  // onSubmit(){
-  //   this.submitted = true;
-  // }
 
   
   //get hotel inventory
   getHotelInventory(){
-    
     // const httpOptions = {
     //   headers: new HttpHeaders({
     //     "Content-Type": "application/json",
@@ -191,7 +181,8 @@ export class HotelComponent implements OnInit {
       "Content-Type": "application/json",
       "Authorization": "3c97535fc4116f636a52ee31593e5fe2e2cefea1"
     }
-    return this.http.get('https://api.lamasoo.com/booking/hotel_inventory', {headers})
+
+    return this.http.get('https://api.lamasoo.com/booking/hotel_inventory', { headers })
     .subscribe(dt =>{
       this.hotelsIv = dt['hotels'];
       this.latitude = parseFloat(dt['latitude']);
@@ -200,4 +191,15 @@ export class HotelComponent implements OnInit {
     })
   }
 
+    onMouseOver(marker) {
+       this.iconUrl = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"; 
+    }
+
+
+    clickedMarker(infowindow) {
+      if (this.previous) {
+        this.previous.close();
+      }
+      this.previous = infowindow;
+    }
 }

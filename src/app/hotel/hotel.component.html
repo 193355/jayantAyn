@@ -15,43 +15,39 @@
 <div class="search_box_section">
   <div class="container">
     <div class="searchbox row">
-      <div class="col-md-3 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
+      <div class="col-md-2 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <label for="username">Source:</label><br>
+          <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username"
+              class="form-control custome_control" formControlName="source" placeholder="Enter your origin" name="username"
+              (keydown.enter)="$event.preventDefault()" #search></i>
+        </div>      
+      </div>
+
+      <div class="col-md-2 col-sm-6 col-xs-6 border_mid search_filed mbl_pad">
         <div class="col-md-12 col-sm-12 col-xs-12">
           <label for="username">Destination:</label><br>
           <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username"
               class="form-control custome_control" formControlName="source" placeholder="Enter your origin" name="username"
               (keydown.enter)="$event.preventDefault()" #search></i>
-
-              <!--<agm-map [latitude]="latitude" [longitude]="longitude">
-                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-             </agm-map>  -->
-               <!-- <agm-map [latitude]="36.2713143" [longitude]="59.5983462" [zoom]="zoom" (mapClick)="placeMarker($event)">
-              <agm-marker *ngFor="let hotel of hotelsIv" [latitude]="latitude" [longitude]="longitude">
-              </agm-marker>
-
-                <agm-direction [origin]="origin" [destination]="destination">
-               </agm-direction>
-
-            </agm-map> -->
-      
         </div>      
       </div>
 
         <div class="col-md-6 col-sm-6 col-xs-6 search_filed mbl_pad">
 
-        <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
+        <div class="col-md-5 col-sm-12 col-xs-12 mb-20">
           <label for="username">Check In</label><br>
           <input type="datetime-local" class="date_birth datepicker">
         </div>
 
-        <div class="col-md-6 col-sm-12 col-xs-12 mb-20">
+        <div class="col-md-5 col-sm-12 col-xs-12 mb-20">
           <label for="username">Check out</label><br>
           <input type="datetime-local" class="date_birth datepicker" name="birthday">
         </div>
 
       </div>
 
-      <div class="col-md-2 col-sm-12 col-xs-12 search_filed ">
+      <!-- <div class="col-md-2 col-sm-12 col-xs-12 search_filed ">
         <label for="username">Guest</label><br>
         <select class="browser-default custom-select">
           <option selected>1</option>
@@ -59,10 +55,10 @@
           <option value="2">3</option>
           <option value="3">4</option>
         </select>
-      </div>
+      </div> -->
 
       <div class="col-md-1 col-sm-12 col-xs-12 search_btn">
-        <button type="submit" class="btn btn_search" (click)="hoteSearch()">Search</button>
+           <button type="submit" class="btn btn_search">Search</button>
       </div>
       
     </div>
@@ -88,15 +84,13 @@
             <div class="tab-pane active" id="1a"
               *ngFor="let hotel of hotelsIv | paginate:{itemsPerPage: 4, currentPage:p}">
               <div class="col-md-3 col-sm-3">
-                <figure>
+                <figure> 
                   <img [src]="hotel.images"  alt="hotels" style="width:100%">
                   <span class="trending-label">Featured</span>
                   <div class="fig_content">
                     <h4><i class="fa fa-hotel" aria-hidden="true"></i> {{ hotel?.name }}</h4>
-
                     <!-- <h4><i class="fa fa-map-marker" aria-hidden="true"></i> {{(hotel.country.length > 12)? (hotel.country | slice:0:8) + '...':(hotel.country)}}</h4> -->
-
-                    <h4><i class="fa fa-map-marker" aria-hidden="true"></i>{{hotel?.country}}
+                     <h4><i class="fa fa-map-marker" aria-hidden="true"></i>{{hotel?.country}}
                     </h4>
                   
                     <div *ngIf="hotel.star == 1">
@@ -133,15 +127,11 @@
                    </div>
 
                    <!-- Button trigger modal -->
-          <button type="button" 
-                class="btn btn-primary btn-sm" 
-                data-toggle="modal" data-target="#exampleModal">
-              Show Map
-         </button>
-
-
-        
-
+                    <button type="button" 
+                          class="btn btn-primary btn-sm" 
+                          data-toggle="modal" data-target="#exampleModal">
+                        Show Map
+                  </button>
 
                   <!-- <div class="fig_content" *ngFor="let roomT of hotel.room_types">
                      <h6 *ngIf="hotel.id == room_types.id">Room Capacity <span class="label label-warning">{{roomT.capacity}}</span></h6>
@@ -162,8 +152,6 @@
       </div>
     </div>
   </div>
-
-  
 </section>
 
 
@@ -420,11 +408,13 @@
             dolore eu fugiat nulla pariatur.
             <div class="arrow"></div>
           </blockquote>
+
           <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
           <div class="author">
             <h5>Maksim Goffin</h5>
             <p class="th-margin-remove">Graphic Designer</p>
           </div>
+
         </figure>
       </div>
       <div>
@@ -448,7 +438,7 @@
 
 <!--modal map-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -459,12 +449,15 @@
       
       <div class="modal-body">
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-        <div>
-          <agm-marker *ngFor="let hotel of hotelsIv" [latitude]="hotel.latitude" [longitude]="hotel.longitude">
+          <agm-marker [iconUrl]="iconUrl" *ngFor="let hotel of hotelsIv" [latitude]="hotel.latitude" [longitude]="hotel.longitude" (markerClick)="clickedMarker(infowindow)">
+            <agm-info-window #infowindow>
+              <strong>{{hotel.street}}</strong>
+            </agm-info-window>   
           </agm-marker>
-        </div>
+      
             <agm-direction [origin]="origin" [destination]="destination">
            </agm-direction>
+
         </agm-map>
       </div>
     
