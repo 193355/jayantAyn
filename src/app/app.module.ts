@@ -18,11 +18,12 @@ import { AgmCoreModule } from '@agm/core';
 import { NgxSpinnerModule, NgxSpinnerService} from "ngx-spinner";
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxStarsModule } from 'ngx-stars';
-import {SplitButtonModule} from 'primeng/splitbutton';
+import { SplitButtonModule } from 'primeng/splitbutton';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { AgmDirectionModule } from 'agm-direction';
-  
+
+
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { AgmDirectionModule } from 'agm-direction';
       apiKey: 'AIzaSyBxPqdmg2ouIJZs4SKNHC3N2Qbi7mdboFY',
       libraries: ['places']
     }),
+   
   ],
   providers: [NgxSpinnerService,MessageService],
   bootstrap: [AppComponent]

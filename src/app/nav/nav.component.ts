@@ -17,10 +17,9 @@ export class NavComponent implements OnInit {
   registerForm: FormGroup;
   loginForm: FormGroup;
   submitted = false;
-
   constructor(private http: HttpClient, private fb: FormBuilder, private messageService: 
     MessageService,private spinner: NgxSpinnerService) {
-    //register  
+    //register form validations  
     this.registerForm = new FormGroup({
       fName: new FormControl(null, Validators.required),
       lName: new FormControl(null, Validators.required),
@@ -28,7 +27,7 @@ export class NavComponent implements OnInit {
       password: new FormControl(null, Validators.required),
       confPass: new FormControl(null, Validators.required),
     })
-    //login
+    //login form validations
     this.loginForm = new FormGroup({
       email: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required)

@@ -1,7 +1,8 @@
 import { MapsAPILoader } from '@agm/core';
 import { HttpClient} from '@angular/common/http';
-import { Component, OnInit,ElementRef, NgZone, ViewChild } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { setTheme } from 'ngx-bootstrap/utils';
 
 declare var $: any;
 @Component({
@@ -24,13 +25,14 @@ export class HotelComponent implements OnInit {
   submitted = false;
   private rate:number = 3;
   public iconUrl = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
-  //map: google.maps.Map;
   previous;
+  latlngBounds: any;
+  autocompleteSource: any = '';
+  autocompleteDestination :any = '';
 
-  @ViewChild('search',{static: true})
-  public searchElementRef: ElementRef;
   constructor(private http: HttpClient,private mapsAPILoader: MapsAPILoader,private ngZone: 
     NgZone,private fb: FormBuilder,private formBuilder:FormBuilder) { 
+      setTheme('bs3')
       this.form = this.fb.group({
         rating: ['', Validators.required],
       })
@@ -42,12 +44,44 @@ export class HotelComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setCurrentLocation();
     this.getHotelInventory();
     this.regForm = this.formBuilder.group({
       source: ['',Validators.required]
     }) 
 
     $(document).ready(function () {
+      $('.slider_new').slick({
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: true,
+        prevArrow: '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
+        nextArrow: '<i class="fa fa-chevron-right" aria-hidden="true"></i>',
+        responsive: [{
+          breakpoint: 767,
+          settings: {
+            arrows: false,
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        },
+          {
+            breakpoint: 400,
+            settings: {
+                arrows: false,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+          }]
+      });
+    });
+    $(document).ready(function () {
+
       $('.slider, slideset').slick({
         dots: false,
         infinite: true,
@@ -104,29 +138,59 @@ export class HotelComponent implements OnInit {
 
 //google api autocomplete
     this.setCurrentLocation();
-    this.mapsAPILoader.load().then(() => {
-      this.setCurrentLocation();
-      this.geoCoder = new google.maps.Geocoder;
-      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
-      autocomplete.addListener("place_changed", () => {
-        this.ngZone.run(() => {
+    // this.mapsAPILoader.load().then(() => {
+    //   this.setCurrentLocation();
+    //   this.geoCoder = new google.maps.Geocoder;    
+    //   let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
+    //   autocomplete.addListener("place_changed", () => {
+    //     this.ngZone.run(() => {
+    //       //get the place result
+    //       // const autocompleteInput = new google.maps.places.Autocomplete(this.pickupInputElementRef.nativeElement, {
+    //       //   types: ['address']
+    //       // });
+    //       let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+    //       //verify result
+    //       if (place.geometry === undefined || place.geometry === null) {
+    //         return;
+    //       }
+    //       //set latitude, longitude and zoom
+    //       this.latitude = place.geometry.location.lat();
+    //       this.longitude = place.geometry.location.lng();
+    //       this.zoom = 12;
+    //     });
+    //   });
+    // });
 
-          //get the place result
-          // const autocompleteInput = new google.maps.places.Autocomplete(this.pickupInputElementRef.nativeElement, {
-          //   types: ['address']
-          // });
-          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-          //verify result
+
+    this.mapsAPILoader.load().then(() => {
+      //source
+      let txtFrom: any = document.getElementById('txtFrom');
+      this.autocompleteSource = new google.maps.places.Autocomplete(txtFrom, {
+        types: ['(cities)']
+      });
+      google.maps.event.addListener(this.autocompleteSource, 'place_changed', () => {
+        this.ngZone.run(() => {
+          let place: google.maps.places.PlaceResult = this.autocompleteSource.getPlace();
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
-          //set latitude, longitude and zoom
-          this.latitude = place.geometry.location.lat();
-          this.longitude = place.geometry.location.lng();
-          this.zoom = 12;
         });
       });
-    });
+
+      //destination
+      let txtTo: any = document.getElementById('txtTo');
+      this.autocompleteDestination = new google.maps.places.Autocomplete(txtTo, {
+        types: ['(cities)']
+      });
+      google.maps.event.addListener(this.autocompleteDestination, 'place_changed', () => {
+        this.ngZone.run(() => {
+          let place: google.maps.places.PlaceResult = this.autocompleteDestination.getPlace();
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+        });
+      });
+    })
   }
   
   //set location
@@ -142,11 +206,7 @@ export class HotelComponent implements OnInit {
   
   getAddress(latitude, longitude) {
     this.geoCoder.geocode({ 'location': 
-    {
-      lat: latitude, 
-      lng: longitude
-     } 
-    }, 
+    {lat: this.latitude,lng: this.longitude}},
     (results, status) => {
       console.log(results);
       console.log(status);
@@ -154,7 +214,8 @@ export class HotelComponent implements OnInit {
         if (results[0]) {
           this.zoom = 12;
           this.address = results[0].formatted_address;
-        } else {
+        }    
+        else {
           window.alert('No results found');
         }
       }
@@ -164,11 +225,7 @@ export class HotelComponent implements OnInit {
     });
   }
 
- 
 
-
-
-  
   //get hotel inventory
   getHotelInventory(){
     // const httpOptions = {
@@ -191,15 +248,22 @@ export class HotelComponent implements OnInit {
     })
   }
 
-    onMouseOver(marker) {
-       this.iconUrl = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"; 
-    }
+    // onMouseOver(marker) {
+    //    this.iconUrl = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"; 
+    // }
 
 
+//marker click info 
     clickedMarker(infowindow) {
+      debugger
       if (this.previous) {
         this.previous.close();
       }
       this.previous = infowindow;
-    }
+    } 
+
+
+    
+  
+    
 }
