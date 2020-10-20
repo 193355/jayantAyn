@@ -18,7 +18,7 @@ import { BusComponent } from './bus/bus.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // angular google map -
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule, GoogleMapsAPIWrapper, InfoWindowManager, MapsAPILoader, MarkerManager } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { AgmDirectionModule } from 'agm-direction';   // agm-direction
 
@@ -27,14 +27,26 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MalihuScrollbarModule, MalihuScrollbarService } from 'ngx-malihu-scrollbar';
 
 // Import Primeng dependencies - 
-import {ButtonModule} from 'primeng/button';
+import { ButtonModule } from 'primeng/button';
 import { ChipsModule } from 'primeng/chips';
 import { CalendarModule } from 'primeng/calendar';
-import { TableModule } from 'primeng/table'; 
+import { TableModule } from 'primeng/table';
+
 import { RatingModule } from 'primeng/rating';
 import { PaginatorModule } from 'primeng/paginator';
+import { TooltipModule } from 'primeng/tooltip';
 
 
+import { NgxStarsModule } from 'ngx-stars';
+
+// Scrollbar imports -
+import {
+  PerfectScrollbarModule, PerfectScrollbarConfigInterface,
+  PERFECT_SCROLLBAR_CONFIG
+} from 'ngx-perfect-scrollbar';
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 @NgModule({
   declarations: [
@@ -49,16 +61,18 @@ import { PaginatorModule } from 'primeng/paginator';
     TransferComponent,
     BusComponent
   ],
-  imports: [
+  imports: [    
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,  
+    ReactiveFormsModule,
 
-    NgxPaginationModule, 
+    NgxPaginationModule,
     MalihuScrollbarModule.forRoot(),
+
+    RatingModule,
 
     // angular google map -
     AgmCoreModule.forRoot({
@@ -67,17 +81,34 @@ import { PaginatorModule } from 'primeng/paginator';
     }),
     AgmSnazzyInfoWindowModule,
     AgmDirectionModule,     // agm-direction
-
+   
 
     ButtonModule,
     ChipsModule,
     CalendarModule,
-    TableModule, 
+    TableModule,
     RatingModule,
     PaginatorModule,
+    TooltipModule,
+
+    NgxStarsModule,
+
+    // Scrollbar imports
+    PerfectScrollbarModule
 
   ],
-  providers: [  MalihuScrollbarService,],
+
+  // For Scrollbar Import -
+  providers: [MalihuScrollbarService,
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }, 
+    InfoWindowManager,
+    GoogleMapsAPIWrapper,
+    MarkerManager
+  ],
+
   bootstrap: [AppComponent]
 })
 

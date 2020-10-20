@@ -1,10 +1,13 @@
-import { MapsAPILoader } from '@agm/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { GoogleMapsAPIWrapper, InfoWindowManager, MapsAPILoader, MarkerManager } from '@agm/core';
 import { Component, OnInit, ElementRef, NgZone, ViewChild } from '@angular/core';
 
 import { HotelsService } from '../shared/services/hotels.service';
 
 import { MalihuScrollbarService } from 'ngx-malihu-scrollbar';
+
+// scrollbar import -
+import { PerfectScrollbarComponent, PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
+
 
 declare var $: any;
 
@@ -15,7 +18,7 @@ declare var $: any;
 })
 
 export class HotelComponent implements OnInit {
-
+  // Hotel list array-
   hotelDetails: any = [];
 
   // This is for pagination-
@@ -24,7 +27,7 @@ export class HotelComponent implements OnInit {
   // google maps zoom level
   latitude: number;
   longitude: number;
-  zoom: number;
+  zoom: number = 8;
   address: string;
   private geoCoder;
 
@@ -37,10 +40,22 @@ export class HotelComponent implements OnInit {
 
   @ViewChild('search', { static: true })
   public searchElementRef: ElementRef;
+
+
+  // Scrollbar Import -
+  @ViewChild(PerfectScrollbarComponent, null) componentRef?: PerfectScrollbarComponent;
+  @ViewChild(PerfectScrollbarDirective, null) directiveRef?: PerfectScrollbarDirective;
+  previous: any;
+
   constructor(private hotelService: HotelsService,
     private mScrollbarService: MalihuScrollbarService,
-    private mapsAPILoader: MapsAPILoader, private ngZone:
-      NgZone) {
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone,
+    _loader: MapsAPILoader,
+    _infoWindowManager: InfoWindowManager,
+    _el: ElementRef,
+    _mapsWrapper: GoogleMapsAPIWrapper,
+    _markerManager: MarkerManager) {
     window.scroll(0, 0);
   }
 
@@ -57,6 +72,8 @@ export class HotelComponent implements OnInit {
 
     this.hotelService.getHotelDetails().subscribe(res => {
       this.hotelDetails = res.hotels;
+      console.log(this.hotelDetails);
+      
     })
 
 
@@ -118,7 +135,7 @@ export class HotelComponent implements OnInit {
       });
     })
 
-    //google api autocomplete
+    //Google API Autocomplete
     this.setCurrentLocation();
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
@@ -143,7 +160,7 @@ export class HotelComponent implements OnInit {
   }
 
 
-  //set location
+  //Set Location
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -154,6 +171,7 @@ export class HotelComponent implements OnInit {
     }
   }
 
+  // Get address function -
   getAddress(latitude, longitude) {
     this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } },
       (results, status) => {
@@ -171,6 +189,14 @@ export class HotelComponent implements OnInit {
           window.alert('Geocoder failed due to: ' + status);
         }
       });
+  }
+
+  // Marker Click Event -
+  clickedMarker(infowindow) {
+    if (this.previous) {
+      this.previous.close();
+    }
+    this.previous = infowindow;
   }
 
 }

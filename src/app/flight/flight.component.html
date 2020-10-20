@@ -230,33 +230,35 @@
               <div class="side_d"></div>
               <div class="flight_deal">
                 <!-- <p>{{ flight.name }} <span class="pull-right"><span>$</span>{{ flight.price}}</span></p> -->
-                <p>{{(flight.name.length > 15)? (flight.name | slice:0:10) + '...':(flight.name)}} <span class="pull-right"><span>$</span>{{ flight.price}}</span></p>
+                <p>{{(flight.name.length > 15)? (flight.name | slice:0:10) + '...':(flight.name)}} <span
+                    class="pull-right"><span>$</span>{{ flight.price}}</span></p>
 
-                <p>{{ flight.country }} <span class="pull-right">{{ flight.city}}</span></p>
+                <p>{{ flight.country }} <span class="pull-right">{{ flight.city}}</span></p>  
 
                 <p *ngIf="flight.stars == 1">
-                  <p-rating [(ngModel)]="one_star_rating" [stars]="flight.stars" [readonly]="true" [cancel]="false">
+                  <p-rating [(ngModel)]="one_star_rating" [stars]="flight.stars" [readonly]="true"  >
                   </p-rating><span class="pull-right stars_rate">{{ flight.stars}}</span>
                 </p>
 
                 <p *ngIf="flight.stars == 2">
-                  <p-rating [(ngModel)]="two_star_rating" [readonly]="true" [stars]="flight.stars" [cancel]="false">
+                  <p-rating [(ngModel)]="two_star_rating" [readonly]="true" [stars]="flight.stars"  >
                   </p-rating><span class="pull-right stars_rate">{{ flight.stars}}</span>
                 </p>
                 <p *ngIf="flight.stars == 3">
-                  <p-rating [(ngModel)]="three_star_rating" [readonly]="true" [stars]="flight.stars" [cancel]="false">
+                  <p-rating [(ngModel)]="three_star_rating" [readonly]="true" [stars]="flight.stars"  >
                   </p-rating><span class="pull-right stars_rate">{{ flight.stars}}</span>
                 </p>
                 <p *ngIf="flight.stars == 4">
-                  <p-rating [(ngModel)]="four_star_rating" [readonly]="true" [stars]="flight.stars" [cancel]="false">
+                  <p-rating [(ngModel)]="four_star_rating" [readonly]="true" [stars]="flight.stars"  >
                   </p-rating><span class="pull-right stars_rate">{{ flight.stars}}</span>
                 </p>
-                <p *ngIf="flight.stars == 5">
-                  <p-rating [(ngModel)]="five_star_rating" [readonly]="true" [stars]="flight.stars" [cancel]="false">
+                <p *ngIf="flight.stars == 5"> 
+                  <p-rating [(ngModel)]="five_star_rating" [readonly]="true" [stars]="flight.stars"  >
                   </p-rating><span class="pull-right stars_rate">{{ flight.stars}}</span>
                 </p>
-                 <!-- <p>{{ flight.description }} </p> -->
-                 <p>{{(flight.description.length > 25)? (flight.description | slice:0:20) + '...':(flight.description)}}</p>
+                <!-- <p>{{ flight.description }} </p> -->
+                <p>{{(flight.description.length > 25)? (flight.description | slice:0:20) + '...':(flight.description)}}
+                </p>
               </div>
               <div class="side_bottom"></div>
             </div>

@@ -119,6 +119,18 @@ select.custom-select {
 }
 
 /* google map css */
+.google-map-icon {
+    margin-left:50%;
+    padding-top:10px;
+    height: 100% !important;
+    width: 20px !important;
+    cursor: pointer;
+}
+
+.star_no{
+    margin-top: -20px;
+}
+
 agm-map {
     height: 300px;
   } 
