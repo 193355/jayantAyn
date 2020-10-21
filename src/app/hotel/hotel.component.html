@@ -55,11 +55,11 @@
       <div id="exTab1" class="container">
         <ul class="nav nav-pills trending_tab">
           <li class="active">
-            <a href="#1a" data-toggle="tab">Hotel Appartment</a>
+            <a data-toggle="tab">Hotel Appartment</a>
           </li>
-          <li><a href="#2a" data-toggle="tab">Traditional Hotel</a>
+          <li><a data-toggle="tab">Traditional Hotel</a>
           </li>
-          <li><a href="#3a" data-toggle="tab">Eco Tourism Resort</a>
+          <li><a data-toggle="tab">Eco Tourism Resort</a>
           </li>
         </ul>
         <div class="row">
@@ -67,15 +67,54 @@
             <div class="tab-pane active" id="1a"
               *ngFor="let hotel of hotelDetails | paginate:{itemsPerPage: 4, currentPage:p};">
 
-              <div class="col-md-3 col-sm-4 hotel-list-card">
-                <perfect-scrollbar style="max-width: 600px; max-height: 400px;" [config]="config">
-                  <div>
-                    <figure>
-                      <img src="../../../assets/home/home4.jpg" alt="Trulli" style="width:100%">
-                      <span class="trending-label">Featured</span>
-                      <div class="fig_content">
+              <div class="col-md-3 col-sm-4">
+                <div>
+                  <figure>
+                    <!-- <div>
+                        <p-galleria [(value)]="images" [responsiveOptions]="responsiveOptions"
+                          [containerStyle]="{'max-width': '660px'}" [numVisible]="5"
+                          thumbnailsPosition="top">
+                          <ng-template pTemplate="item" let-item>
+                            <img [src]="item.url" style="width: 100%; display: block;" />
+                           </ng-template>
+                          <ng-template pTemplate="thumbnail" let-item>
+                            <div class="p-grid p-nogutter p-justify-center">
+                              <img [src]="item.url" />
+                            </div>
+                          </ng-template>
+                        </p-galleria> 
+                      </div> -->
 
+                    <div>
+                      <p-carousel [value]="images" [numVisible]="1" [numScroll]="1" [circular]="true"
+                        [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+                        <ng-template let-product pTemplate="item">
+                          <div class="product-item">
+                            <div class="product-item-content">
+                              <div class="p-mb-3">
+                              </div>
+                              <div> 
+                                <!-- onerror="this.onerror=null;this.src='https://placeimg.com/200/300/animals';" -->
+                                <!-- <img style="width:100%;height:140px;"
+                                  [src]="(product.url != '' && product.url != undefined) ? product.url : defaultImage"
+                                  alt="" /> -->
+                                  <img style="width:100%;height:140px;"
+                                  [src]="product.url"
+                                  alt=""  (error) ="changeSource($event)"/>
+                              </div>
+                              <!-- <div *ngIf="images == ''">
+                                  <img style="width:100%;height:140px;" src="../../assets/hotel/hotel_left_img.jpg" alt="" />
+                                </div> -->
+                            </div>
+                          </div>
+                        </ng-template>
+                      </p-carousel>
+                    </div>
 
+                    <span class="trending-label">
+                      {{(hotel?.name?.length > 15)? (hotel?.name | slice:0:10) + '...':(hotel?.name)}}</span>
+                    <div class="fig_content hotel-list-card">
+                      <perfect-scrollbar style="max-width: 600px; max-height: 400px;" [config]="config">
                         <h3 class="font-weight-bold">
                           {{(hotel?.name?.length > 15)? (hotel?.name | slice:0:10) + '...':(hotel?.name)}} </h3>
 
@@ -182,14 +221,11 @@
                           <img class="google-map-icon" src="../../assets/hotel/gmap.png" pTooltip="Click on google map"
                             placeholder="Right" data-toggle="modal" data-target="#google-map-modal" alt="" />
                         </div>
+                      </perfect-scrollbar>
+                    </div>
+                  </figure>
+                </div>
 
-                        <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#google-map-modal">Map</button> -->
-                        <!-- <p data-toggle="tooltip" data-placement="top" [title]="hotel.desc">Top</p> -->
-                        <!-- <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 8 hours</h4> -->
-                      </div>
-                    </figure>
-                  </div>
-                </perfect-scrollbar>
               </div>
             </div>
           </div>
@@ -198,13 +234,7 @@
     </div>
   </div>
 
-  <!-- Google Map -->
-  <!-- <div class="container p-3 m-3">
-  <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map>  
-</div> -->
-
+  <!-- Pagination for hotel list -->
   <div style="margin-top:20px !important ;padding-top: 20px !important;">
     <pagination-controls (pageChange)="p=$event"></pagination-controls>
   </div>
@@ -506,9 +536,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="0">
           <agm-marker *ngFor="let hotel of hotelDetails" [latitude]="hotel.latitude" [longitude]="hotel.longitude"
-            (markerClick)="clickedMarker(infowindow)">
+            (markerClick)="clickedMarker(infowindow, hotel)" (mouseOver)="mouseOver(infowindow,hotel)"
+            (mouseOut)="mouseOut(infowindow)">
             <agm-info-window #infowindow>
               <strong>{{hotel.street}}</strong>
               <div *ngFor="let img of hotel.images">

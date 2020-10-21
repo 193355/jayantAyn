@@ -110,7 +110,7 @@ select.custom-select {
 .hotel-list-card {
     height: calc(50vh - 50px);
     background: #f8f8f8; 
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 .hotel-list-card .itemWrap {
     text-align: left;
@@ -205,11 +205,14 @@ agm-map {
     background: #045091c2;
     z-index: 4;
     border: none;
-    border-radius: 0px 0px 0px 0px;
+    /* border-radius: 0px 0px 0px 0px; */
+    border-radius: 5px;
     position: relative;
     float: right;
-    left: 16px;
-    top: 25px;
+    /* left: 16px;
+    top: 25px; */
+    left:20px;
+    top:5px;
     position: absolute;
     color: #fff;
     padding: 2px 25px;
@@ -448,4 +451,56 @@ figure.testimonial .author h5 span {
 }
 .testimonial_main{
     padding: 50px 0;
+}
+
+/* PrimeNG Carousel CSS */
+::ng-deep .p-galleria .p-galleria-thumbnail-container  {
+    width: 100%;
+    height: 50px;
+}
+
+::ng-deep .p-carousel-container {
+    position: relative;
+}
+
+::ng-deep .p-carousel .p-carousel-indicators {
+    display: none !important;
+}
+
+::ng-deep .p-carousel-prev {
+    position: absolute !important;
+    left: 15px;
+    z-index: 999;
+}
+::ng-deep .p-carousel-next {
+    position: absolute !important;
+    right: 15px;
+    z-index: 999;
+}
+
+/* ::ng-deep .p-carousel .p-carousel-content .p-carousel-prev, .p-carousel .p-carousel-content .p-carousel-next {
+    color: #ffffff !important; 
+    background: #2450918c !important; 
+} */
+
+::ng-deep .p-carousel .p-carousel-content .p-carousel-prev {
+    width: 2rem;
+    height: 2rem;
+    color: #f8f8f8;
+    border: 0 none;
+    background: #3778b99e;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+    margin: 0.5rem;
+}
+
+::ng-deep .p-carousel .p-carousel-content .p-carousel-next {
+    width: 2rem;
+    height: 2rem;
+    color: #f8f8f8;
+    border: 0 none;
+    background: #3778b99e;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+    margin: 0.5rem;
 }

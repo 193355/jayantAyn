@@ -35,6 +35,8 @@ import { TableModule } from 'primeng/table';
 import { RatingModule } from 'primeng/rating';
 import { PaginatorModule } from 'primeng/paginator';
 import { TooltipModule } from 'primeng/tooltip';
+import { CarouselModule } from 'primeng/carousel';
+import { GalleriaModule } from 'primeng/galleria';
 
 
 import { NgxStarsModule } from 'ngx-stars';
@@ -90,6 +92,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RatingModule,
     PaginatorModule,
     TooltipModule,
+    CarouselModule,
+    GalleriaModule,
 
     NgxStarsModule,
 

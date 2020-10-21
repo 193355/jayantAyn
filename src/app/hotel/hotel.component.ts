@@ -1,11 +1,12 @@
-import { GoogleMapsAPIWrapper, InfoWindowManager, MapsAPILoader, MarkerManager } from '@agm/core';
 import { Component, OnInit, ElementRef, NgZone, ViewChild } from '@angular/core';
+
+// google map imports -
+import { GoogleMapsAPIWrapper, InfoWindowManager, MapsAPILoader, MarkerManager } from '@agm/core';
 
 import { HotelsService } from '../shared/services/hotels.service';
 
+// Scrollbar import -
 import { MalihuScrollbarService } from 'ngx-malihu-scrollbar';
-
-// scrollbar import -
 import { PerfectScrollbarComponent, PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 
 
@@ -18,8 +19,13 @@ declare var $: any;
 })
 
 export class HotelComponent implements OnInit {
-  // Hotel list array-
+
   hotelDetails: any = [];
+  hotelImages: any = [];
+  images: any[]; 
+
+  // Default image -
+  defaultImage: any = `../../assets/hotel/hotel_left_img.jpg`;
 
   // This is for pagination-
   itemsPerPage = 4;
@@ -27,7 +33,7 @@ export class HotelComponent implements OnInit {
   // google maps zoom level
   latitude: number;
   longitude: number;
-  zoom: number = 8;
+  zoom: number = 0;
   address: string;
   private geoCoder;
 
@@ -38,9 +44,24 @@ export class HotelComponent implements OnInit {
   four_star_rating: number = 4;
   five_star_rating: number = 5;
 
+  // Primeng gallery responsive end point - 
+  responsiveOptions: any[] = [
+    {
+      breakpoint: '1024px',
+      numVisible: 5
+    },
+    {
+      breakpoint: '768px',
+      numVisible: 3
+    },
+    {
+      breakpoint: '560px',
+      numVisible: 1
+    }
+  ];
+
   @ViewChild('search', { static: true })
   public searchElementRef: ElementRef;
-
 
   // Scrollbar Import -
   @ViewChild(PerfectScrollbarComponent, null) componentRef?: PerfectScrollbarComponent;
@@ -70,15 +91,23 @@ export class HotelComponent implements OnInit {
       scrollInertia: 50
     });
 
+    // pushing hotels into hotel array -
     this.hotelService.getHotelDetails().subscribe(res => {
       this.hotelDetails = res.hotels;
-      console.log(this.hotelDetails);
-      
+      console.log("images =", res);
+
+      // Pushing images to the image array
+      this.hotelDetails.forEach(hotel => {
+        hotel.images.forEach(image => {
+          this.hotelImages.push(image);
+        })
+      })
+      this.images = this.hotelImages;
+
     })
 
-
+    // Jquery for slick carousel - 
     $(document).ready(function () {
-
       $('.slider, slideset').slick({
         dots: false,
         infinite: true,
@@ -160,7 +189,7 @@ export class HotelComponent implements OnInit {
   }
 
 
-  //Set Location
+  // Google map Set Location
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -171,11 +200,12 @@ export class HotelComponent implements OnInit {
     }
   }
 
-  // Get address function -
+  // Google Map Get address function -
   getAddress(latitude, longitude) {
+    console.log("latitude=",latitude);
+    
     this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } },
-      (results, status) => {
-        console.log(results);
+      (results, status) => { 
         console.log(status);
         if (status === 'OK') {
           if (results[0]) {
@@ -191,12 +221,30 @@ export class HotelComponent implements OnInit {
       });
   }
 
-  // Marker Click Event -
+  // Google Map Marker Click Event -
   clickedMarker(infowindow) {
     if (this.previous) {
       this.previous.close();
     }
     this.previous = infowindow;
+  }
+
+  // Google Map Mouse Hover Event -
+  mouseOver(infowindow, hotel) {
+    infowindow.open();
+    this.previous = infowindow;
+  }
+
+  // Google Map Mouse Out Event -
+  mouseOut(infowindow) {
+    if (this.previous) {
+      this.previous.close();
+    }
+    this.previous = infowindow;
+  }
+
+  changeSource(event){ 
+    event.target.src = this.defaultImage
   }
 
 }
