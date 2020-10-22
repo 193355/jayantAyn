@@ -14,6 +14,7 @@ import { CarComponent } from './car/car.component';
 import { ActivityComponent } from './activity/activity.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { BusComponent } from './bus/bus.component';
+import { ViewDealsComponent } from './hotel/view-deals/view-deals.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -41,6 +42,10 @@ import { GalleriaModule } from 'primeng/galleria';
 
 import { NgxStarsModule } from 'ngx-stars';
 
+// search filter -
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
 // Scrollbar imports -
 import {
   PerfectScrollbarModule, PerfectScrollbarConfigInterface,
@@ -61,7 +66,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     CarComponent,
     ActivityComponent,
     TransferComponent,
-    BusComponent
+    BusComponent,
+    ViewDealsComponent
   ],
   imports: [    
     BrowserModule,
@@ -70,6 +76,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+
+    Ng2SearchPipeModule,
 
     NgxPaginationModule,
     MalihuScrollbarModule.forRoot(),

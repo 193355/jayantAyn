@@ -24,6 +24,8 @@ export class HotelComponent implements OnInit {
   hotelImages: any = [];
   images: any[]; 
 
+  searchHotelFilter: any;
+
   // Default image -
   defaultImage: any = `../../assets/hotel/hotel_left_img.jpg`;
 
@@ -91,20 +93,27 @@ export class HotelComponent implements OnInit {
       scrollInertia: 50
     });
 
+    // Horizontal list card -
+    this.mScrollbarService.initScrollbar(".horizontal-list", {
+      axis: "y",
+      theme: "dark-thin",
+      autoHideScrollbar: true,
+      scrollInertia: 150
+    });
+
     // pushing hotels into hotel array -
     this.hotelService.getHotelDetails().subscribe(res => {
-      this.hotelDetails = res.hotels;
-      console.log("images =", res);
-
+      this.hotelDetails = res.hotels;  
       // Pushing images to the image array
       this.hotelDetails.forEach(hotel => {
+        console.log('hotel=', hotel);
+        
         hotel.images.forEach(image => {
           this.hotelImages.push(image);
         })
       })
       this.images = this.hotelImages;
-
-    })
+    }) 
 
     // Jquery for slick carousel - 
     $(document).ready(function () {
@@ -243,8 +252,14 @@ export class HotelComponent implements OnInit {
     this.previous = infowindow;
   }
 
-  changeSource(event){ 
-    event.target.src = this.defaultImage
+  // Error function setting default image -
+  changeSource(event){
+    event.target.src = this.defaultImage;
+  }
+
+  // Getting single hotel object -
+  getSingleHotel(hotel) {
+    console.log("single", hotel);
   }
 
 }

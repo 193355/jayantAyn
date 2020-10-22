@@ -10,6 +10,7 @@
     </div>
   </div>
 </section>
+
 <div class="search_box_section">
   <div class="container">
     <div class="searchbox row">
@@ -93,18 +94,10 @@
                             <div class="product-item-content">
                               <div class="p-mb-3">
                               </div>
-                              <div> 
-                                <!-- onerror="this.onerror=null;this.src='https://placeimg.com/200/300/animals';" -->
-                                <!-- <img style="width:100%;height:140px;"
-                                  [src]="(product.url != '' && product.url != undefined) ? product.url : defaultImage"
-                                  alt="" /> -->
-                                  <img style="width:100%;height:140px;"
-                                  [src]="product.url"
-                                  alt=""  (error) ="changeSource($event)"/>
+                              <div>
+                                <img style="width:100%;height:140px;" [src]="product.url" alt=""
+                                  (error)="changeSource($event)" />
                               </div>
-                              <!-- <div *ngIf="images == ''">
-                                  <img style="width:100%;height:140px;" src="../../assets/hotel/hotel_left_img.jpg" alt="" />
-                                </div> -->
                             </div>
                           </div>
                         </ng-template>
@@ -239,6 +232,327 @@
     <pagination-controls (pageChange)="p=$event"></pagination-controls>
   </div>
 </section>
+
+
+<!-- New Hotel UI  Start -->
+<section class="horizontal-hotel-section">
+  <div class='container-fluid'>
+    <div class="form-group">
+      <label for="hotelList">Select Hotel</label>
+      <select class="form-control" id="hotelList" [(ngModel)]="searchHotelFilter">
+        <option>Please select atleast one hotel</option>
+        <option *ngFor="let hotel of hotelDetails;">{{ hotel?.star }}</option>
+      </select>
+    </div>
+    <div class="row"> 
+      <div class="col-lg-8 horizontal-list">
+        <div *ngIf="hotelDetails.length > 0">
+          <div *ngFor="let hotel of hotelDetails |filter:searchHotelFilter;let i=index;">
+            <div class='blog-posts'>
+              <perfect-scrollbar [config]="config">
+                <div class='post featured'>
+                  <a>
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <div class='image'>
+                          <div>
+                            <a [routerLink]="['/hotel/view-deals', hotel.id]">
+                              <img style="width:100%;height:140px;" (click)="getSingleHotel(hotel)" [src]="images[i]?.url" alt=""
+                              (error)="changeSource($event)" />
+                            </a>
+                            
+                            <div class='date badge badge-secondary custom-badge-cls'>
+                              {{hotel.images.length >0 ? '1/' + hotel.images.length : '0/' + hotel.images.length }}
+                            </div>
+                          </div>
+                          <div class='time'>
+                            <!-- <div class='date'>04</div> -->
+                            <div class='month'>APR</div>
+                            <!-- <div class='date'>{{hotel?.name}}</div> -->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class='content'>
+                          <h1 class="hotel-name-cls">
+                            {{(hotel?.name?.length > 15)? (hotel?.name | slice:0:10) + '...':(hotel?.name)}}</h1>
+                          <div class="quick-info">
+                            <div *ngIf="hotel.star == 1">
+                              <div>
+                                <ngx-stars [readonly]="true" [initialStars]="1" [readonly]="true"
+                                  [customStarIcons]="heartIcons" [color]="'#FDCC0D'">
+                                </ngx-stars>
+                                <div class="pull-right star_no">
+                                  <!-- {{hotel?.star}} -->
+                                </div>
+                                <!-- <p class="pull-right">{{hotel?.star}}</p> -->
+                              </div>
+                            </div>
+
+                            <div *ngIf="hotel.star == 2">
+                              <div>
+                                <div>
+                                  <ngx-stars [readonly]="true" [initialStars]="2" [readonly]="true"
+                                    [customStarIcons]="heartIcons" [color]="'#FDCC0D'">
+                                  </ngx-stars>
+                                </div>
+                                <div class="pull-right star_no">
+                                  <!-- {{hotel?.star}} -->
+                                </div>
+                                <!-- <p class="pull-right">{{hotel?.star}}</p> -->
+                              </div>
+                            </div>
+
+                            <div *ngIf="hotel.star == 3">
+                              <div>
+                                <ngx-stars [readonly]="true" [initialStars]="3" [readonly]="true"
+                                  [customStarIcons]="heartIcons" [color]="'#FDCC0D'">
+                                </ngx-stars>
+                                <div class="pull-right star_no">
+                                  <!-- {{hotel?.star}} -->
+                                </div>
+                              </div>
+
+                              <!-- <p class="pull-right">{{hotel?.star}}</p> -->
+                            </div>
+
+                            <div *ngIf="hotel.star == 4">
+                              <div>
+                                <ngx-stars [readonly]="true" [initialStars]="4" [readonly]="true"
+                                  [customStarIcons]="heartIcons" [color]="'#FDCC0D'">
+                                </ngx-stars>
+                                <!-- <p class="pull-right star_no">{{hotel?.star}}</p> -->
+                                <div class="pull-right star_no">
+                                  <!-- {{hotel?.star}} -->
+                                </div>
+                              </div>
+                            </div>
+
+                            <div *ngIf="hotel.star == 5">
+                              <div>
+                                <ngx-stars [readonly]="true" [initialStars]="5" [readonly]="true"
+                                  [customStarIcons]="heartIcons" [color]="'#FDCC0D'">
+                                </ngx-stars>
+                                <div class="pull-right star_no">
+                                  <!-- {{hotel?.star}} -->
+                                </div>
+                              </div>
+                              <!-- <p class="pull-right star_no">{{hotel?.star}}</p> -->
+                            </div>
+                            <p data-qa="accommodation-type" class="accommodation-type">Hotel</p>
+                          </div>
+                          <div class="location ov-hidden" data-qa="item-location-details">
+                            <div class="item-link">
+                              <span class="icon-ic location-ic icon-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" focusable="false" tabindex="-1" width="24"
+                                  height="24" viewBox="0 0 24 24">
+                                  <g class="svg-color--primary" fill="#37454D" fill-rule="evenodd">
+                                    <path
+                                      d="M12 5C9.8 5 8 6.8 8 9s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 7c-1.6 0-3-1.4-3-3s1.4-3 3-3 3 1.4 3 3-1.4 3-3 3z">
+                                    </path>
+                                    <path
+                                      d="M18 8.2C17.6 5.3 15 3 12 3S6.4 5.3 6 8.2V9c0 .7.1 1.4.4 2.1l4.8 9.4c.2.3.5.5.9.5s.7-.2.9-.5l4.8-9.4c.1-.7.2-1.4.2-2.1v-.8zm-1.3 2.5L12 20l-4.7-9.3C7.1 10.2 7 9.6 7 9v-.6C7.4 5.9 9.5 4 12 4s4.6 1.9 5 4.4V9c0 .6-.1 1.2-.3 1.7z">
+                                    </path>
+                                  </g>
+                                </svg>
+                              </span>
+                              <p class="details-paragraph details-paragraph--location location-details">1.7 km to City
+                                centre
+                              </p>
+                              <span class="icon-ic slideout-toggle-ic icon-contain"><svg
+                                  xmlns="http://www.w3.org/2000/svg" focusable="false" tabindex="-1" width="10"
+                                  height="6" viewBox="0 0 10 6">
+                                  <path class="svg-color--primary"
+                                    d="M0 1A.999.999 0 011.707.293L5 3.586 8.293.293a.999.999 0 111.414 1.414l-4 4a.999.999 0 01-1.414 0l-4-4A.997.997 0 010 1"
+                                    fill="#697379" fill-rule="evenodd"></path>
+                                </svg></span>
+                            </div>
+                            <div class="item-link">
+                              <span class="icon-ic location-ic icon-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" focusable="false" tabindex="-1" width="24"
+                                  height="24" viewBox="0 0 24 24">
+                                  <g class="svg-color--primary" fill="#37454D" fill-rule="evenodd">
+                                    <path
+                                      d="M12 5C9.8 5 8 6.8 8 9s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 7c-1.6 0-3-1.4-3-3s1.4-3 3-3 3 1.4 3 3-1.4 3-3 3z">
+                                    </path>
+                                    <path
+                                      d="M18 8.2C17.6 5.3 15 3 12 3S6.4 5.3 6 8.2V9c0 .7.1 1.4.4 2.1l4.8 9.4c.2.3.5.5.9.5s.7-.2.9-.5l4.8-9.4c.1-.7.2-1.4.2-2.1v-.8zm-1.3 2.5L12 20l-4.7-9.3C7.1 10.2 7 9.6 7 9v-.6C7.4 5.9 9.5 4 12 4s4.6 1.9 5 4.4V9c0 .6-.1 1.2-.3 1.7z">
+                                    </path>
+                                  </g>
+                                </svg>
+                              </span>
+                              <p class="details-paragraph details-paragraph--location location-details">
+                                <strong>Excellent</strong><br>
+                                <span>(830 Reviews)</span>
+                              </p>
+                              <span class="icon-ic slideout-toggle-ic icon-contain"><svg
+                                  xmlns="http://www.w3.org/2000/svg" focusable="false" tabindex="-1" width="10"
+                                  height="6" viewBox="0 0 10 6">
+                                  <path class="svg-color--primary"
+                                    d="M0 1A.999.999 0 011.707.293L5 3.586 8.293.293a.999.999 0 111.414 1.414l-4 4a.999.999 0 01-1.414 0l-4-4A.997.997 0 010 1"
+                                    fill="#697379" fill-rule="evenodd"></path>
+                                </svg></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="PriceInfo">
+                          <!-- <h5>Sheraton</h5> -->
+                          <h5 pTooltip="Hotel Street " tooltipPosition="left" class="hotel-street-cls">
+                            {{(hotel?.street?.length > 15)? (hotel?.street | slice:0:10) + '...':(hotel?.street)}}</h5>
+                          <strong> ₹6,899</strong>
+                          <a pTooltip="Go to view deals page!" tooltipPosition="left" routerLink="/hotel/view-deals"
+                            style="float: right;">View Dial</a>
+                        </div>
+                        <div style="display: flex;">
+                          <div class="PriceMain">
+                            <div class="BookingCom">
+                              <span>Booking.com</span><br>
+                              <strong>₹6,899</strong>
+                            </div>
+                          </div>
+                          &nbsp;
+                          <div class="PriceMain">
+                            <div class="LowPrice">
+                              <span>Lowest Price</span><br>
+                              <strong>₹6,899</strong>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </perfect-scrollbar>
+            </div>
+
+          </div>
+        </div>
+        <div *ngIf="hotelDetails.length == 0">
+          <img src="../../assets/404-2.png" alt="">
+        </div> 
+        <!-- <div class='blog-posts'>
+          <div class='post featured'>
+            <a href='#'>
+              <div class='image' style='background-image: url(https://unsplash.it/600/400/?random)'>
+                <div class='time'>
+                  <div class='date'>04</div>
+                  <div class='month'>APR</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class='content'>
+                    <h1>Sheraton Grand Pune Bund Garden Hotel</h1>
+                    <div class="quick-info">
+                      <p data-qa="accommodation-type" class="accommodation-type">Hotel</p>
+                    </div>
+                    <div class="location ov-hidden" data-qa="item-location-details">
+                      <div class="item-link">
+                        <span class="icon-ic location-ic icon-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" focusable="false" tabindex="-1" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <g class="svg-color--primary" fill="#37454D" fill-rule="evenodd">
+                              <path
+                                d="M12 5C9.8 5 8 6.8 8 9s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 7c-1.6 0-3-1.4-3-3s1.4-3 3-3 3 1.4 3 3-1.4 3-3 3z">
+                              </path>
+                              <path
+                                d="M18 8.2C17.6 5.3 15 3 12 3S6.4 5.3 6 8.2V9c0 .7.1 1.4.4 2.1l4.8 9.4c.2.3.5.5.9.5s.7-.2.9-.5l4.8-9.4c.1-.7.2-1.4.2-2.1v-.8zm-1.3 2.5L12 20l-4.7-9.3C7.1 10.2 7 9.6 7 9v-.6C7.4 5.9 9.5 4 12 4s4.6 1.9 5 4.4V9c0 .6-.1 1.2-.3 1.7z">
+                              </path>
+                            </g>
+                          </svg>
+                        </span>
+                        <p class="details-paragraph details-paragraph--location location-details">1.7 km to City centre
+                        </p>
+                        <span class="icon-ic slideout-toggle-ic icon-contain"><svg xmlns="http://www.w3.org/2000/svg"
+                            focusable="false" tabindex="-1" width="10" height="6" viewBox="0 0 10 6">
+                            <path class="svg-color--primary"
+                              d="M0 1A.999.999 0 011.707.293L5 3.586 8.293.293a.999.999 0 111.414 1.414l-4 4a.999.999 0 01-1.414 0l-4-4A.997.997 0 010 1"
+                              fill="#697379" fill-rule="evenodd"></path>
+                          </svg></span>
+                      </div>
+                      <div class="item-link">
+                        <span class="icon-ic location-ic icon-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" focusable="false" tabindex="-1" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <g class="svg-color--primary" fill="#37454D" fill-rule="evenodd">
+                              <path
+                                d="M12 5C9.8 5 8 6.8 8 9s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 7c-1.6 0-3-1.4-3-3s1.4-3 3-3 3 1.4 3 3-1.4 3-3 3z">
+                              </path>
+                              <path
+                                d="M18 8.2C17.6 5.3 15 3 12 3S6.4 5.3 6 8.2V9c0 .7.1 1.4.4 2.1l4.8 9.4c.2.3.5.5.9.5s.7-.2.9-.5l4.8-9.4c.1-.7.2-1.4.2-2.1v-.8zm-1.3 2.5L12 20l-4.7-9.3C7.1 10.2 7 9.6 7 9v-.6C7.4 5.9 9.5 4 12 4s4.6 1.9 5 4.4V9c0 .6-.1 1.2-.3 1.7z">
+                              </path>
+                            </g>
+                          </svg>
+                        </span>
+                        <p class="details-paragraph details-paragraph--location location-details">
+                          <strong>Excellent</strong><br>
+                          <span>(830 Reviews)</span>
+                        </p>
+                        <span class="icon-ic slideout-toggle-ic icon-contain"><svg xmlns="http://www.w3.org/2000/svg"
+                            focusable="false" tabindex="-1" width="10" height="6" viewBox="0 0 10 6">
+                            <path class="svg-color--primary"
+                              d="M0 1A.999.999 0 011.707.293L5 3.586 8.293.293a.999.999 0 111.414 1.414l-4 4a.999.999 0 01-1.414 0l-4-4A.997.997 0 010 1"
+                              fill="#697379" fill-rule="evenodd"></path>
+                          </svg></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="PriceInfo">
+                    <h5>Sheraton</h5>
+                    <strong> ₹6,899</strong>
+                    <span style="float: right;">View Dial</span>
+                  </div>
+                  <div style="display: flex;">
+                    <div class="PriceMain">
+                      <div class="BookingCom">
+                        <span>Booking.com</span><br>
+                        <strong>₹6,899</strong>
+                      </div>
+                    </div>
+                    &nbsp;
+                    <div class="PriceMain">
+                      <div class="LowPrice">
+                        <span>Lowest Price</span><br>
+                        <strong>₹6,899</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div> -->
+      </div>
+      <div class="col-lg-4">
+        <div class="MApDiv">
+          <!-- <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15125.888028937343!2d73.71246755!3d18.597827900000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1603279405779!5m2!1sen!2sin"
+            width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe> -->
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="0">
+            <agm-marker *ngFor="let hotel of hotelDetails" [latitude]="hotel.latitude" [longitude]="hotel.longitude"
+              (markerClick)="clickedMarker(infowindow, hotel)" (mouseOver)="mouseOver(infowindow,hotel)"
+              (mouseOut)="mouseOut(infowindow)">
+              <agm-info-window #infowindow>
+                <strong>{{hotel.street}}</strong>
+                <div *ngFor="let img of hotel.images">
+                  <img [src]="img.url" alt="" style="width:100%;height: 150px;">
+                </div>
+              </agm-info-window>
+            </agm-marker>
+            <agm-direction [origin]="origin" [destination]="destination">
+            </agm-direction>
+          </agm-map>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- New Hotel UI End -->
 
 <section class="about_slide">
   <div class="about_slide_overlay">

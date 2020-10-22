@@ -7,16 +7,18 @@ import { FlightComponent } from './flight/flight.component';
 import { HotelComponent } from './hotel/hotel.component';
 import { LandingComponent } from './landing/landing.component';
 import { TransferComponent } from './transfer/transfer.component';
+import { ViewDealsComponent } from './hotel/view-deals/view-deals.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: 'landing', pathMatch: 'full' },
-    {path: 'landing', component: LandingComponent },
-    {path: 'hotel' ,component: HotelComponent},
-    {path: 'flight' ,component: FlightComponent},
-    {path: 'car' ,component: CarComponent},
-    {path: 'activity' ,component: ActivityComponent},
-    {path: 'transfer' ,component: TransferComponent},
-    {path: 'bus' ,component: BusComponent},
+    { path: '', redirectTo: 'landing', pathMatch: 'full' },
+    { path: 'landing', component: LandingComponent },
+    { path: 'hotel' , component: HotelComponent },
+    { path: 'flight' , component: FlightComponent },
+    { path: 'car' , component: CarComponent },
+    { path: 'activity' , component: ActivityComponent },
+    { path: 'transfer' , component: TransferComponent },
+    { path: 'bus' , component: BusComponent} ,
+    { path: 'hotel/view-deals/:id', component: ViewDealsComponent }
 ];
 
 

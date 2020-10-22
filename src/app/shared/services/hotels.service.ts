@@ -14,32 +14,13 @@ import { AppSettings } from '../../config';
 })
 export class HotelsService {
 
-  public API_URL = AppSettings.apiUrl;
-  // Getting base url -
-  // public API_URL = AppSettings.apiUrl; // https://api.lamasoo.com/
+  public API_URL = AppSettings.apiUrl; 
+  public Iran_API_URL = AppSettings.iranApiUrl;
 
   constructor(private http: HttpClient) { } 
 
-  // Getting hotel details -
-  getHotelDetails() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json",
-        "Authorization": "3c97535fc4116f636a52ee31593e5fe2e2cefea1"
-        // Authorization: "Bearer " + "3c97535fc4116f636a52ee31593e5fe2e2cefea1"
-      })
-    };
-    // const headers = {
-    //   'Authorization': '3c97535fc4116f636a52ee31593e5fe2e2cefea1',
-    //   "Content-Type": "application/json",
-    // }
-
-    return this.http.get<any>("https://api.lamasoo.com/booking/hotel_inventory/", httpOptions)
-      .pipe(catchError(this.handleError));
-  }
-
-  // Handle HttpErrorResponse -
-  handleError(error: HttpErrorResponse) {
+   // Handle HttpErrorResponse -
+   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error("An error occurred:", error.error.message);
@@ -53,5 +34,34 @@ export class HotelsService {
     // return an observable with a user-facing error message
     return throwError("Something bad happened; please try again later.");
   }
+
+  // Getting hotel details -
+  getHotelDetails() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        "Authorization": "3c97535fc4116f636a52ee31593e5fe2e2cefea1"
+        // Authorization: "Bearer " + "3c97535fc4116f636a52ee31593e5fe2e2cefea1"
+      })
+    }; 
+
+    return this.http.get<any>(this.API_URL + "booking/hotel_inventory/", httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+
+  getIranHotelDetails() {
+    // http://api.dev.fastreserve.net/v1/reserves
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        "Client-Token": "$2y$10$GIgk.7uFLvbIGaZ8TQwHjekDlcfCIo1KZo98eIj6a/iY/yfZIvSlK"
+        // Authorization: "Bearer " + "3c97535fc4116f636a52ee31593e5fe2e2cefea1"
+      })
+    };
+    return this.http.get<any>(this.Iran_API_URL + "v1/reserves", httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+ 
 
 }
