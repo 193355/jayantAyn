@@ -1,9 +1,11 @@
 import { MapsAPILoader } from '@agm/core';
 import { HttpClient} from '@angular/common/http';
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { setTheme } from 'ngx-bootstrap/utils';
-
+declare var google: any;
 declare var $: any;
 @Component({
   selector: 'app-hotel',
@@ -11,7 +13,7 @@ declare var $: any;
   styleUrls: ['./hotel.component.css']
 })
 
-export class HotelComponent implements OnInit {
+export class HotelComponent implements OnInit{
   public form: FormGroup;
   latitude: number;
   longitude: number;
@@ -25,30 +27,38 @@ export class HotelComponent implements OnInit {
   submitted = false;
   private rate:number = 3;
   public iconUrl = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
+  dir= undefined;
   previous;
   latlngBounds: any;
   autocompleteSource: any = '';
   autocompleteDestination :any = '';
+  public waypoints: any = []
 
-  constructor(private http: HttpClient,private mapsAPILoader: MapsAPILoader,private ngZone: 
-    NgZone,private fb: FormBuilder,private formBuilder:FormBuilder) { 
+  defaultImage: any = `../../assets/hotel/private_pool.jpg`;
+   hotelId: string;
+  constructor(private http: HttpClient,private mapsAPILoader: MapsAPILoader,private ngZone:
+    NgZone,private fb: FormBuilder,private formBuilder:FormBuilder,private router: Router,private actRoute: ActivatedRoute) {
+      // this.hotelId = JSON.stringify(this.actRoute.snapshot.params["id"]);
+      // this.router.navigateByUrl("/hotelinfo" , <any>this.hotelId)
       setTheme('bs3')
       this.form = this.fb.group({
         rating: ['', Validators.required],
       })
 
-    window.scroll(0,0);  
+    window.scroll(0,0);
     this.form = this.fb.group({
       rating : ['',Validators.required]
     })
   }
-
+  
   ngOnInit() {
+    this.getDirection();
     this.setCurrentLocation();
     this.getHotelInventory();
+
     this.regForm = this.formBuilder.group({
       source: ['',Validators.required]
-    }) 
+    })
 
     $(document).ready(function () {
       $('.slider_new').slick({
@@ -80,8 +90,8 @@ export class HotelComponent implements OnInit {
           }]
       });
     });
-    $(document).ready(function () {
 
+    $(document).ready(function (){
       $('.slider, slideset').slick({
         dots: false,
         infinite: true,
@@ -92,7 +102,7 @@ export class HotelComponent implements OnInit {
         autoplaySpeed: 2000,
         arrows: true,
         prevArrow: '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
-        nextArrow: '<i class="fa fa-chevron-right" aria-hidden="true"></i>',     
+        nextArrow: '<i class="fa fa-chevron-right" aria-hidden="true"></i>',
         responsive: [
           {
             breakpoint: 991,
@@ -131,16 +141,17 @@ export class HotelComponent implements OnInit {
             slidesToShow: 1,
             slidesToScroll: 1,
             infinite: false,
-          } 
-        }]  
+          }
+        }]
       });
     });
 
 //google api autocomplete
+
     this.setCurrentLocation();
     // this.mapsAPILoader.load().then(() => {
     //   this.setCurrentLocation();
-    //   this.geoCoder = new google.maps.Geocoder;    
+    //   this.geoCoder = new google.maps.Geocoder;
     //   let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
     //   autocomplete.addListener("place_changed", () => {
     //     this.ngZone.run(() => {
@@ -161,14 +172,15 @@ export class HotelComponent implements OnInit {
     //   });
     // });
 
-
     this.mapsAPILoader.load().then(() => {
       //source
       let txtFrom: any = document.getElementById('txtFrom');
       this.autocompleteSource = new google.maps.places.Autocomplete(txtFrom, {
+        componentRestrictions : { country: "IR" },
         types: ['(cities)']
       });
       google.maps.event.addListener(this.autocompleteSource, 'place_changed', () => {
+        debugger
         this.ngZone.run(() => {
           let place: google.maps.places.PlaceResult = this.autocompleteSource.getPlace();
           if (place.geometry === undefined || place.geometry === null) {
@@ -180,6 +192,7 @@ export class HotelComponent implements OnInit {
       //destination
       let txtTo: any = document.getElementById('txtTo');
       this.autocompleteDestination = new google.maps.places.Autocomplete(txtTo, {
+        componentRestrictions : { country: "IR" },
         types: ['(cities)']
       });
       google.maps.event.addListener(this.autocompleteDestination, 'place_changed', () => {
@@ -193,6 +206,7 @@ export class HotelComponent implements OnInit {
     })
   }
   
+  
   //set location
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
@@ -203,9 +217,9 @@ export class HotelComponent implements OnInit {
       });
     }
   }
-  
+
   getAddress(latitude, longitude) {
-    this.geoCoder.geocode({ 'location': 
+    this.geoCoder.geocode({ 'location':
     {lat: this.latitude,lng: this.longitude}},
     (results, status) => {
       console.log(results);
@@ -214,11 +228,12 @@ export class HotelComponent implements OnInit {
         if (results[0]) {
           this.zoom = 12;
           this.address = results[0].formatted_address;
-        }    
+        }
         else {
           window.alert('No results found');
         }
       }
+
        else {
         window.alert('Geocoder failed due to: ' + status);
       }
@@ -238,7 +253,6 @@ export class HotelComponent implements OnInit {
       "Content-Type": "application/json",
       "Authorization": "3c97535fc4116f636a52ee31593e5fe2e2cefea1"
     }
-
     return this.http.get('https://api.lamasoo.com/booking/hotel_inventory', { headers })
     .subscribe(dt =>{
       this.hotelsIv = dt['hotels'];
@@ -248,22 +262,46 @@ export class HotelComponent implements OnInit {
     })
   }
 
-    // onMouseOver(marker) {
-    //    this.iconUrl = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"; 
-    // }
+    onMouseOver(marker) {
+       this.iconUrl = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+    }
 
 
-//marker click info 
+//marker click info
     clickedMarker(infowindow) {
       debugger
       if (this.previous) {
         this.previous.close();
       }
       this.previous = infowindow;
-    } 
+    }
+    //set default image
+    changeSource(event){
+      event.target.src = this.defaultImage;
+    }
+    // mapReady(map) {
+    //   const bonds: LatLngBounds = new google.maps.LatLngBounds();
+    //   bonds.extend(new google.maps.LatLng(this.latitude, this.longitude));
+    //   map.fitBounds(bonds);
+    // }
+    getDirection() {
+      this.dir = {
+        origin: {
+          latitude: 38.889931,
+          longitude: -77.009003
+        },
+        destination:{
+          latitude: 40.730610,
+          longitude: -73.935242    
+        }   
+      }
+    }
 
-
-    
   
-    
+    // public change(event: any) {
+    //   this.waypoints = event.request.waypoints;
+    //   console.log(this.waypoints)
+    // }
+
+   
 }

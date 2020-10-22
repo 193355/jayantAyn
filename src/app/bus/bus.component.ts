@@ -1,10 +1,10 @@
 import { MapsAPILoader } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit,ElementRef, NgZone, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Component, OnInit, ElementRef, NgZone, ViewChild } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 declare var $: any;
+
 @Component({
   selector: 'app-bus',
   templateUrl: './bus.component.html',
@@ -20,10 +20,13 @@ export class BusComponent implements OnInit {
   private geoCoder;
   public origin: any;
   public destination: any;
+  public waypoints: any = [];
+  public renderOptions = {
+    draggable: true,
+  }
 
-  @ViewChild('search', { static: true })
+  @ViewChild('search', { static: false })
   public searchElementRef: ElementRef;
-
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone:
     NgZone, private fb: FormBuilder, private formBuilder: FormBuilder) {
     window.scroll(0, 0);
@@ -49,71 +52,88 @@ export class BusComponent implements OnInit {
 
     });
 
-      //google api autocomplete
+    //google api autocomplete
+    this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
-      this.mapsAPILoader.load().then(() => {
-        this.setCurrentLocation();
-        this.geoCoder = new google.maps.Geocoder;
-        let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
-        autocomplete.addListener("place_changed", () => {
-          this.ngZone.run(() => {
-            //get the place result
-            let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-            //verify result
-            if (place.geometry === undefined || place.geometry === null) {
-              return;
-            }
-            //set latitude, longitude and zoom
-            this.latitude = place.geometry.location.lat();
-            this.longitude = place.geometry.location.lng();
-            this.zoom = 12;
-          });
+      this.geoCoder = new google.maps.Geocoder;
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          //get the place result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+          //verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+          //set latitude, longitude and zoom
+          this.latitude = place.geometry.location.lat();
+          this.longitude = place.geometry.location.lng();
+          this.zoom = 12;
         });
+      });
+    });
+  }
+
+  private setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoom = 15;
+      });
+    }
+  }
+
+  getAddress(latitude, longitude) {
+    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } },
+      (results, status) => {
+        console.log(results);
+        console.log(status);
+        if (status === 'OK') {
+          if (results[0]) {
+            this.zoom = 12;
+            this.address = results[0].formatted_address;
+          } else {
+            window.alert('No results found');
+          }
+        } else {
+          window.alert('Geocoder failed due to: ' + status);
+        }
       });
   }
 
-      private setCurrentLocation() {
-        if ('geolocation' in navigator) {
-          navigator.geolocation.getCurrentPosition((position) => {
-            this.latitude = position.coords.latitude;
-            this.longitude = position.coords.longitude;
-            this.zoom = 15;
-          });
-        }
-      }
-    
-      getAddress(latitude, longitude) {
-        debugger
-        this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, 
-        (results, status) => {
-          console.log(results);
-          console.log(status);
-          if (status === 'OK') {
-            if (results[0]) {
-              this.zoom = 12;
-              this.address = results[0].formatted_address;
-            } else {
-              window.alert('No results found');
-            }
-          } else {
-            window.alert('Geocoder failed due to: ' + status);
-          } 
-        });
-      }
-      //source to destination
-      getDirection() {
-        this.origin = { lat: 24.799448, lng: 120.979021 };
-        this.destination = { lat: 24.799524, lng: 120.975017 };   
-        this.mapType= { mapType: "satelite" };
-      }
-  
+  //source to destination
+  getDirection() {
+    this.origin = {
+      lat: 24.799448,
+      lng: 120.979021
+    };
+    this.destination = {
+      lat: 24.799524, lng: 120.975017
+    };
+
+    this.mapType = { mapType: "satelite" };
+
+    //  this.origin = this.origin;
+    //  this.destination = this.destination
   }
 
+  onMouseOver(infoWindow, gm) {
+    if (gm.lastOpen != null) {
+      gm.lastOpen.close();
+    }
+    gm.lastOpen = infoWindow;
+    infoWindow.open();
+  }
+
+}
 
 
 
-  
-  
+
+
+
+
 
 
 

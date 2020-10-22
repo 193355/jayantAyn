@@ -19,20 +19,19 @@
           <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username"
               class="form-control custome_control" placeholder="Enter your origin" name="username"
               (keydown.enter)="$event.preventDefault()" #search></i>
-
-              <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+              <agm-map #gm [latitude]="latitude" [longitude]="longitude" [zoom]="zoom"  (mouseOver)="onMouseOver(infoWindow,gm)">
                 <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-                  <agm-direction [origin]="origin" [destination]="destination">
-                </agm-direction>
+                  <agm-direction [origin]="origin" [destination]="destination" [waypoints]="waypoints" (onChange)="change($event)">
+                 </agm-direction>
               </agm-map>
-              
         </div>
+
         <div class="col-md-6 col-sm-12 col-xs-12">
           <label for="username">Destination:</label><br>
           <i class="fa fa-map-marker" aria-hidden="true"><input type="text" id="username"
               class="form-control custome_control" placeholder="Enter your destination" name="username"></i>
         </div>
-      </div>
+       </div>
 
       <div class="col-md-4 col-sm-6 col-xs-6 search_filed mbl_pad">
         <div class="col-md-12 col-sm-12 col-xs-12 mb-20">
@@ -52,8 +51,8 @@
   <div class="bus_page_title">
     <h2 class="text-center">Why get Bus Tickets with Persiabooking</h2>
     <div class="underline"></div>
-
   </div>
+  
   <div class="container">
     <div class="row">
       <div class="col-md-4 col-sm-4">
@@ -177,6 +176,7 @@
     <div class="row">
       <h2>Top Destination</h2>
       <div class="underline"></div>
+
       <div class="col-md-4 col-sm-4">
         <div class="top_destination_content" style="background-image: url(../../../assets/home/home2.jpg)">
           <div class="overlay_top_destination">
@@ -184,6 +184,7 @@
           </div>
         </div>
       </div>
+
       <div class="col-md-4 col-sm-4">
         <div class="top_destination_content" style="background-image: url(../../../assets/home/home3.jpg)">
           <div class="overlay_top_destination">
@@ -191,6 +192,7 @@
           </div>
         </div>
       </div>
+
       <div class="col-md-4 col-sm-4">
         <div class="top_destination_content" style="background-image: url(../../../assets/home/home1.jpg)">
           <div class="overlay_top_destination">

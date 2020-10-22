@@ -1,0 +1,248 @@
+.container .blog-posts .post {
+    flex: 1;
+    overflow: hidden;
+    background: white;
+    height: 200px;
+    -moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+    margin-right: 1em;
+    margin-bottom: 1em;
+  }
+  .container .blog-posts .post:hover {
+    -moz-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+  }
+  .container .blog-posts .post:hover .image {
+    opacity: 0.8;
+  }
+  .container .blog-posts .post .image, .container .blog-posts .post .content {
+    display: inline-block;
+    position: relative;
+    -moz-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+  }
+  .container .blog-posts .post .image {
+    float: left;
+    width: 30%;
+    height: 200px;
+    background-size: cover;
+    background-position: center center;
+  }
+  .container .blog-posts .post .image .time {
+    background: rgba(255, 255, 255, 0.5);
+    width: 50px;
+    text-align: center;
+    padding: 0.5em 0;
+    color: #444;
+  }
+  .container .blog-posts .post .image .time .date {
+    font-weight: bolder;
+  }
+  .container .blog-posts .post .image .time .month {
+    font-size: 0.7rem;
+  }
+  .container .blog-posts .post .content {
+    padding: 0.5em 1em;
+    width: 100%;
+    -moz-box-shadow: -2px 0 2px -1px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: -2px 0 2px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: -2px 0 2px -1px rgba(0, 0, 0, 0.1);
+    height: 200px;
+  }
+  .PriceInfo{
+      background-color: #ECF3E6;
+      width: 105%;
+      margin-top: 3%;
+      padding: 20px 20px;
+  }
+  .PriceInfo:active{
+      border: 1px solid green;
+  }
+  .PriceInfo:hover {
+      border: 1px solid green;
+    }
+  .PriceInfo strong{
+      /* padding: 10px; */
+      font-size: 20px;
+      font-weight: 700;
+      color: #316300;
+  }
+  .PriceMain{
+      width: 50%;
+  }
+  .BookingCom{
+      border: 1px solid #EBECED;
+      border-radius: 2px;
+      line-height: 1.5;
+      cursor: pointer;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 10%;
+      margin-top: 5%;
+  }
+  .LowPrice strong{
+      font-size: 16px;
+  }
+  .BookingCom strong{
+      font-size: 16px;
+  }
+  .LowPrice span{
+      font-size: 12px;
+  }
+  .BookingCom span{
+      font-size: 12px;
+  }
+  .LowPrice{
+      border: 1px solid #EBECED;
+      border-radius: 2px;
+      line-height: 1.5;
+      cursor: pointer;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 10%;
+      margin-top: 5%;
+  }
+  /* .PriceInfo h5{
+      padding: 5%;
+  } */
+  .container .blog-posts .post .content:before {
+    content: '';
+    position: absolute;
+    background: white;
+    width: 10px;
+    height: 10px;
+    top: 20%;
+    left: -5px;
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -moz-box-shadow: -1px 0 2px -1px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: -1px 0 2px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: -1px 0 2px -1px rgba(0, 0, 0, 0.1);
+    color: #000;
+  }
+  .container .blog-posts .post .content h1 {
+      font-weight: 600;
+      line-height: 2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #37454D;
+      font-size: 16px;
+  }
+  .accommodation-type {
+      font-size: 15px;
+      font-weight: 400;
+      white-space: nowrap;
+      /* margin: 4px 6px 2px 0; */
+      min-height: 18px;
+      line-height: 1;
+  }
+  .quick-info {
+      align-items: flex-start;
+      display: inline-flex;
+      flex-wrap: wrap;
+      width: 100%;
+      color: #000;
+      margin-top: -4%;
+      position: absolute;
+  }
+  .container .blog-posts .post .content .meta .icon-comment {
+    font-size: 0.7em;
+    line-height: 2;
+    margin-top: auto;
+  }
+  [class^="icon-"]:before {
+    margin-right: 0.5em;
+    color: #3498DB;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  @media screen and (max-width: 840px) {
+    .row {
+      display: block !important;
+    }
+    .row .post {
+      width: 100%;
+      margin: 0;
+    }
+  }
+  /* clearfix */
+  .cf:before,
+  .cf:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+  }
+  .cf:after {
+    clear: both;
+  }
+  .location {
+      padding-top: 7%;
+  }
+  .item .item-link {
+      color: #37454D;
+      cursor: pointer;
+      position: relative;
+  }
+  .location .location-ic {
+      /* margin: 0px 0px 6px 0px; */
+      flex: 0 0 30px;
+  }
+  .icon-contain {
+      height: 13%;
+      width: 10px;
+      position: absolute;
+      /* top: 41%; */
+      right: 10%;
+  }
+   .location .item-link {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      padding: 1px;
+      border-top: 1px solid #ECECED;
+  }
+  .location-details{
+      margin-top: 3%;
+  }
+  
+  .trending {
+    padding: 50px 0px;
+}
+.trending {
+    text-align: center;
+}
+.trending_tab {
+    justify-content: center;
+    display: flex;
+    align-items: center; 
+    margin-bottom: 30px;
+}
+
+banner_overlay h4 {
+	font-size:24px;
+}
+.banner{
+    height: 600px;
+    text-align: center;
+    color: #fff;
+    background-position: center;
+    background-size: cover;
+    background-image:url('/../../../assets/hotel/hero.jpg');
+}
+
+.image{
+  background-image: url('https://unsplash.it/600/400/?random');
+}

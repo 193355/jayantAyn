@@ -22,6 +22,7 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { AgmDirectionModule } from 'agm-direction';
+import { HotelinfoComponent } from './hotelinfo/hotelinfo.component';
 
 
 
@@ -36,7 +37,8 @@ import { AgmDirectionModule } from 'agm-direction';
     CarComponent,
     ActivityComponent,
     TransferComponent,
-    BusComponent
+    BusComponent,
+    HotelinfoComponent
   ],
   imports: [
     BrowserModule,
