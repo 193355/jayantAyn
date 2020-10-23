@@ -8,6 +8,7 @@ import { HotelsService } from '../shared/services/hotels.service';
 // Scrollbar import -
 import { MalihuScrollbarService } from 'ngx-malihu-scrollbar';
 import { PerfectScrollbarComponent, PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
+import { Router } from '@angular/router';
 
 
 declare var $: any;
@@ -70,7 +71,9 @@ export class HotelComponent implements OnInit {
   @ViewChild(PerfectScrollbarDirective, null) directiveRef?: PerfectScrollbarDirective;
   previous: any;
 
-  constructor(private hotelService: HotelsService,
+  constructor(
+    private router: Router,
+    private hotelService: HotelsService,
     private mScrollbarService: MalihuScrollbarService,
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
@@ -105,9 +108,7 @@ export class HotelComponent implements OnInit {
     this.hotelService.getHotelDetails().subscribe(res => {
       this.hotelDetails = res.hotels;  
       // Pushing images to the image array
-      this.hotelDetails.forEach(hotel => {
-        console.log('hotel=', hotel);
-        
+      this.hotelDetails.forEach(hotel => { 
         hotel.images.forEach(image => {
           this.hotelImages.push(image);
         })
@@ -258,8 +259,9 @@ export class HotelComponent implements OnInit {
   }
 
   // Getting single hotel object -
-  getSingleHotel(hotel) {
-    console.log("single", hotel);
+  getSingleHotel(id) { 
+    this.router.navigate(['/hotel/view-deals' , id]);
+    // this.router.navigateByUrl('/hotel/view-deals' + JSON.stringify(hotel.id));
   }
 
 }

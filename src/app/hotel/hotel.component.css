@@ -766,4 +766,13 @@ figure.testimonial .author h5 span {
   .location-details{
       margin-top: 3%;
   }
+
+  .hotel-filter {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #055091;
+    font-size: 14px !important;
+  }
 /* NEW Hotel UI CSS End */

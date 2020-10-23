@@ -3,19 +3,116 @@
     <h3>Resize the browser window</h3>
 </div>
 
-<div style="overflow:auto">
+<div style="overflow:auto" *ngFor="let hotel of singleHotel;">
     <div class="menu">
-        <div class="menuitem">The Walk</div>
-        <div class="menuitem">Transport</div>
-        <div class="menuitem">History</div>
-        <div class="menuitem">Gallery</div>
+        <div class="menuitem" pTooltip="Hotel Name" tooltipPosition="left">{{ hotel?.name }}</div>
+        <div class="menuitem" pTooltip="Hotel Street" tooltipPosition="left">
+            {{(hotel?.street?.length > 15)? (hotel?.street | slice:0:10) + '...':(hotel?.street)}}</div>
+        <div class="menuitem">{{hotel?.country}}</div>
+        <div class="menuitem">
+            <div *ngIf="hotel.star == 1">
+                <div>
+                    <ngx-stars [readonly]="true" [initialStars]="1" [readonly]="true" [customStarIcons]="heartIcons"
+                        [color]="'#FDCC0D'">
+                    </ngx-stars>
+                    <div class="pull-right star_no">
+                        <!-- {{hotel?.star}} -->
+                    </div>
+                    <!-- <p class="pull-right">{{hotel?.star}}</p> -->
+                </div>
+            </div>
+
+            <div *ngIf="hotel.star == 2">
+                <div>
+                    <div>
+                        <ngx-stars [readonly]="true" [initialStars]="2" [readonly]="true" [customStarIcons]="heartIcons"
+                            [color]="'#FDCC0D'">
+                        </ngx-stars>
+                    </div>
+                    <div class="pull-right star_no">
+                        <!-- {{hotel?.star}} -->
+                    </div>
+                    <!-- <p class="pull-right">{{hotel?.star}}</p> -->
+                </div>
+            </div>
+
+            <div *ngIf="hotel.star == 3">
+                <div>
+                    <ngx-stars [readonly]="true" [initialStars]="3" [readonly]="true" [customStarIcons]="heartIcons"
+                        [color]="'#FDCC0D'">
+                    </ngx-stars>
+                    <div class="pull-right star_no">
+                        <!-- {{hotel?.star}} -->
+                    </div>
+                </div>
+
+                <!-- <p class="pull-right">{{hotel?.star}}</p> -->
+            </div>
+
+            <div *ngIf="hotel.star == 4">
+                <div>
+                    <ngx-stars [readonly]="true" [initialStars]="4" [readonly]="true" [customStarIcons]="heartIcons"
+                        [color]="'#FDCC0D'">
+                    </ngx-stars>
+                    <!-- <p class="pull-right star_no">{{hotel?.star}}</p> -->
+                    <div class="pull-right star_no">
+                        <!-- {{hotel?.star}} -->
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="hotel.star == 5">
+                <div>
+                    <ngx-stars [readonly]="true" [initialStars]="5" [readonly]="true" [customStarIcons]="heartIcons"
+                        [color]="'#FDCC0D'">
+                    </ngx-stars>
+                    <div class="pull-right star_no">
+                        <!-- {{hotel?.star}} -->
+                    </div>
+                </div>
+                <!-- <p class="pull-right star_no">{{hotel?.star}}</p> -->
+            </div>
+        </div>
     </div>
 
     <div class="main">
-        <h2>The Walk</h2>
+        <h2 pTooltip="Hotel Name" tooltipPosition="left">{{hotel?.name }}</h2>
         <p>The walk from Monterosso to Riomaggiore will take you approximately two hours, give or take an hour depending
             on the weather conditions and your physical shape.</p>
-        <img src="../../../assets/hotel/hotel_left_img.jpg" style="width:100%">
+        <!-- <a>
+            <img style="width:100%;height:100%;" [src]="image?.url" alt=""
+            (error)="changeSource($event)" />
+          </a> -->
+        <div>
+            <p-galleria [(value)]="hotelImages" [responsiveOptions]="responsiveOptions" [circular]="true" [autoPlay]="true" [containerStyle]="{'max-width': '800px'}" [numVisible]="5"> 
+                <ng-template pTemplate="item" let-item>
+                    <img [src]="item?.url" style="width: 100%;height:400px; display: block;" (error)="changeSource($event)"/>
+                </ng-template>
+                <ng-template pTemplate="thumbnail" let-item>
+                    <div class="p-grid p-nogutter p-justify-center" >
+                        <img class="view-deals-thumbnail" [src]="item?.url" (error)="changeSource($event)"/>
+                    </div>
+                </ng-template>
+            </p-galleria>
+
+            <!-- <p-galleria [(value)]="hotelImages" [responsiveOptions]="responsiveOptions" [circular]="true"
+                [autoPlay]="true" [transitionInterval]="9000" [containerStyle]="{'max-width': '640px'}"
+                [numVisible]="5">
+                <ng-template pTemplate="item" let-item>
+                    <img [src]="item?.url" style="width: 100%; display: block;" />
+                </ng-template>
+                <ng-template pTemplate="thumbnail" let-item>
+                    <div class="p-grid p-nogutter p-justify-center view-deals-thumbnail">
+                        <img [src]="item.url" style="display: block;" />
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="caption" let-item>
+                    <h4 style="margin-bottom: .5rem; color: #ffffff;">{{item.caption}}</h4>
+                    <p>{{item.url}}</p>
+                </ng-template>
+            </p-galleria> -->
+
+        </div>
     </div>
 
     <div class="right">

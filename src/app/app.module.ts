@@ -50,7 +50,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {
   PerfectScrollbarModule, PerfectScrollbarConfigInterface,
   PERFECT_SCROLLBAR_CONFIG
-} from 'ngx-perfect-scrollbar';
+} from 'ngx-perfect-scrollbar'; 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
@@ -67,7 +67,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ActivityComponent,
     TransferComponent,
     BusComponent,
-    ViewDealsComponent
+    ViewDealsComponent, 
   ],
   imports: [    
     BrowserModule,

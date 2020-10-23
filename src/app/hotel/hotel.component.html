@@ -237,12 +237,44 @@
 <!-- New Hotel UI  Start -->
 <section class="horizontal-hotel-section">
   <div class='container-fluid'>
-    <div class="form-group">
-      <label for="hotelList">Select Hotel</label>
-      <select class="form-control" id="hotelList" [(ngModel)]="searchHotelFilter">
-        <option>Please select atleast one hotel</option>
-        <option *ngFor="let hotel of hotelDetails;">{{ hotel?.star }}</option>
-      </select>
+    <!-- <label for="filter">Filter Types</label> -->
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label class="hotel-filter" for="searchHotelFilter">Filter By Name</label>
+          <select class="form-control" id="searchHotelFilter" name="searchHotelFilter" [(ngModel)]="searchHotelFilter">
+            <option>Please select hotel via name</option>
+            <option *ngFor="let hotel of hotelDetails;">{{ hotel?.name }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label class="hotel-filter" for="searchHotelFilter">Filter By Postal Code</label>
+          <select class="form-control" id="searchHotelFilter" name="searchHotelFilter" [(ngModel)]="searchHotelFilter">
+            <option>Please select hotel via postal code</option>
+            <option *ngFor="let hotel of hotelDetails;">{{ hotel?.postal_code }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label class="hotel-filter" for="searchHotelFilter">Filter By Hotel Street</label>
+          <select class="form-control" id="searchHotelFilter" name="searchHotelFilter" [(ngModel)]="searchHotelFilter">
+            <option>Please select hotel via street</option>
+            <option *ngFor="let hotel of hotelDetails;">{{ hotel?.street }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label class="hotel-filter" for="searchHotelFilter">Filter By Hotel Phone</label>
+          <select class="form-control" id="searchHotelFilter" name="searchHotelFilter" [(ngModel)]="searchHotelFilter">
+            <option>Please select hotel via phone</option>
+            <option *ngFor="let hotel of hotelDetails;">{{ hotel?.phone }}</option>
+          </select>
+        </div>
+      </div>
     </div>
     <div class="row"> 
       <div class="col-lg-8 horizontal-list">
@@ -256,8 +288,8 @@
                       <div class="col-lg-4">
                         <div class='image'>
                           <div>
-                            <a [routerLink]="['/hotel/view-deals', hotel.id]">
-                              <img style="width:100%;height:140px;" (click)="getSingleHotel(hotel)" [src]="images[i]?.url" alt=""
+                            <a>
+                              <img style="width:100%;height:140px;cursor: pointer;" pTooltip="Click on image goto view deals page" tooltipPosition="left" (click)="getSingleHotel(hotel.id)" [src]="images[i]?.url" alt=""
                               (error)="changeSource($event)" />
                             </a>
                             
