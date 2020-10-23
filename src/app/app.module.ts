@@ -16,15 +16,15 @@ import { TransferComponent } from './transfer/transfer.component';
 import { BusComponent } from './bus/bus.component';
 import { AgmCoreModule } from '@agm/core';
 import { NgxSpinnerModule, NgxSpinnerService} from "ngx-spinner";
-import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxStarsModule } from 'ngx-stars';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { AgmDirectionModule } from 'agm-direction';
 import { HotelinfoComponent } from './hotelinfo/hotelinfo.component';
-
-
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+import {CarouselModule} from 'primeng/carousel';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -46,13 +46,15 @@ import { HotelinfoComponent } from './hotelinfo/hotelinfo.component';
     HttpClientModule,
     FormsModule,
     NgxSpinnerModule,
-    NgxPaginationModule,
     ReactiveFormsModule,
     NgxStarsModule,
     BrowserAnimationsModule,
     SplitButtonModule,
     ToastModule,
     AgmDirectionModule,
+    IvyCarouselModule,
+    CarouselModule,
+    NgxPaginationModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBxPqdmg2ouIJZs4SKNHC3N2Qbi7mdboFY',
       libraries: ['places']

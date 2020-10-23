@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { HotelService } from '../shared/services/hotel.service';
 
 @Component({
   selector: 'app-hotelinfo',
@@ -12,43 +12,56 @@ export class HotelinfoComponent implements OnInit {
   latitude: number;
   longitude: number;
   hotelsInfo:any = [];
+  sigleHotelArr: any = [];
+  amenitiesArr: any = [];
+  singleAmenitiesArr: any= [];
   id:any;
-
-  constructor(private http: HttpClient,private route: ActivatedRoute) {
-
-  }
+  defaultImage: any = `../../assets/hotel/private_pool.jpg`;
+  
+  constructor(private http: HttpClient,private route: ActivatedRoute,private hotelServices: HotelService) {}
 
   ngOnInit() {
-    this.getHotelsInfo();
-    this.id = this.route.snapshot.params['id'];
-    //console.log(this.route.snapshot.params['id']);
-    this.getId();
+  this.id = this.route.snapshot.params['id'];
+  this.hotelServices.getHotelInventory().subscribe(dt => {
+    this.hotelsInfo = dt['hotels'];
+    console.log(dt);
 
-    this.route.params.forEach((params: Params) => {
-       if(params['id'] !== undefined ){
-         const id = +params['id'];
-       }
+    this.hotelsInfo.filter(hotel =>{
+      if(hotel.id == this.id){  
+        this.show(hotel);
+      }
 
     })
-  }
+  })  
+  
+  //amenities
+  this.hotelServices.getAmenities().subscribe(amn =>{
+  this.amenitiesArr = amn;
+  console.log("amenities", amn);
+    // this.amenitiesArr.filter(amnI =>{
+    //   if(amnI.id == this.id){    
+    //   }
+    // })
 
+  })
+}
 
-  getHotelsInfo(){
-    const headers = {
-      "Content-Type": "application/json",
-      "Authorization": "3c97535fc4116f636a52ee31593e5fe2e2cefea1"
-    }
-    return this.http.get('https://api.lamasoo.com/booking/hotel_inventory', { headers })
-    .subscribe(dt => {
-      this.hotelsInfo = dt['hotels'];
-      console.log(dt);
+  show(hotel) {
+    this.sigleHotelArr.push(hotel);
+    this.sigleHotelArr.filter(hotel => {
+      console.log(hotel.room_types);
     })
-  }
-
-  getId(){
-
-  }
-  // selectHotel(){
-  //   const selectedHotel = this.
+  } 
+  // getAmenities(amenities){
+  //   this.singleAmenitiesArr.push(amenities);
+  //   this.singleAmenitiesArr.filter(amenities =>{
+  //     console.log(amenities.kind);
+  //   })
   // }
+  changeSource(event){
+    event.target.src = this.defaultImage;
+  }
+
+  
+
 }

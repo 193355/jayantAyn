@@ -89,17 +89,16 @@
           </li>
         </ul>
         
-
         <div class="row">
           <div class="tab-content clearfix">
             <div class="tab-pane active" id="1a"
-              *ngFor="let hotel of hotelsIv | paginate:{itemsPerPage: 4, currentPage:p};let i = index;">
-              <div class="col-md-3 col-sm-3" [routerLink]="['/hotelinfo', hotel.id]">
+              *ngFor="let hotel of hotelsIv | paginate:{ itemsPerPage: 4, currentPage:p};let i = index;">
+              <div class="col-md-3 col-sm-3">
                 <figure>
-                  <img style="width:100%" [src]="hotel.images[0].url" alt="product" (error)="changeSource($event)"/>
+                  <img style="width:100%" [src]="hotel.images[0].url" alt="product" (error)="changeSource($event)">
                   <span class="trending-label">Featured</span>
                   <div class="fig_content">
-                    <h4><i class="fa fa-hotel" aria-hidden="true"></i> {{ hotel?.name }}</h4>
+                    <a [routerLink]="['/hotelinfo', hotel.id]" style="cursor: pointer;"><i class="fa fa-hotel" aria-hidden="true"></i> {{ hotel?.name }}</a>
                     <!-- <h4><i class="fa fa-map-marker" aria-hidden="true"></i> {{(hotel.country.length > 12)? (hotel.country | slice:0:8) + '...':(hotel.country)}}</h4> -->
                     <h4><i class="fa fa-map-marker" aria-hidden="true"></i>{{hotel?.country}}
                     </h4>
@@ -156,9 +155,7 @@
         </div>
         <br>
         <br>
-
         <pagination-controls (pageChange)="p=$event"></pagination-controls>
-
       </div>
     </div>
   </div>

@@ -5,6 +5,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { setTheme } from 'ngx-bootstrap/utils';
+import { HotelService } from '../shared/services/hotel.service';
 declare var google: any;
 declare var $: any;
 @Component({
@@ -37,7 +38,7 @@ export class HotelComponent implements OnInit{
   defaultImage: any = `../../assets/hotel/private_pool.jpg`;
    hotelId: string;
   constructor(private http: HttpClient,private mapsAPILoader: MapsAPILoader,private ngZone:
-    NgZone,private fb: FormBuilder,private formBuilder:FormBuilder,private router: Router,private actRoute: ActivatedRoute) {
+    NgZone,private fb: FormBuilder,private formBuilder:FormBuilder,private router: Router,private actRoute: ActivatedRoute,private hotelServices: HotelService) {
       // this.hotelId = JSON.stringify(this.actRoute.snapshot.params["id"]);
       // this.router.navigateByUrl("/hotelinfo" , <any>this.hotelId)
       setTheme('bs3')
@@ -54,7 +55,7 @@ export class HotelComponent implements OnInit{
   ngOnInit() {
     this.getDirection();
     this.setCurrentLocation();
-    this.getHotelInventory();
+    this.getHotels();
 
     this.regForm = this.formBuilder.group({
       source: ['',Validators.required]
@@ -179,6 +180,7 @@ export class HotelComponent implements OnInit{
         componentRestrictions : { country: "IR" },
         types: ['(cities)']
       });
+      
       google.maps.event.addListener(this.autocompleteSource, 'place_changed', () => {
         debugger
         this.ngZone.run(() => {
@@ -240,32 +242,34 @@ export class HotelComponent implements OnInit{
     });
   }
 
-
   //get hotel inventory
-  getHotelInventory(){
-    // const httpOptions = {
-    //   headers: new HttpHeaders({
-    //     "Content-Type": "application/json",
-    //     "Authorization": "3c97535fc4116f636a52ee31593e5fe2e2cefea1",
-    //   })
-    // };
-    const headers = {
-      "Content-Type": "application/json",
-      "Authorization": "3c97535fc4116f636a52ee31593e5fe2e2cefea1"
-    }
-    return this.http.get('https://api.lamasoo.com/booking/hotel_inventory', { headers })
-    .subscribe(dt =>{
-      this.hotelsIv = dt['hotels'];
-      this.latitude = parseFloat(dt['latitude']);
-      this.longitude = parseFloat(dt['longitude']);
-      console.log(dt);
+  // getHotelInventory(){
+  //   const headers = {
+  //     "Content-Type": "application/json",
+  //     "Authorization": "3c97535fc4116f636a52ee31593e5fe2e2cefea1"
+  //   }
+  //   return this.http.get('https://api.lamasoo.com/booking/hotel_inventory', { headers })
+  //   .subscribe(dt => {
+  //     this.hotelsIv = dt['hotels'];
+  //     this.latitude = parseFloat(dt['latitude']);
+  //     this.longitude = parseFloat(dt['longitude']);
+  //     console.log(dt);
+  //   })
+  // }
+
+  getHotels(){
+    this.hotelServices.getHotelInventory().subscribe(data =>{
+      this.hotelsIv = data['hotels'];
+      this.latitude = parseFloat(data['latitude']);
+      this.longitude = parseFloat(data['longitude']);
+      console.log(data);
     })
+
   }
 
     onMouseOver(marker) {
        this.iconUrl = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
     }
-
 
 //marker click info
     clickedMarker(infowindow) {
@@ -275,29 +279,26 @@ export class HotelComponent implements OnInit{
       }
       this.previous = infowindow;
     }
+
     //set default image
     changeSource(event){
       event.target.src = this.defaultImage;
     }
-    // mapReady(map) {
-    //   const bonds: LatLngBounds = new google.maps.LatLngBounds();
-    //   bonds.extend(new google.maps.LatLng(this.latitude, this.longitude));
-    //   map.fitBounds(bonds);
-    // }
+
     getDirection() {
       this.dir = {
         origin: {
           latitude: 38.889931,
           longitude: -77.009003
         },
+        
+
         destination:{
           latitude: 40.730610,
           longitude: -73.935242    
         }   
       }
     }
-
-  
     // public change(event: any) {
     //   this.waypoints = event.request.waypoints;
     //   console.log(this.waypoints)
