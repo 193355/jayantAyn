@@ -38,9 +38,15 @@ import { PaginatorModule } from 'primeng/paginator';
 import { TooltipModule } from 'primeng/tooltip';
 import { CarouselModule } from 'primeng/carousel';
 import { GalleriaModule } from 'primeng/galleria';
+import { StepsModule } from 'primeng/steps';
+import { MenuItem } from 'primeng/api';
+import { SliderModule } from 'primeng/slider'; 
 
 
+
+import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxStarsModule } from 'ngx-stars';
+import { ToastrModule } from 'ngx-toastr';
 
 // search filter -
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -81,6 +87,14 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
     NgxPaginationModule,
     MalihuScrollbarModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: false,
+      closeButton: true,
+      progressBar: true, 
+      extendedTimeOut: 1500
+    }),
 
     RatingModule,
 
@@ -102,8 +116,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     TooltipModule,
     CarouselModule,
     GalleriaModule,
+    StepsModule,
+    SliderModule,
 
     NgxStarsModule,
+    NgxSpinnerModule,
 
     // Scrollbar imports
     PerfectScrollbarModule

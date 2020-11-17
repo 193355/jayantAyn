@@ -14,13 +14,13 @@ import { AppSettings } from '../../config';
 })
 export class HotelsService {
 
-  public API_URL = AppSettings.apiUrl; 
+  public API_URL = AppSettings.apiUrl;
   public Iran_API_URL = AppSettings.iranApiUrl;
 
-  constructor(private http: HttpClient) { } 
+  constructor(private http: HttpClient) { }
 
-   // Handle HttpErrorResponse -
-   handleError(error: HttpErrorResponse) {
+  // Handle HttpErrorResponse -
+  handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error("An error occurred:", error.error.message);
@@ -43,12 +43,11 @@ export class HotelsService {
         "Authorization": "3c97535fc4116f636a52ee31593e5fe2e2cefea1"
         // Authorization: "Bearer " + "3c97535fc4116f636a52ee31593e5fe2e2cefea1"
       })
-    }; 
+    };
 
     return this.http.get<any>(this.API_URL + "booking/hotel_inventory/", httpOptions)
       .pipe(catchError(this.handleError));
   }
-
 
   getIranHotelDetails() {
     // http://api.dev.fastreserve.net/v1/reserves
@@ -60,8 +59,19 @@ export class HotelsService {
       })
     };
     return this.http.get<any>(this.Iran_API_URL + "v1/reserves", httpOptions)
-    .pipe(catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
- 
+
+  // Dummy API For Price Filters-
+  getFilter() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+    return this.http.get<any>("http://dummy.restapiexample.com/api/v1/employees/", httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
 
 }

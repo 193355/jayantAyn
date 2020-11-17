@@ -276,7 +276,7 @@
         </div>
       </div>
     </div>
-    <div class="row"> 
+    <div class="row">
       <div class="col-lg-8 horizontal-list">
         <div *ngIf="hotelDetails.length > 0">
           <div *ngFor="let hotel of hotelDetails |filter:searchHotelFilter;let i=index;">
@@ -289,10 +289,12 @@
                         <div class='image'>
                           <div>
                             <a>
-                              <img style="width:100%;height:140px;cursor: pointer;" pTooltip="Click on image goto view deals page" tooltipPosition="left" (click)="getSingleHotel(hotel.id)" [src]="images[i]?.url" alt=""
-                              (error)="changeSource($event)" />
+                              <img style="width:100%;height:140px;cursor: pointer;"
+                                pTooltip="Click on image goto view deals page" tooltipPosition="left"
+                                (click)="passHotelID(hotel)" [src]="images[i]?.url" alt=""
+                                (error)="changeSource($event)" />
                             </a>
-                            
+
                             <div class='date badge badge-secondary custom-badge-cls'>
                               {{hotel.images.length >0 ? '1/' + hotel.images.length : '0/' + hotel.images.length }}
                             </div>
@@ -463,7 +465,7 @@
         </div>
         <div *ngIf="hotelDetails.length == 0">
           <img src="../../assets/404-2.png" alt="">
-        </div> 
+        </div>
         <!-- <div class='blog-posts'>
           <div class='post featured'>
             <a href='#'>
@@ -586,317 +588,325 @@
 </section>
 <!-- New Hotel UI End -->
 
-<section class="about_slide">
-  <div class="about_slide_overlay">
-    <div class="container">
-      <h2 class="text-center">Top Most Visited Hotels</h2>
+<!-- Spinner Code -->
+<!-- <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#FF7F50" type="ball-scale-pulse" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner> -->
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#FF7F50" type="ball-scale-multiple" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+  </ngx-spinner>
+
+  <section class="about_slide">
+    <div class="about_slide_overlay">
+      <div class="container">
+        <h2 class="text-center">Top Most Visited Hotels</h2>
+        <div class="underline"></div>
+        <div class="slider">
+          <div class="col-md-4">
+            <div class="slider_card">
+              <div class="slider_card_img">
+              </div>
+              <div class="slider_card-body">
+                <h4>Pasin Traditional Hotel</h4>
+                <div class="revive_star">
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star uncheked"></span>
+                  <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                </div>
+                <h5>from <span class="cust_color">12.3/day</span></h5>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="slider_card">
+              <div class="slider_card_img">
+              </div>
+              <div class="slider_card-body">
+                <h4>Homayouni House</h4>
+                <div class="revive_star">
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star uncheked"></span>
+                  <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                </div>
+                <h5>from <span class="cust_color">12.3/day</span></h5>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="slider_card">
+              <div class="slider_card_img">
+              </div>
+              <div class="slider_card-body">
+                <h4>Yazd Hostel Restup</h4>
+                <div class="revive_star">
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star uncheked"></span>
+                  <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                </div>
+                <h5>from <span class="cust_color">12.3/day</span></h5>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="slider_card">
+              <div class="slider_card_img">
+              </div>
+              <div class="slider_card-body">
+                <h4>Iran Cozy Hostel</h4>
+                <div class="revive_star">
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star uncheked"></span>
+                  <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                </div>
+                <h5>from <span class="cust_color">12.3/day</span></h5>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="luxury_we_provide">
+    <div class='container'>
+      <h2 class="text-center">Luxury We Provide</h2>
       <div class="underline"></div>
-      <div class="slider">
-        <div class="col-md-4">
-          <div class="slider_card">
-            <div class="slider_card_img">
-            </div>
-            <div class="slider_card-body">
-              <h4>Pasin Traditional Hotel</h4>
-              <div class="revive_star">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star uncheked"></span>
-                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="pool_img">
+            <div class="pool" style="background-image: url(../../assets/hotel/private_pool.jpg)">
+              <div class="bottom-left">
+                <h3>Private Pool Suite</h3>
               </div>
-              <h5>from <span class="cust_color">12.3/day</span></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="sea_view_img">
+            <div class="sea_view" style="background-image: url(../../assets/hotel/sea_view_site.jpg)">
 
+              <div class="bottom-left">
+                <div class="row"></div>
+                <h3>Sea View Site</h3>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="slider_card">
-            <div class="slider_card_img">
-            </div>
-            <div class="slider_card-body">
-              <h4>Homayouni House</h4>
-              <div class="revive_star">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star uncheked"></span>
-                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+          <div class="spa_img">
+            <div class="spa" style="background-image: url(../../assets/hotel/spa.jpg)">
+              <div class="bottom-left">
+                <h3>Spa</h3>
               </div>
-              <h5>from <span class="cust_color">12.3/day</span></h5>
-
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="slider_card">
-            <div class="slider_card_img">
-            </div>
-            <div class="slider_card-body">
-              <h4>Yazd Hostel Restup</h4>
-              <div class="revive_star">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star uncheked"></span>
-                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+          <div class="restaurant_img">
+            <div class="restaurant" style="background-image: url(../../assets/hotel/restaurant.jpg)">
+              <div class="bottom-left ">
+                <h3>Restaurant</h3>
               </div>
-              <h5>from <span class="cust_color">12.3/day</span></h5>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="slider_card">
-            <div class="slider_card_img">
-            </div>
-            <div class="slider_card-body">
-              <h4>Iran Cozy Hostel</h4>
-              <div class="revive_star">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star uncheked"></span>
-                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
-              </div>
-              <h5>from <span class="cust_color">12.3/day</span></h5>
-
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<section class="luxury_we_provide">
-  <div class='container'>
-    <h2 class="text-center">Luxury We Provide</h2>
-    <div class="underline"></div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="pool_img">
-          <div class="pool" style="background-image: url(../../assets/hotel/private_pool.jpg)">
-            <div class="bottom-left">
-              <h3>Private Pool Suite</h3>
+  </section>
+
+  <section class="about_slide">
+    <div class="about_slide_overlay">
+      <div class="container">
+        <h2 class="text-center">Latest Discount Hotel</h2>
+        <div class="underline"></div>
+        <div class="slider">
+          <div class="col-md-4">
+            <div class="slider_card">
+              <div class="slider_card_img">
+              </div>
+              <div class="slider_card-body">
+                <h4>Pasin Traditional Hotel</h4>
+                <div class="top-slider-text">
+                  <h4>50% <span class="discount">off</span></h4>
+
+                </div>
+                <div class="revive_star">
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star uncheked"></span>
+                  <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                </div>
+                <h5>Our Lowest Price <span class="cust_color">$605</span></h5>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="slider_card">
+              <div class="slider_card_img">
+              </div>
+              <div class="slider_card-body">
+                <h4>Homayouni House</h4>
+                <div class="top-slider-text">
+                  <h4>50% <span class="discount">off</span></h4>
+
+                </div>
+                <div class="revive_star">
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star uncheked"></span>
+                  <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                </div>
+                <h5>Our Lowest Price <span class="cust_color">$1205</span></h5>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="slider_card">
+              <div class="slider_card_img">
+              </div>
+              <div class="slider_card-body">
+                <h4>Yazd Hostel Restup</h4>
+                <div class="top-slider-text">
+                  <h4>50% <span class="discount">off</span></h4>
+
+                </div>
+                <div class="revive_star">
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star uncheked"></span>
+                  <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                </div>
+                <h5>Our Lowest Price <span class="cust_color">$220</span></h5>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="slider_card">
+              <div class="slider_card_img">
+              </div>
+              <div class="slider_card-body">
+                <h4>Iran Cozy Hostel</h4>
+                <div class="top-slider-text">
+                  <h4>50% <span class="discount">off</span></h4>
+
+                </div>
+                <div class="revive_star">
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star uncheked"></span>
+                  <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
+                </div>
+                <h5>Our Lowest Price <span class="cust_color">$65</span></h5>
+
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-8">
-        <div class="sea_view_img">
-          <div class="sea_view" style="background-image: url(../../assets/hotel/sea_view_site.jpg)">
+  </section>
 
-            <div class="bottom-left">
-              <div class="row"></div>
-              <h3>Sea View Site</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="spa_img">
-          <div class="spa" style="background-image: url(../../assets/hotel/spa.jpg)">
-            <div class="bottom-left">
-              <h3>Spa</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="restaurant_img">
-          <div class="restaurant" style="background-image: url(../../assets/hotel/restaurant.jpg)">
-            <div class="bottom-left ">
-              <h3>Restaurant</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="about_slide">
-  <div class="about_slide_overlay">
+  <section class="testimonial_main">
     <div class="container">
-      <h2 class="text-center">Latest Discount Hotel</h2>
+      <h2 class="text-center">Recent Reviews</h2>
       <div class="underline"></div>
-      <div class="slider">
-        <div class="col-md-4">
-          <div class="slider_card">
-            <div class="slider_card_img">
+      <div class="slideset">
+        <div>
+          <figure class="testimonial">
+            <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur.
+              <div class="arrow"></div>
+            </blockquote>
+            <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
+            <div class="author">
+              <h5>Maksim Goffin</h5>
+              <p class="th-margin-remove">Graphic Designer</p>
             </div>
-            <div class="slider_card-body">
-              <h4>Pasin Traditional Hotel</h4>
-              <div class="top-slider-text">
-                <h4>50% <span class="discount">off</span></h4>
-
-              </div>
-              <div class="revive_star">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star uncheked"></span>
-                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
-              </div>
-              <h5>Our Lowest Price <span class="cust_color">$605</span></h5>
-
-            </div>
-          </div>
+          </figure>
         </div>
-        <div class="col-md-4">
-          <div class="slider_card">
-            <div class="slider_card_img">
+        <div>
+          <figure class="testimonial">
+            <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur.
+              <div class="arrow"></div>
+            </blockquote>
+            <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
+            <div class="author">
+              <h5>Maksim Goffin</h5>
+              <p class="th-margin-remove">Graphic Designer</p>
             </div>
-            <div class="slider_card-body">
-              <h4>Homayouni House</h4>
-              <div class="top-slider-text">
-                <h4>50% <span class="discount">off</span></h4>
-
-              </div>
-              <div class="revive_star">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star uncheked"></span>
-                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
-              </div>
-              <h5>Our Lowest Price <span class="cust_color">$1205</span></h5>
-
-            </div>
-          </div>
+          </figure>
         </div>
-        <div class="col-md-4">
-          <div class="slider_card">
-            <div class="slider_card_img">
+        <div>
+          <figure class="testimonial">
+            <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur.
+              <div class="arrow"></div>
+            </blockquote>
+            <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
+            <div class="author">
+              <h5>Maksim Goffin</h5>
+              <p class="th-margin-remove">Graphic Designer</p>
             </div>
-            <div class="slider_card-body">
-              <h4>Yazd Hostel Restup</h4>
-              <div class="top-slider-text">
-                <h4>50% <span class="discount">off</span></h4>
-
-              </div>
-              <div class="revive_star">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star uncheked"></span>
-                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
-              </div>
-              <h5>Our Lowest Price <span class="cust_color">$220</span></h5>
-
-            </div>
-          </div>
+          </figure>
         </div>
-        <div class="col-md-4">
-          <div class="slider_card">
-            <div class="slider_card_img">
-            </div>
-            <div class="slider_card-body">
-              <h4>Iran Cozy Hostel</h4>
-              <div class="top-slider-text">
-                <h4>50% <span class="discount">off</span></h4>
+      </div>
+    </div>
+  </section>
 
-              </div>
-              <div class="revive_star">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star uncheked"></span>
-                <span class="fa fa-star unchecked"></span><span class="review">4 Review</span>
-              </div>
-              <h5>Our Lowest Price <span class="cust_color">$65</span></h5>
-
-            </div>
-          </div>
+  <!-- Google map modal -->
+  <div class="modal fade" style="margin-top: 10% !important;" id="google-map-modal" tabindex="-1" role="dialog"
+    aria-labelledby="google-map-modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Google Map</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="0">
+            <agm-marker *ngFor="let hotel of hotelDetails" [latitude]="hotel.latitude" [longitude]="hotel.longitude"
+              (markerClick)="clickedMarker(infowindow, hotel)" (mouseOver)="mouseOver(infowindow,hotel)"
+              (mouseOut)="mouseOut(infowindow)">
+              <agm-info-window #infowindow>
+                <strong>{{hotel.street}}</strong>
+                <div *ngFor="let img of hotel.images">
+                  <img [src]="img.url" alt="" style="width:100%;height: 150px;">
+                </div>
+              </agm-info-window>
+            </agm-marker>
+            <agm-direction [origin]="origin" [destination]="destination">
+            </agm-direction>
+          </agm-map>
         </div>
       </div>
     </div>
   </div>
-</section>
-
-<section class="testimonial_main">
-  <div class="container">
-    <h2 class="text-center">Recent Reviews</h2>
-    <div class="underline"></div>
-    <div class="slideset">
-      <div>
-        <figure class="testimonial">
-          <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-            dolore eu fugiat nulla pariatur.
-            <div class="arrow"></div>
-          </blockquote>
-          <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
-          <div class="author">
-            <h5>Maksim Goffin</h5>
-            <p class="th-margin-remove">Graphic Designer</p>
-          </div>
-        </figure>
-      </div>
-      <div>
-        <figure class="testimonial">
-          <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-            dolore eu fugiat nulla pariatur.
-            <div class="arrow"></div>
-          </blockquote>
-          <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
-          <div class="author">
-            <h5>Maksim Goffin</h5>
-            <p class="th-margin-remove">Graphic Designer</p>
-          </div>
-        </figure>
-      </div>
-      <div>
-        <figure class="testimonial">
-          <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-            dolore eu fugiat nulla pariatur.
-            <div class="arrow"></div>
-          </blockquote>
-          <img src="../../../assets/icon/profile.png" alt="Maksim Goffin" />
-          <div class="author">
-            <h5>Maksim Goffin</h5>
-            <p class="th-margin-remove">Graphic Designer</p>
-          </div>
-        </figure>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Google map modal -->
-<div class="modal fade" style="margin-top: 10% !important;" id="google-map-modal" tabindex="-1" role="dialog"
-  aria-labelledby="google-map-modal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Google Map</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="0">
-          <agm-marker *ngFor="let hotel of hotelDetails" [latitude]="hotel.latitude" [longitude]="hotel.longitude"
-            (markerClick)="clickedMarker(infowindow, hotel)" (mouseOver)="mouseOver(infowindow,hotel)"
-            (mouseOut)="mouseOut(infowindow)">
-            <agm-info-window #infowindow>
-              <strong>{{hotel.street}}</strong>
-              <div *ngFor="let img of hotel.images">
-                <img [src]="img.url" alt="" style="width:100%;height: 150px;">
-              </div>
-            </agm-info-window>
-          </agm-marker>
-          <agm-direction [origin]="origin" [destination]="destination">
-          </agm-direction>
-        </agm-map>
-      </div>
-    </div>
-  </div>
-</div>

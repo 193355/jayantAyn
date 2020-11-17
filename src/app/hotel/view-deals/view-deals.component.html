@@ -84,13 +84,15 @@
             (error)="changeSource($event)" />
           </a> -->
         <div>
-            <p-galleria [(value)]="hotelImages" [responsiveOptions]="responsiveOptions" [circular]="true" [autoPlay]="true" [containerStyle]="{'max-width': '800px'}" [numVisible]="5"> 
+            <p-galleria [(value)]="hotelImages" [responsiveOptions]="responsiveOptions" [circular]="true"
+                [autoPlay]="true" [containerStyle]="{'max-width': '800px'}" [numVisible]="5">
                 <ng-template pTemplate="item" let-item>
-                    <img [src]="item?.url" style="width: 100%;height:400px; display: block;" (error)="changeSource($event)"/>
+                    <img [src]="item?.url" style="width: 100%;height:400px; display: block;"
+                        (error)="changeSource($event)" />
                 </ng-template>
                 <ng-template pTemplate="thumbnail" let-item>
-                    <div class="p-grid p-nogutter p-justify-center" >
-                        <img class="view-deals-thumbnail" [src]="item?.url" (error)="changeSource($event)"/>
+                    <div class="p-grid p-nogutter p-justify-center">
+                        <img class="view-deals-thumbnail" [src]="item?.url" (error)="changeSource($event)" />
                     </div>
                 </ng-template>
             </p-galleria>
@@ -126,6 +128,42 @@
 </div>
 
 
-<div style="background-color:#f1f1f1;text-align:center;padding:10px;margin-top:7px;font-size:12px;"> This web page is a
-    part of a demonstration of fluid web design made by w3schools.com. Resize the browser window to see the content
-    respond to the resizing.</div>
+<div style="background-color:#f1f1f1;text-align:center;padding:10px;margin-top:7px;font-size:12px;">
+    <div style="width:200px;">
+        <!-- Price Filter -->
+        <p-slider [(ngModel)]="filterArray" [range]="true" (onChange)="handleChange($event)"></p-slider>
+    </div>
+
+    <div class="card">
+        <h5>Employee Details</h5>
+        <p-table [value]="filterArray" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+            class="p-button-success" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [rowsPerPageOptions]="[10,25,50]">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Salary</th>
+                    <th>Image</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>{{product.id}}</td>
+                    <td>{{product.employee_name}}</td>
+                    <td>{{product.employee_age}}</td>
+                    <td>{{product.employee_salary}}</td>
+                    <td>{{product.profile_image}}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="paginatorleft">
+                <p-button type="button" icon="pi pi-plus p-button-success" styleClass="p-button-text"></p-button>
+            </ng-template>
+            <ng-template pTemplate="paginatorright">
+                <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+            </ng-template>
+        </p-table>
+    </div>
+
+</div>

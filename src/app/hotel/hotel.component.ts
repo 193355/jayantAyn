@@ -1,15 +1,16 @@
 import { Component, OnInit, ElementRef, NgZone, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 // google map imports -
 import { GoogleMapsAPIWrapper, InfoWindowManager, MapsAPILoader, MarkerManager } from '@agm/core';
 
+import { ToastrService } from 'ngx-toastr'; 
 import { HotelsService } from '../shared/services/hotels.service';
 
 // Scrollbar import -
 import { MalihuScrollbarService } from 'ngx-malihu-scrollbar';
 import { PerfectScrollbarComponent, PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
-import { Router } from '@angular/router';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 
 declare var $: any;
 
@@ -23,10 +24,8 @@ export class HotelComponent implements OnInit {
 
   hotelDetails: any = [];
   hotelImages: any = [];
-  images: any[]; 
-
-  searchHotelFilter: any;
-
+  images: any[];  
+  
   // Default image -
   defaultImage: any = `../../assets/hotel/hotel_left_img.jpg`;
 
@@ -74,19 +73,28 @@ export class HotelComponent implements OnInit {
   constructor(
     private router: Router,
     private hotelService: HotelsService,
-    private mScrollbarService: MalihuScrollbarService,
+    private mScrollbarService: MalihuScrollbarService, 
+    private toastr: ToastrService,
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
     _loader: MapsAPILoader,
     _infoWindowManager: InfoWindowManager,
     _el: ElementRef,
     _mapsWrapper: GoogleMapsAPIWrapper,
-    _markerManager: MarkerManager) {
+    _markerManager: MarkerManager,
+    private spinner: NgxSpinnerService) {
     window.scroll(0, 0);
   }
 
 
   ngOnInit(): void {
+
+    // Spinner code -
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 2000);
 
     // Custom scrollbar -
     this.mScrollbarService.initScrollbar(".hotel-list-card", {
@@ -259,9 +267,11 @@ export class HotelComponent implements OnInit {
   }
 
   // Getting single hotel object -
-  getSingleHotel(id) { 
-    this.router.navigate(['/hotel/view-deals' , id]);
-    // this.router.navigateByUrl('/hotel/view-deals' + JSON.stringify(hotel.id));
+  passHotelID(hotel) { 
+    this.router.navigate(['/hotel/view-deals' , hotel.id]); 
+    
+    // Success notification toastr -
+    this.toastr.success('Switched to view deals page successfully');
   }
 
 }

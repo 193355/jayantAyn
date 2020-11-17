@@ -56,3 +56,10 @@
     margin-right:5px; 
     display: block;
   }
+
+  /* Pagination Selected page color class */
+  ::ng-deep .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background: #0688FC;
+    border-color: #E3F2FD;
+    color: #fff;
+}
